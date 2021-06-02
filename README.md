@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  ![YGO Duel Academy GBA Game Home Screen](https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232)
+  <img src="https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232" alt="YGO Duel Academy GBA Game Home Screen">
 </p>
 
 ## Technologies
