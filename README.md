@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![Nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
-# Welcome to YGO Duel Academy Deck Builder!
+#  Welcome to YGO Duel Academy Deck Builder!
 
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
@@ -12,7 +12,6 @@
   <a href="https://en.wikipedia.org/wiki/HTTP_404"><strong>Explore the Mock Up »</strong></a> 
 </p>
 
-</br>
 <p align="center">
   <a href="#technologies">Technologies</a> 
   · 
@@ -25,7 +24,9 @@
   <a href="#the-dev-behind-this-project">The Dev Behind This Project</a>
 </p>
 
-![YGO Duel Academy GBA Game Home Screen](https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232)
+<p align="center">
+  <img src="/ygo-da-gba-homescreen.gif" alt="YGO Duel Academy GBA Game Home Screen" width="750" height="500">
+</p>
 
 ## Technologies
 #### Frontend 
@@ -44,3 +45,7 @@
 Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App Academy's 24-week software engineering bootcamp soon! 
 
 Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
+
+<p align="center">
+  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugi Drawing a Card">
+</p>
