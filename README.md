@@ -24,8 +24,8 @@
   <a href="#the-dev-behind-this-project">The Dev Behind This Project</a>
 </p>
 
-<p align="center" width="100" height="100">
-  <img src="https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232" alt="YGO Duel Academy GBA Game Home Screen"></img>
+<p align="center">
+  ![YGO Duel Academy GBA Game Home Screen](https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232)
 </p>
 
 ## Technologies
@@ -46,4 +46,4 @@ Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App
 
 Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
 
-<img src="http://yugiohtracker.com/img/wait2.gif" width="200" height="200" alt="Yami Yugi Drawing a Card">
+<img align="center" src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugi Drawing a Card">
