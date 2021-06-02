@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![Nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
-# Welcome to YGO Duel Academy Deck Builder!
+# <img src="http://yugiohtracker.com/img/wait2.gif" width="25" height="25" alt="Yami Yugio Drawing a Card"> Welcome to YGO Duel Academy Deck Builder!
 
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
@@ -26,11 +26,6 @@
   <a href="#future-implementations">Future Implementations</a> 
   · 
   <a href="#the-dev-behind-this-project">The Dev Behind This Project</a>
-</p>
-
-
-<p align="center" width="200" height="200">
-  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugio Drawing a Card"></img>
 </p>
 
 ## Technologies
