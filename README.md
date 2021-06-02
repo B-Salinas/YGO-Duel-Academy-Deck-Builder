@@ -2,6 +2,12 @@
 
 # <img src="http://yugiohtracker.com/img/wait2.gif" width="50" height="50" alt="Yami Yugio Drawing a Card"> Welcome to YGO Duel Academy Deck Builder!
 
+<h1 align="center">
+  <img src="http://yugiohtracker.com/img/wait2.gif" width="50" height="50" alt="Yami Yugio Drawing a Card"
+  Welcome to YGO Duel Academy Deck Builder!
+  <img src="http://yugiohtracker.com/img/wait2.gif" width="50" height="50" alt="Yami Yugio Drawing a Card"
+</h1>
+
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
 **WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
