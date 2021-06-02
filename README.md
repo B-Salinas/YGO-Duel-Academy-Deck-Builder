@@ -6,13 +6,16 @@
 
 **WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
 
+<p align="center" width="200" height="200">
+  <img src="https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232" alt="YGO Duel Academy GBA Game Home Screen"></img>
+</p>
+
 <p align="center">
   <a href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder/wiki"><strong>Explore the Wiki »</strong></a> 
   or 
   <a href="https://en.wikipedia.org/wiki/HTTP_404"><strong>Explore the Mock Up »</strong></a> 
 </p>
 
-</br>
 <p align="center">
   <a href="#technologies">Technologies</a> 
   · 
@@ -25,8 +28,10 @@
   <a href="#the-dev-behind-this-project">The Dev Behind This Project</a>
 </p>
 
-![YGO Duel Academy GBA Game Home Screen](https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232)
 
+<p align="center" width="200" height="200">
+  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugio Drawing a Card"></img>
+</p>
 
 ## Technologies
 #### Frontend 
@@ -46,6 +51,3 @@ Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App
 
 Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
 
-<p align="center" width="200" height="200">
-  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugio Drawing a Card"></img>
-</p>
