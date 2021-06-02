@@ -2,11 +2,6 @@
 
 # Welcome to YGO Duel Academy Deck Builder!
 
-<p align="center" width="200" height="200">
-  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugio Drawing a Card"></img>
-</p>
-
-
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
 **WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
@@ -50,3 +45,7 @@
 Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App Academy's 24-week software engineering bootcamp soon! 
 
 Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
+
+<p align="center" width="200" height="200">
+  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugio Drawing a Card"></img>
+</p>
