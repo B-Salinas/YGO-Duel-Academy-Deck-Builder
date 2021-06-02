@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  <img src="/ygo-da-gba-homescreen.gif" alt="YGO Duel Academy GBA Game Home Screen">
+  <img src="/ygo-da-gba-homescreen.gif" alt="YGO Duel Academy GBA Game Home Screen" width="200" height="200">
 </p>
 
 ## Technologies
