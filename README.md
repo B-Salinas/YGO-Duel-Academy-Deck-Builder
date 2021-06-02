@@ -6,7 +6,7 @@
 
 **WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
 
-<p align="center" width="200" height="200">
+<p align="center" width="100" height="100">
   <img src="https://i1.wp.com/www.twistedbard.com/wp-content/uploads/2017/06/ygxda1.png?w=1232" alt="YGO Duel Academy GBA Game Home Screen"></img>
 </p>
 
