@@ -5,7 +5,7 @@
 
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
-**_YGO Duel Academy Deck Builder_** is a clone of Yu-Gi-Oh! GX: Duel Academy's in-game Deck Builder for the Gameboy Advanced, based on the famous Yu-Gi-Oh! Trading Card Game. Duelists can browse, sort, or filter cards they own in their trunk or acquire new cards through the built-in store, as well as create, edit, rename, or delete their decks.
+**_YGO Duel Academy Deck Builder_** is a clone of Yu-Gi-Oh! GX: Duel Academy's in-game Deck Builder for the Gameboy Advanced, based on the famous Yu-Gi-Oh! Trading Card Game. Duelists can browse, sort, or filter cards in their trunk or acquire new cards through the built-in store, as well as create, edit, rename, or delete their decks.
 
 <p align="center">
   <a href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder/wiki"><strong>Explore the Wiki »</strong></a> 
