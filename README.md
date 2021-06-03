@@ -70,7 +70,7 @@
 - `/api/store/packs`
 
 ## Future Implementations
-- Allowing Users to select a pre-populated profile pictures upon account creation/new game. 
+- Allowing Users to select pre-populated profile pictures upon account creation/new game. 
 - Allowing Duelist to favorite cards in their trunk. 
 - Dynamically rendering music, much like the in-game Deck Builder.
 
