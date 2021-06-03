@@ -1,10 +1,12 @@
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![Nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+
+![test](https://img.shields.io/badge/Chakra--UI-0081CB?style=for-the-badge&logo=chakra-ui&logoColor=white)
 
 #  Welcome to YGO Duel Academy Deck Builder!
 
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
-**WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
+**_YGO Duel Academy Deck Builder-** is a clone of Yu-Gi-Oh! GX: Duel Academy's in-game Deck Builder for the Gameboy Advanced, based on the famous Yu-Gi-Oh! Trading Card Game. Duelists have the option to browse, sort, or filter cards they own in their trunk or acquire new cards through the built-in store, as well as create, edit, rename, or delete their decks.
 
 <p align="center">
   <a href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder/wiki"><strong>Explore the Wiki »</strong></a> 
