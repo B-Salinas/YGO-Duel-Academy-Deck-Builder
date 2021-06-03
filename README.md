@@ -77,7 +77,7 @@
 - Dynamically rendering music, much like the in-game Deck Builder.
 
 ## The Dev Behind It All
-Hey there! 👋🏽 I'm B and I had so much fun creating this project! Feel free to connect with me below:
+Hey there! 👋🏽 I had so much fun creating this passion project! Feel free to connect with me below:
 
   <p align="center">
     <a href="https://github.com/B-Salinas">
