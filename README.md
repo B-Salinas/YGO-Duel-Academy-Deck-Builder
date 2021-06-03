@@ -4,7 +4,7 @@
 
 ### Live Link: [YGO DA Deck Builder](https://en.wikipedia.org/wiki/HTTP_404)
 
-**_YGO Duel Academy Deck Builder_** is a clone of Yu-Gi-Oh! GX: Duel Academy's in-game Deck Builder for the Gameboy Advanced, based on the famous Yu-Gi-Oh! Trading Card Game. Duelists have the option to browse through their own cards, as well as create, edit, rename, and delete their decks.
+**WIP**. *YGO Duel Academy Deck Builder* is inspired by the Deck Editor feature apart of the "Yu-Gi-Oh! GX: Duel Academy" GBA game, based on the famous Yu-Gi-Oh! Trading Card Game. 
 
 <p align="center">
   <a href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder/wiki"><strong>Explore the Wiki »</strong></a> 
@@ -36,12 +36,38 @@
 
 ## Wiki Pages
 #### Database Schema
+![YGO DA Deck Builder Database Schema](/YGO-DA-Deck-Builder.png)
+
 #### Frontend Routes
+- `/`
+- `/Edit-Deck`
+- `/Store`
+- `/Duelist/:id`
+
 #### Backend Routes
+- `/api/auth`
+- `/api/duelist`
+- `/api/duelist/:id/deck`
+- `/api/duelist/:id/card`
+- `/api/store/packs`
+
 
 ## Future Implementations
+- Allowing Duelists to select a default profile picture upon account creation/new game. 
+- Allowing Duelist to favorite cards in their trunk. 
+- Dynamically rendering responsive music, originally found within the in-game Deck Builder.
 
 ## The Dev Behind This Project
-Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App Academy's 24-week software engineering bootcamp soon! 
+Hey there 👋🏽 My name is Bianca "B" Salinas and I had so much fun creating this project! Feel free to connect with me below :)
 
-Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
+<a href="https://www.linkedin.com/in/b-salinas/">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+</a>
+
+<a href="mailto:b.salinas397@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+</a>
+
+<p align="center">
+  <img src="https://i.pinimg.com/originals/25/b4/f4/25b4f46ee64cdaae5687b8c05b036be9.gif" alt="Jaden Yuki in YGO Bonds Beyond Time Movie">
+</p>
