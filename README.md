@@ -22,7 +22,7 @@
   ·
   <a href="#future-implementations">Future Implementations</a> 
   · 
-  <a href="#the-dev-behind-this-project">The Dev Behind This Project</a>
+  <a href="#the-dev-behind-it-all">The Dev Behind It All</a>
 </p>
 
 <p align="center">
@@ -76,21 +76,20 @@
 - Allowing Duelist to favorite cards in their trunk. 
 - Dynamically rendering music, much like the in-game Deck Builder.
 
-## The Dev Behind This Project
-Hey there 👋🏽 My name is Bianca "B" Salinas and I had so much fun creating this project! Feel free to connect with me below :)
+## The Dev Behind It All
+Hey there 👋🏽 I'm B and I had so much fun creating this project! Feel free to connect with me below 
 
-<ul>
-  <li>
+  <p align="center">
+    <a href="https://github.com/B-Salinas">
+      <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+    </a>
     <a href="https://www.linkedin.com/in/b-salinas/">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
     </a>
-  </li>
-  <li>
     <a href="mailto:b.salinas397@gmail.com">
       <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
     </a>
-  </li>
-</ul>
+  </p>
 
 
 <p align="center">
