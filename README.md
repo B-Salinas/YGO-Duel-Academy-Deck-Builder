@@ -21,8 +21,6 @@
   <a href="#wiki-pages">Wiki Pages</a> 
   ·
   <a href="#future-implementations">Future Implementations</a> 
-  · 
-  <a href="#the-dev-behind-it-all">The Dev Behind It All</a>
 </p>
 
 <p align="center">
@@ -76,8 +74,7 @@
 - Allowing Duelist to favorite cards in their trunk. 
 - Dynamically rendering music, much like the in-game Deck Builder.
 
-## The Dev Behind It All
-Hey there! 👋🏽 I had so much fun creating this passion project! Feel free to connect with me below:
+---
 
   <p align="center">
     <a href="https://github.com/B-Salinas">
