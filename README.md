@@ -29,10 +29,29 @@
 </p>
 
 ## Technologies
+
 #### Frontend 
+- JavaScript
+- React / Redux
+- [Chakra-UI](https://chakra-ui.com/)
+- CSS
+- [React Icons](https://react-icons.github.io/react-icons/)
+- Hosted using Heroku and Docker
+
 #### Backend
+- Python
+- Flask
+- PostgreSQL Database
+- Alembic
+- SQLAlchemy
+- [Yu-Gi-Oh! API](https://db.ygoprodeck.com/api-guide/)
 
 ## Key Features
+- User authentication is handled using [Werkzeug's Security Helpers](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security) for password hashing.
+- Grants access to features such as creating, editing, renaming, and deleting decks to authorized users only.
+- Designed around a relational database schema, which allows users to browse, sort, and filter cards, as well as update their decks with dynamic data and rendering.
+- Makes use of AJAX / API Routes to render elements such as updating and deleting cards and decks asynchronously.
+- Includes csrf attack protection and performs front-end and back-end validation on forms.
 
 ## Wiki Pages
 #### Database Schema
@@ -51,22 +70,27 @@
 - `/api/duelist/:id/card`
 - `/api/store/packs`
 
-
 ## Future Implementations
-- Allowing Duelists to select a default profile picture upon account creation/new game. 
+- Allowing Users to select a pre-populated profile pictures upon account creation/new game. 
 - Allowing Duelist to favorite cards in their trunk. 
-- Dynamically rendering responsive music, originally found within the in-game Deck Builder.
+- Dynamically rendering music, much like the in-game Deck Builder.
 
 ## The Dev Behind This Project
 Hey there 👋🏽 My name is Bianca "B" Salinas and I had so much fun creating this project! Feel free to connect with me below :)
 
-<a href="https://www.linkedin.com/in/b-salinas/">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
-</a>
+<ul>
+  <li>
+    <a href="https://www.linkedin.com/in/b-salinas/">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+    </a>
+  </li>
+  <li>
+    <a href="mailto:b.salinas397@gmail.com">
+      <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+    </a>
+  </li>
+</ul>
 
-<a href="mailto:b.salinas397@gmail.com">
-  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
-</a>
 
 <p align="center">
   <img src="https://i.pinimg.com/originals/25/b4/f4/25b4f46ee64cdaae5687b8c05b036be9.gif" alt="Jaden Yuki in YGO Bonds Beyond Time Movie">
