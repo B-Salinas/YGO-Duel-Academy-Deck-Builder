@@ -45,7 +45,3 @@
 Hey there 👋🏽 My name is Bianca "B" Salinas and I'll be graduating from App Academy's 24-week software engineering bootcamp soon! 
 
 Checkout my [github](https://github.com/B-Salinas) and [linkedin](https://www.linkedin.com/in/b-salinas/) for more about me!
-
-<p align="center">
-  <img src="http://yugiohtracker.com/img/wait2.gif" alt="Yami Yugi Drawing a Card">
-</p>
