@@ -1,4 +1,4 @@
-from .db import db
+from .db import db, today
 
 
 class Spell_Trap_Card_Race(db.Model):

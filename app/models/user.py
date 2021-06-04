@@ -12,9 +12,9 @@ class User(db.Model, UserMixin):
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, nullable=False, unique=True)
   hashed_password = db.Column(db.String, nullable=False)
-  dorm_id = db.Column(db.String, db.ForeignKey("dorms.id"))
-  title_id = db.Column(db.String, db.ForeignKey("titles.id"))
-  profile_img = db.Column(db.String, db.ForeignKey("profile_images.id"))
+  dorm_id = db.Column(db.String, db.ForeignKey("dorms.id"), nullable=False)
+  title_id = db.Column(db.String, db.ForeignKey("titles.id"), nullable=False)
+  profile_img = db.Column(db.String, db.ForeignKey("profile_images.id"), nullable=False)
   created_at = db.Column(db.DateTime, nullable=False, default=today)
   updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
