@@ -1,8 +1,9 @@
-from .db import db
+from .db import db, today
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
+
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -14,6 +15,9 @@ class User(db.Model, UserMixin):
   dorm_id = db.Column(db.String, db.ForeignKey("dorms.id"))
   title_id = db.Column(db.String, db.ForeignKey("titles.id"))
   profile_img = db.Column(db.String, db.ForeignKey("profile_images.id"))
+  created_at = db.Column(db.DateTime, nullable=False, default=today)
+  updated_at = db.Column(db.DateTime, nullable=False, default=today)
+
 
   # I actually don't know if I did this relationship right 
   dorms = db.relationship("Dorm", back_populates="users")

@@ -1,12 +1,13 @@
-from .db import db
-
+from .db import db, today
 
 class Deck(db.Model):
     __tablename__ = 'decks'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False, unique=True)
-    user_id = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=today)
+    updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
     users = db.relationship("User", back_populates="decks")
 
