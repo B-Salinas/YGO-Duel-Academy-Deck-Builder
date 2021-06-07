@@ -5,7 +5,7 @@ class Monster_Card_Attribute(db.Model):
     __tablename__ = "monster_card_attributes"
 
     id = db.Column(db.Integer, primary_key=True)
-    attribute = db.Column(db.Integer, nullable=False)
+    attribute = db.Column(db.String, nullable=False)
     # created_at = db.Column(db.DateTime, nullable=False, default=today)
     # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
