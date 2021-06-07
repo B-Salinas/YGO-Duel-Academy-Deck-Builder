@@ -1,4 +1,4 @@
-from .db import db, today
+from .db import db
 
 
 class Spell_Trap_Card (db.Model):
@@ -14,8 +14,8 @@ class Spell_Trap_Card (db.Model):
     race = db.Column(db.Integer, db.ForeignKey("spell_trap_card_races.id"), nullable=False)
     img_url = db.Column(db.String, nullable=False)
     img_url_small = db.Column(db.String, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=today)
-    updated_at = db.Column(db.DateTime, nullable=False, default=today)
+    # created_at = db.Column(db.DateTime, nullable=False, default=today)
+    # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
     types = db.relationship("Spell_Trap_Card_Type", back_populates="spell_trap_cards")
     races = db.relationship("Spell_Trap_Card_Races", back_populates="spell_trap_cards")

@@ -1,13 +1,13 @@
-from .db import db, today
+from .db import db
 
 
-class Monster_Card_Attributes(db.Model):
+class Monster_Card_Attribute(db.Model):
     __tablename__ = "monster_card_attributes"
 
     id = db.Column(db.Integer, primary_key=True)
     attribute = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=today)
-    updated_at = db.Column(db.DateTime, nullable=False, default=today)
+    # created_at = db.Column(db.DateTime, nullable=False, default=today)
+    # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
     monster_cards = db.relationship("Monster_Card", back_populates="monster_card_attributes")
 

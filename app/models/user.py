@@ -1,9 +1,11 @@
-from .db import db, today
+from .db import db
+# import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 
+# today = datetime.datetime.now()
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -12,11 +14,11 @@ class User(db.Model, UserMixin):
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, nullable=False, unique=True)
   hashed_password = db.Column(db.String, nullable=False)
-  dorm_id = db.Column(db.String, db.ForeignKey("dorms.id"), nullable=False)
-  title_id = db.Column(db.String, db.ForeignKey("titles.id"), nullable=False)
-  profile_img = db.Column(db.String, db.ForeignKey("profile_images.id"), nullable=False)
-  created_at = db.Column(db.DateTime, nullable=False, default=today)
-  updated_at = db.Column(db.DateTime, nullable=False, default=today)
+  dorm_id = db.Column(db.Integer, db.ForeignKey("dorms.id"), nullable=False)
+  title_id = db.Column(db.Integer, db.ForeignKey("titles.id"), nullable=False)
+  profile_img = db.Column(db.Integer, db.ForeignKey("profile_images.id"), nullable=False)
+  # created_at = db.Column(db.DateTime, nullable=False, default=today)
+  # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
 
   # I actually don't know if I did this relationship right 
@@ -26,7 +28,7 @@ class User(db.Model, UserMixin):
 
   decks = db.relationship("Deck", back_populates="users")
 
-  @property
+  @property                                         
   def password(self):
     return self.hashed_password
 
