@@ -1,4 +1,4 @@
-from app.models import db, Monster_Card_Race, spell_trap_card
+from app.models import db, Monster_Card_Race
 
 
 def seed_monster_card_races():
@@ -80,6 +80,8 @@ def seed_monster_card_races():
 
     creator_god= Monster_Card_Race(race="Creator-God")
     db.session.add(creator_god)
+
+    db.session.commit()
 
 
 def undo_monster_card_races():

@@ -1,6 +1,3 @@
-from operator import attrgetter
-
-from flask_sqlalchemy import _wrap_with_default_query_class
 from app.models import db, Monster_Card_Attribute
 
 
@@ -26,6 +23,8 @@ def seed_monster_card_attributes():
 
     divine = Monster_Card_Attribute(attribute="Divine")
     db.session.add(divine)
+
+    db.session.commit()
 
 
 def undo_monster_card_attributes():

@@ -9,6 +9,8 @@ def seed_spell_trap_card_types():
     trap = Spell_Trap_Card_Type(type="Trap")
     db.session.add(trap)
 
+    db.session.commit()
+
 
 def undo_spell_trap_card_types():
     db.session.execute('TRUNCATE spell_trap_card_types RESTART IDENTITY CASCADE;')
