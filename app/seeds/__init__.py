@@ -5,6 +5,7 @@ from .titles import seed_titles, undo_titles
 
 from .monster_card_types import seed_monster_card_types, undo_monster_card_types
 from .monster_card_races import seed_monster_card_races, undo_monster_card_races
+from .monster_card_attributes import seed_monster_card_attributes, undo_monster_card_attributes
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -19,6 +20,7 @@ def seed():
 
     seed_monster_card_types()
     seed_monster_card_races()
+    seed_monster_card_attributes()
 
 
 # Creates the `flask seed undo` command
@@ -30,3 +32,4 @@ def undo():
 
     undo_monster_card_types()
     undo_monster_card_races()
+    undo_monster_card_attributes()
