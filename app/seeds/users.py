@@ -16,7 +16,7 @@ def seed_users():
         password="password",
         dorm_id=1,
         title_id=7,
-        profile_img=""
+        profile_img=1
     )
 
     db.session.add(demo)

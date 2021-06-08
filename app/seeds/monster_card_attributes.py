@@ -7,7 +7,7 @@ def seed_monster_card_attributes():
     db.session.add(dark)
 
     earth = Monster_Card_Attribute(attribute="Earth")
-    db.sesion.add(earth)
+    db.session.add(earth)
 
     fire = Monster_Card_Attribute(attribute="Fire")
     db.session.add(fire)
