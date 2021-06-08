@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .dorms import seed_dorms, undo_dorms
+from .titles import seed_titles, undo_titles
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -11,6 +12,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_dorms()
+    seed_titles()
 
 
 # Creates the `flask seed undo` command
@@ -18,3 +20,4 @@ def seed():
 def undo():
     undo_users()
     undo_dorms()
+    undo_titles()
