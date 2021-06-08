@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: b9001c171640
+Revision ID: bb31b57623ca
 Revises: 
-Create Date: 2021-06-07 18:11:19.456454
+Create Date: 2021-06-08 11:18:32.277829
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b9001c171640'
+revision = 'bb31b57623ca'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -35,7 +35,7 @@ def upgrade():
     )
     op.create_table('monster_card_types',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('type', sa.String(), nullable=False),
+    sa.Column('_type', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('profile_images',
@@ -50,7 +50,7 @@ def upgrade():
     )
     op.create_table('spell_trap_card_types',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('type', sa.String(), nullable=True),
+    sa.Column('_type', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('titles',
@@ -63,9 +63,9 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('email', sa.String(), nullable=False),
     sa.Column('hashed_password', sa.String(), nullable=False),
-    sa.Column('dorm_id', sa.Integer(), nullable=True),
-    sa.Column('title_id', sa.Integer(), nullable=True),
-    sa.Column('profile_img', sa.Integer(), nullable=True),
+    sa.Column('dorm_id', sa.Integer(), nullable=False),
+    sa.Column('title_id', sa.Integer(), nullable=False),
+    sa.Column('profile_img', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['dorm_id'], ['dorms.id'], ),
     sa.ForeignKeyConstraint(['profile_img'], ['profile_images.id'], ),
     sa.ForeignKeyConstraint(['title_id'], ['titles.id'], ),
@@ -86,7 +86,7 @@ def upgrade():
     sa.Column('deck_id', sa.Integer(), nullable=True),
     sa.Column('card_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
-    sa.Column('type', sa.Integer(), nullable=False),
+    sa.Column('_type', sa.Integer(), nullable=False),
     sa.Column('desc', sa.Text(), nullable=False),
     sa.Column('atk', sa.Integer(), nullable=False),
     sa.Column('_def', sa.Integer(), nullable=False),
@@ -95,10 +95,10 @@ def upgrade():
     sa.Column('attribute', sa.Integer(), nullable=False),
     sa.Column('img_url', sa.String(), nullable=False),
     sa.Column('img_url_small', sa.String(), nullable=False),
+    sa.ForeignKeyConstraint(['_type'], ['monster_card_types.id'], ),
     sa.ForeignKeyConstraint(['attribute'], ['monster_card_attributes.id'], ),
     sa.ForeignKeyConstraint(['deck_id'], ['decks.id'], ),
     sa.ForeignKeyConstraint(['race'], ['monster_card_races.id'], ),
-    sa.ForeignKeyConstraint(['type'], ['monster_card_types.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -108,14 +108,14 @@ def upgrade():
     sa.Column('deck_id', sa.Integer(), nullable=True),
     sa.Column('card_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
-    sa.Column('type', sa.Integer(), nullable=False),
+    sa.Column('_type', sa.Integer(), nullable=False),
     sa.Column('desc', sa.Text(), nullable=False),
     sa.Column('race', sa.Integer(), nullable=False),
     sa.Column('img_url', sa.String(), nullable=False),
     sa.Column('img_url_small', sa.String(), nullable=False),
+    sa.ForeignKeyConstraint(['_type'], ['spell_trap_card_types.id'], ),
     sa.ForeignKeyConstraint(['deck_id'], ['decks.id'], ),
     sa.ForeignKeyConstraint(['race'], ['spell_trap_card_races.id'], ),
-    sa.ForeignKeyConstraint(['type'], ['spell_trap_card_types.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

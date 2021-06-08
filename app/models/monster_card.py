@@ -9,7 +9,7 @@ class Monster_Card(db.Model):
     deck_id = db.Column(db.Integer, db.ForeignKey("decks.id"))
     card_id = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
-    type = db.Column(db.Integer, db.ForeignKey("monster_card_types.id"), nullable=False)
+    _type = db.Column(db.Integer, db.ForeignKey("monster_card_types.id"), nullable=False)
     desc = db.Column(db.Text, nullable=False)
     atk = db.Column(db.Integer, nullable=False)
     _def = db.Column(db.Integer, nullable=False)
@@ -32,7 +32,7 @@ class Monster_Card(db.Model):
             "deck_id": self.deck_id,
             "card_id": self.card_id,
             "name": self.name,
-            "type": self.type,
+            "type": self._type,
             "desc": self.desc,
             "atk": self.atk,
             "def": self._def,

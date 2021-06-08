@@ -2,6 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .dorms import seed_dorms, undo_dorms
 from .titles import seed_titles, undo_titles
+from .profile_images import seed_profile_images, undo_profile_images
 
 from .monster_card_types import seed_monster_card_types, undo_monster_card_types
 from .monster_card_races import seed_monster_card_races, undo_monster_card_races
@@ -16,9 +17,10 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
-    seed_users()
     seed_dorms()
     seed_titles()
+    seed_profile_images()
+    seed_users()
 
     seed_monster_card_types()
     seed_monster_card_races()
@@ -30,9 +32,10 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
     undo_dorms()
     undo_titles()
+    undo_profile_images
+    undo_users()
 
     undo_monster_card_types()
     undo_monster_card_races()
