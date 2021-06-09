@@ -1,6 +1,5 @@
 from .db import db
 
-from .user import User
 from .dorm import Dorm
 from .title import Title
 from .profile_img import Profile_Image
@@ -15,6 +14,7 @@ from .spell_trap_card_race import Spell_Trap_Card_Race
 from .monster_card import Monster_Card
 from .spell_trap_card import Spell_Trap_Card
 
+from .user import User
 from .deck import Deck
 
 

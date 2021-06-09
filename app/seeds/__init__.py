@@ -12,6 +12,7 @@ from .spell_trap_card_types import seed_spell_trap_card_types, undo_spell_trap_c
 from .spell_trap_card_races import seed_spell_trap_card_races, undo_spell_trap_card_races
 
 from .cards import seed_all_cards, undo_all_cards
+from .user_cards import seed_user_cards, undo_user_cards
 # from .monster_cards import seed_all_monster_cards, undo_all_monster_cards
 # from .spell_trap_cards import seed_all_spell_trap_cards, undo_all_spell_trap_cards
 
@@ -35,6 +36,7 @@ def seed():
     seed_spell_trap_card_races()
 
     seed_all_cards()
+    seed_user_cards()
     # seed_all_monster_cards()
     # seed_all_spell_trap_cards()
 
@@ -55,5 +57,6 @@ def undo():
     undo_spell_trap_card_races()
 
     undo_all_cards()
+    undo_user_cards()
     # seed_all_monster_cards()
     # seed_all_spell_trap_cards()

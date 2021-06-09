@@ -6,10 +6,8 @@ class Monster_Card_Type(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     _type = db.Column(db.String, nullable=False)
-    # created_at = db.Column(db.DateTime, nullable=False, default=today)
-    # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
-    monster_cards = db.relationship("Monster_Card", back_populates="types")
+    # monster_cards = db.relationship("Monster_Card", back_populates="types")
 
     def to_dict(self):
         return {

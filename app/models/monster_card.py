@@ -7,19 +7,19 @@ class Monster_Card(db.Model):
     deck_id = db.Column(db.Integer, db.ForeignKey("decks.id"))
     card_id = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
-    _type = db.Column(db.Integer, db.ForeignKey("monster_card_types.id"), nullable=False)
+    _type = db.Column(db.String, nullable=False)
     desc = db.Column(db.Text, nullable=False)
     atk = db.Column(db.Integer, nullable=False)
     _def = db.Column(db.Integer, nullable=False)
     level = db.Column(db.Integer, nullable=False)
-    race = db.Column(db.Integer, db.ForeignKey("monster_card_races.id"), nullable=False)
-    attribute = db.Column(db.Integer, db.ForeignKey("monster_card_attributes.id"), nullable=False)
+    race = db.Column(db.String, nullable=False)
+    attribute = db.Column(db.String, nullable=False)
     img_url = db.Column(db.String, nullable=False)
     img_url_small = db.Column(db.String, nullable=False)
 
-    types = db.relationship("Monster_Card_Type", back_populates="monster_cards")
-    races = db.relationship("Monster_Card_Race", back_populates="monster_cards")
-    attributes = db.relationship("Monster_Card_Attribute", back_populates="monster_cards")
+    # types = db.relationship("Monster_Card_Type", back_populates="monster_cards")
+    # races = db.relationship("Monster_Card_Race", back_populates="monster_cards")
+    # attributes = db.relationship("Monster_Card_Attribute", back_populates="monster_cards")
 
     def to_dict(self):
         return {

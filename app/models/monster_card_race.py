@@ -6,10 +6,8 @@ class Monster_Card_Race(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     race = db.Column(db.String, nullable=False)
-    # created_at = db.Column(db.DateTime, nullable=False, default=today)
-    # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
-    monster_cards = db.relationship("Monster_Card", back_populates="races")
+    # monster_cards = db.relationship("Monster_Card", back_populates="races")
 
     def to_dict(self):
         return {

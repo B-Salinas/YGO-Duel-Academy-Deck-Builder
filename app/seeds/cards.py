@@ -1,10 +1,11 @@
-from app.models import db, Monster_Card, Spell_Trap_Card
+from app.models import db, Monster_Card, Monster_Card_Type, Monster_Card_Race, Monster_Card_Attribute
+from app.models import Spell_Trap_Card, Spell_Trap_Card_Type, Spell_Trap_Card_Race
 
 # from urllib.request import Request, urlopen
 # from urllib.parse import urlencode, unquote
 from json import loads
 
-# import json
+import os
 
 # from time import sleep
 
@@ -44,15 +45,15 @@ from json import loads
 def card_creator(card):
     if card["_type"][-7:] == "Monster":
         monster_card = {
-            "id": card["id"],
+            "card_id": card["id"],
             "name": card["name"],
-            "_type": card["_type"],
+            "_type": card['_type'],
             "desc": card["desc"],
             "atk": card["atk"],
             "_def": card["_def"],
             "level": card["level"],
-            "race": card["race"],
-            "attribute": card["attribute"],
+            "race": card['race'],
+            "attribute": card['attribute'],
             "img_url": card["card_images"][0]["image_url"],
             "img_url_small": card["card_images"][0]["image_url_small"]
         }
@@ -61,11 +62,11 @@ def card_creator(card):
 
     if card["_type"][-4:] == "Card":
         spell_trap_card = {
-            "id": card["id"],
+            "card_id": card["id"],
             "name": card["name"],
-            "_type": card["_type"],
+            "_type": card['_type'],
             "desc": card["desc"],
-            "race": card["race"],
+            "race": card['race'],
             "img_url": card["card_images"][0]["image_url"],
             "img_url_small": card["card_images"][0]["image_url_small"]
         }
@@ -75,7 +76,9 @@ def card_creator(card):
 
 def seed_all_cards():
 
-    all_cards = loads(open("all_gba_cards.json").read())
+    absolute_path = os.path.dirname(os.path.abspath(__file__))
+
+    all_cards = loads(open(absolute_path + "/all_gba_cards.json").read())
     # all_cards = [card["data"][0] for card in all_cards]
 
     for card in all_cards:
@@ -85,5 +88,7 @@ def seed_all_cards():
 
 
 def undo_all_cards():
-    db.session.execute('TRUNCATE all_cards RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE monster_cards RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE spell_trap_cards RESTART IDENTITY CASCADE;')
+
     db.session.commit()

@@ -7,14 +7,14 @@ class Spell_Trap_Card (db.Model):
     deck_id = db.Column(db.Integer, db.ForeignKey("decks.id"))
     card_id = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
-    _type = db.Column(db.Integer, db.ForeignKey("spell_trap_card_types.id"), nullable=False)
+    _type = db.Column(db.String, nullable=False)
     desc = db.Column(db.Text, nullable=False)
-    race = db.Column(db.Integer, db.ForeignKey("spell_trap_card_races.id"), nullable=False)
+    race = db.Column(db.String, nullable=False)
     img_url = db.Column(db.String, nullable=False)
     img_url_small = db.Column(db.String, nullable=False)
 
-    types = db.relationship("Spell_Trap_Card_Type", back_populates="spell_trap_cards")
-    races = db.relationship("Spell_Trap_Card_Race", back_populates="spell_trap_cards")
+    # types = db.relationship("Spell_Trap_Card_Type", back_populates="spell_trap_cards")
+    # races = db.relationship("Spell_Trap_Card_Race", back_populates="spell_trap_cards")
 
     def to_dict(self):
         return {
