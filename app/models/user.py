@@ -3,9 +3,9 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import backref, relationship
+from .user_card import user_monster_cards, user_spell_trap_cards
 
-# today = datetime.datetime.now()
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -17,30 +17,26 @@ class User(db.Model, UserMixin):
   dorm_id = db.Column(db.Integer, db.ForeignKey("dorms.id"), nullable=False)
   title_id = db.Column(db.Integer, db.ForeignKey("titles.id"), nullable=False)
   profile_img = db.Column(db.Integer, db.ForeignKey("profile_images.id"), nullable=False)
-  # created_at = db.Column(db.DateTime, nullable=False, default=today)
-  # updated_at = db.Column(db.DateTime, nullable=False, default=today)
 
+  monster_cards = db.relationship("Monster_Card", secondary=user_monster_cards, backref="users")
+  spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=user_spell_trap_cards, backref="users")
 
-  # I actually don't know if I did this relationship right 
-  dorms = db.relationship("Dorm", back_populates="users")
-  titles = db.relationship("Title", back_populates="users")
-  profile_images = db.relationship("Profile_Image", back_populates="users")
+  dorm = db.relationship("Dorm", back_populates="users")
+  title = db.relationship("Title", back_populates="users")
+  profile_image = db.relationship("Profile_Image", back_populates="users")
 
-  decks = db.relationship("Deck", back_populates="users")
+  decks = db.relationship("Deck", back_populates="user")
 
   @property                                         
   def password(self):
     return self.hashed_password
 
-
   @password.setter
   def password(self, password):
     self.hashed_password = generate_password_hash(password)
 
-
   def check_password(self, password):
     return check_password_hash(self.password, password)
-    
 
   def to_dict(self):
     return { 
