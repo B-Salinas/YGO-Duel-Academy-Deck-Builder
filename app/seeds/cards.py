@@ -208,7 +208,7 @@ def seed_all_cards():
     )
     db.session.add(card10)
 
-
+    # Next Card: 49771608 - Absorbing Kid from the Sky
 
     db.session.commit()
 
