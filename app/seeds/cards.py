@@ -1,48 +1,46 @@
 from app.models.spell_trap_card_race import Spell_Trap_Card_Race
 from app.models import db, Monster_Card, Spell_Trap_Card
 
-# from urllib.request import Request, urlopen
-# from urllib.parse import urlencode, unquote
-# from json import loads
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, unquote
+from json import loads
 
-# import json
+import json
+
+from time import sleep
 
 # KEEP THESE
-# useragent = "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion"
-# headers = {
-#     "User-Agent": useragent
-# }
+useragent = "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion"
+headers = {
+    "User-Agent": useragent
+}
 
-# def get_all_api_cards():
-#     all_api_cards_data = urlopen(Request("https://db.ygoprodeck.com/api/v7/cardinfo.php", headers=headers)).read().decode("UTF-8")
-#     return all_api_cards_data
+def get_api_card(card_id):
+    # sleep(0.04) # just in case
+    api_card_data = urlopen(Request(f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card_id}", headers=headers)).read().decode("UTF-8")
+    return api_card_data
 
-# def get_all_gba_cards():
-#     with open("yugioh.json") as all_gba_cards_data:
-#         all_gba_cards = json.load(all_gba_cards_data)
-#         all_gba_cards_data.close()
+def get_all_gba_cards():
+    with open("yugioh.json") as all_gba_cards_data:
+        all_gba_cards = loads(all_gba_cards_data)
 
-#     return all_gba_cards
+    return all_gba_cards
     
-# def get_all_cards():
-#     api_cards = get_all_api_cards()
-#     gba_cards = get_all_gba_cards()
+def get_all_cards():
+    # api_cards = get_all_api_cards()
+    gba_cards = get_all_gba_cards()
+    # all_cards = [get_api_card(card_id) for card_id in gba_cards]
 
-#     print(type(api_cards))
-    
-#     for cards in api_cards:
-#         pass
+    all_gba_cards_info = open("all_gba_cards.json", "w")
+    for id in gba_cards:
+        all_gba_cards_info.write(get_api_card(id) + ',\n')
+        
 
-#     for info in gba_cards:
-#         card_id = info
-#         card_name = gba_cards[info]
-        # print(card_id)
-        # print(card_name)
 
-# get_all_api_cards()
+# get_api_card()
 # get_all_gba_cards()
 
-# get_all_cards()
+get_all_cards()
 
 # -----------------------------------------------------------------------
 
