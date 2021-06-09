@@ -11,6 +11,10 @@ from .monster_card_attributes import seed_monster_card_attributes, undo_monster_
 from .spell_trap_card_types import seed_spell_trap_card_types, undo_spell_trap_card_types
 from .spell_trap_card_races import seed_spell_trap_card_races, undo_spell_trap_card_races
 
+from .cards import seed_all_cards, undo_all_cards
+# from .monster_cards import seed_all_monster_cards, undo_all_monster_cards
+# from .spell_trap_cards import seed_all_spell_trap_cards, undo_all_spell_trap_cards
+
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
@@ -30,6 +34,10 @@ def seed():
     seed_spell_trap_card_types()
     seed_spell_trap_card_races()
 
+    seed_all_cards()
+    # seed_all_monster_cards()
+    # seed_all_spell_trap_cards()
+
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -45,3 +53,7 @@ def undo():
 
     undo_spell_trap_card_types()
     undo_spell_trap_card_races()
+
+    undo_all_cards()
+    # seed_all_monster_cards()
+    # seed_all_spell_trap_cards()
