@@ -2,17 +2,27 @@ from app.models import db, Monster_Card_Type
 
 def seed_monster_card_types():
     
-    normal = Monster_Card_Type(_type="Normal")
-    db.session.add(normal)
-
+    # 1
     effect = Monster_Card_Type(_type="Effect")
     db.session.add(effect)
 
+
+    # 2
+    fusion = Monster_Card_Type(_type="Fusion")
+    db.session.add(fusion)
+
+
+    # 3
+    normal = Monster_Card_Type(_type="Normal")
+    db.session.add(normal)
+
+
+    # 4
     ritual = Monster_Card_Type(_type="Ritual")
     db.session.add(ritual)
 
-    fusion = Monster_Card_Type(_type="Fusion")
-    db.session.add(fusion)
+
+
 
     db.session.commit()
 
