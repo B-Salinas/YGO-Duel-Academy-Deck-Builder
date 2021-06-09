@@ -1,5 +1,5 @@
-from app.models.spell_trap_card_race import Spell_Trap_Card_Race
-from app.models import db, Monster_Card, Spell_Trap_Card
+
+# from app.models import db, Monster_Card, Spell_Trap_Card
 
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, unquote
@@ -22,7 +22,7 @@ def get_api_card(card_id):
 
 def get_all_gba_cards():
     with open("yugioh.json") as all_gba_cards_data:
-        all_gba_cards = loads(all_gba_cards_data)
+        all_gba_cards = loads(all_gba_cards_data.read())
 
     return all_gba_cards
     
@@ -32,8 +32,14 @@ def get_all_cards():
     # all_cards = [get_api_card(card_id) for card_id in gba_cards]
 
     all_gba_cards_info = open("all_gba_cards.json", "w")
+    failed_cards = open("failed_cards.txt", "w")
     for id in gba_cards:
-        all_gba_cards_info.write(get_api_card(id) + ',\n')
+        try:
+            all_gba_cards_info.write(get_api_card(id) + ',\n')
+        except:
+            failed_cards.write(id + ',\n')
+            
+
         
 
 
