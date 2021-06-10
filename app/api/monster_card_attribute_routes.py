@@ -1,5 +1,5 @@
 from app.models import db, Monster_Card_Attribute
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint
 
 monster_card_attribute_routes = Blueprint("monster_card_attributes", __name__)
 

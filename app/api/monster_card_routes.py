@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, session, request
-from app.models import Monster_Card, db
+from app.models import db, Monster_Card
+from flask import Blueprint
 
 monster_card_routes = Blueprint('monster_cards', __name__)
 

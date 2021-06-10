@@ -1,5 +1,5 @@
 from app.models import db, Dorm
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint
 
 dorm_routes = Blueprint('dorms', __name__)
 

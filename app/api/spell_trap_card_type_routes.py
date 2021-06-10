@@ -1,5 +1,5 @@
-from app.models import Spell_Trap_Card_Type, db
-from flask import Blueprint, jsonify, session, request
+from app.models import db, Spell_Trap_Card_Type
+from flask import Blueprint
 
 spell_trap_card_type_routes = Blueprint("spell_trap_card_types", __name__)
 

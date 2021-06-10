@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, session, request
-from app.models import Title, db
+from app.models import db, Title
+from flask import Blueprint
 
 title_routes = Blueprint('titles', __name__)
 
