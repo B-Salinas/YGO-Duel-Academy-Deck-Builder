@@ -9,6 +9,21 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 
+from .api.dorm_routes import dorm_routes
+from .api.title_routes import title_routes
+from .api.profile_image_routes import profile_image_routes
+
+from .api.monster_card_type_routes import monster_card_type_routes
+from .api.monster_card_race_routes import monster_card_race_routes
+from .api.monster_card_attribute_routes import monster_card_attribute_routes
+from .api.monster_card_routes import monster_card_routes
+
+from .api.spell_trap_card_type_routes import spell_trap_card_type_routes
+from .api.spell_trap_card_race_routes import spell_trap_card_race_routes
+from .api.spell_trap_card_routes import spell_trap_card_routes
+
+# I do not have api routes for Decks or User_Cards (Joins Table) aka the Trunk
+
 from .seeds import seed_commands
 
 from .config import Config
@@ -31,6 +46,19 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+
+app.register_blueprint(dorm_routes, url_prefix='/api/dorms')
+app.register_blueprint(title_routes, url_prefix='/api/titles')
+app.register_blueprint(profile_image_routes, url_prefix="/api/profile_images")
+
+app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
+app.register_blueprint(monster_card_type_routes, url_prefix='/api/monster_card_types')
+app.register_blueprint(monster_card_race_routes, url_prefix='/api/monster_card_races')
+app.register_blueprint(monster_card_attribute_routes, url_prefix='/api/monster_card_attributes')
+
+app.register_blueprint(spell_trap_card_routes, url_prefix="/api/spell_trap_cards")
+app.register_blueprint(spell_trap_card_type_routes, url_prefix="/api/spell_trap_card_types")
+app.register_blueprint(spell_trap_card_race_routes, url_prefix="/api/spell_trap_card_races")
 db.init_app(app)
 Migrate(app, db)
 

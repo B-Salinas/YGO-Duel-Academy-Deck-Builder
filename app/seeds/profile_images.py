@@ -1,4 +1,4 @@
-from app.models import db, Profile_Image, profile_img
+from app.models import db, Profile_Image
 
 
 def seed_profile_images():
