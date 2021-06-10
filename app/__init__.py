@@ -18,6 +18,12 @@ from .api.monster_card_race_routes import monster_card_race_routes
 from .api.monster_card_attribute_routes import monster_card_attribute_routes
 from .api.monster_card_routes import monster_card_routes
 
+from .api.spell_trap_card_type_routes import spell_trap_card_type_routes
+from .api.spell_trap_card_race_routes import spell_trap_card_race_routes
+from .api.spell_trap_card_routes import spell_trap_card_routes
+
+# I do not have api routes for Decks or User_Cards (Joins Table) aka the Trunk
+
 from .seeds import seed_commands
 
 from .config import Config
@@ -49,6 +55,10 @@ app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
 app.register_blueprint(monster_card_type_routes, url_prefix='/api/monster_card_types')
 app.register_blueprint(monster_card_race_routes, url_prefix='/api/monster_card_races')
 app.register_blueprint(monster_card_attribute_routes, url_prefix='/api/monster_card_attributes')
+
+app.register_blueprint(spell_trap_card_routes, url_prefix="/api/spell_trap_cards")
+app.register_blueprint(spell_trap_card_type_routes, url_prefix="/api/spell_trap_card_types")
+app.register_blueprint(spell_trap_card_race_routes, url_prefix="/api/spell_trap_card_races")
 db.init_app(app)
 Migrate(app, db)
 
