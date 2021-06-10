@@ -14,6 +14,8 @@ from .api.title_routes import title_routes
 from .api.profile_image_routes import profile_image_routes
 
 from .api.monster_card_type_routes import monster_card_type_routes
+from .api.monster_card_race_routes import monster_card_race_routes
+from .api.monster_card_attribute_routes import monster_card_attribute_routes
 from .api.monster_card_routes import monster_card_routes
 
 from .seeds import seed_commands
@@ -45,6 +47,8 @@ app.register_blueprint(profile_image_routes, url_prefix="/api/profile_images")
 
 app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
 app.register_blueprint(monster_card_type_routes, url_prefix='/api/monster_card_types')
+app.register_blueprint(monster_card_race_routes, url_prefix='/api/monster_card_races')
+app.register_blueprint(monster_card_attribute_routes, url_prefix='/api/monster_card_attributes')
 db.init_app(app)
 Migrate(app, db)
 
