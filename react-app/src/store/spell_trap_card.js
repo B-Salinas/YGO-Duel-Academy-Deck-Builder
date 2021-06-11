@@ -7,17 +7,20 @@ const GET_ONE_SPELL_TRAP_CARD = "spell_trap_cards/SET_ONE_SPELL_TRAP_CARD"
 
 const getSpellTrapCards = (allSpellTrapCards) => ({
     type: GET_ALL_SPELL_TRAP_CARDS,
-    payload: allSpellTrapCards
+    allSpellTrapCards
 });
 
 const getSpellTrapCard = (oneSpellTrapCard) => ({
     type: GET_ONE_SPELL_TRAP_CARD,
-    payload: oneSpellTrapCard
+    oneSpellTrapCard
 });
 
 /***************************** INITIAL STATE *********************************/
 
-const intialState = {}
+const intialState = {
+    spell_trap_cards: {},
+    spell_trap_card: {}
+}
 
 /********************************* THUNKS ************************************/
 
@@ -56,17 +59,16 @@ export default function spellTrapCardsReducer(state = intialState, action) {
 
     switch (action.type) {
         case GET_ALL_SPELL_TRAP_CARDS:
-            newState = {...state}
-            newState = action.payload
-            
-            return newState;
+            return {
+                ...state,
+                spell_trap_cards: action.allSpellTrapCards
+            }
 
         case GET_ONE_SPELL_TRAP_CARD:
-            newState = {
+            return {
                 ...state,
-                spell_trap_card: action.payload
+                spell_trap_card: action.onSpellTrapCard
             }
-            return newState;
 
         default:
             return state;
