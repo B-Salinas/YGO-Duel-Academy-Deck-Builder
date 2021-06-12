@@ -51,9 +51,8 @@ export const getOneSpellTrapCard = (id) => async (dispatch) => {
 
 /****************************** REDUCER ************************************/
 
+// the reducer only goes to the index.js file in the store folder
 export default function spellTrapCardsReducer(state = initialState, action) {
-    let newState;
-
     switch (action.type) {
         case GET_ALL_SPELL_TRAP_CARDS:
             return {
@@ -64,7 +63,7 @@ export default function spellTrapCardsReducer(state = initialState, action) {
         case GET_ONE_SPELL_TRAP_CARD:
             return {
                 ...state,
-                current: action.allSpellTrapCards
+                current: action.oneSpellTrapCard
             }
 
         default:

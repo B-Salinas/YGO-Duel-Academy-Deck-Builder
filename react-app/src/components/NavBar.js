@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 
+// import the thunks that you need
 import { getAllSpellTrapCards } from '../store/spell_trap_card'
 import { getAllMonsterCards } from '../store/monster_card';
+import { getAllTypes, getAllRaces, getAllAttributes } from '../store/monster_card_extra';
 
 // making sure my store works
 import { useState, useEffect } from 'react';
@@ -12,15 +14,18 @@ import { useDispatch, useSelector } from 'react-redux';
 const NavBar = () => {
   const dispatch = useDispatch();
   const spell_trap_cards = useSelector(state => state.spell_trap_cards.all)
-  const monster_cards = useSelector(state => state.all_monster_cards.monster_cards)
+  const monster_cards = useSelector(state => state.monster_cards.all)
+  const mc_types = useSelector(state => state.monster_card_extras.types)
 
   useEffect(() => {
     dispatch(getAllSpellTrapCards());
+    dispatch(getAllMonsterCards());
+    dispatch(getAllTypes());
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(getAllMonsterCards())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getAllMonsterCards());
+  // }, [dispatch])
 
   return (
     <nav>

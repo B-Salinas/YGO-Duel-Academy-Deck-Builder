@@ -15,13 +15,6 @@ const getMonsterCard = (oneMonsterCard) => ({
     oneMonsterCard
 });
 
-/***************************** INITIAL STATE *********************************/
-
-const initial_state = { 
-    monster_cards: {},
-    monster_card: {}
-}
-
 /********************************* THUNKS ************************************/
 
 export const getAllMonsterCards = () => async (dispatch) => {
@@ -29,7 +22,7 @@ export const getAllMonsterCards = () => async (dispatch) => {
 
     if (!response.ok) {
         const errors = await response.json()
-        return `Uh oh! Something went wrong: ${ errors }` // debugging purposes
+        return `Uh oh! Something went wrong: ${ errors }`
     }
 
     const allMonsterCards = await response.json()
@@ -41,28 +34,35 @@ export const getOneMonsterCard = (id) => async (dispatch) => {
 
     if (!response.ok) {
         const errors = await response.json()
-        return `Uh oh! Something went wrong: ${errors}`  // debugging purposes
+        return `Uh oh! Something went wrong: ${errors}`
     }
 
     const oneMonsterCard = await response.json()
     dispatch(getMonsterCard(oneMonsterCard))
 }
 
+/***************************** INITIAL STATE *********************************/
+
+const initialState = {
+    all: {},
+    current: {}
+}
 /****************************** REDUCER ************************************/
 
-export default function monsterCardsReducer(state = initial_state, action) {
-    let newState;
-
+// the reducer only goes to the index.js file in the store folder
+export default function monsterCardsReducer(state = initialState, action) {
     switch(action.type) {
         case GET_ALL_MONSTER_CARDS:
-            newState = {...state}
-            newState = action.allMonsterCards
-            return newState
-        
+            return {
+                ...state,
+                all: action.allMonsterCards
+            }
+
         case GET_ONE_MONSTER_CARD:
-            newState = { ...state }
-            newState = action.oneMonsterCard
-            return newState
+            return {
+                ...state,
+                current: action.oneMonsterCard
+            }
         
         default:
             return state;
