@@ -4,22 +4,27 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [dorm, setDorm] = useState("");
+  const [title, setTitle] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+
   const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(signUp(name, email, password, dorm, title, profileImage));
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -34,6 +39,18 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const updateDorm = (e) => {
+    setDorm(e.target.value);
+  };
+
+  const updateTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const updateProfileImage = (e) => {
+    setProfileImage(e.target.value);
+  };
+
   if (user) {
     return <Redirect to="/" />;
   }
@@ -44,9 +61,9 @@ const SignUpForm = () => {
         <label>User Name</label>
         <input
           type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
+          name="name"
+          onChange={updateName}
+          value={name}
         ></input>
       </div>
       <div>
