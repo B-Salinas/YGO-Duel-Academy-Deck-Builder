@@ -1,12 +1,12 @@
 from app.models import db, Monster_Card
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
 monster_card_routes = Blueprint('monster_cards', __name__)
 
 @monster_card_routes.route('/')
 def all_monster_cards():
     monster_cards = Monster_Card.query.all()
-    return {"monster_cards": [monster_card.to_dict() for monster_card in monster_cards]}
+    return jsonify([monster_card.to_dict() for monster_card in monster_cards])
 
 @monster_card_routes.route('/<int:id>')
 def one_monster_card(id):

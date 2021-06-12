@@ -1,5 +1,5 @@
 from app.models import db, Spell_Trap_Card_Race
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
 spell_trap_card_race_routes = Blueprint("spell_trap_card_races", __name__)
 
@@ -7,7 +7,7 @@ spell_trap_card_race_routes = Blueprint("spell_trap_card_races", __name__)
 @spell_trap_card_race_routes.route('/')
 def all_spell_trap_card_races():
     spell_trap_card_races = Spell_Trap_Card_Race.query.all()
-    return {"spell_trap_card_races": [spell_trap_card_race.to_dict() for spell_trap_card_race in spell_trap_card_races]}
+    return jsonify([spell_trap_card_race.to_dict() for spell_trap_card_race in spell_trap_card_races])
 
 
 @spell_trap_card_race_routes.route('/<int:id>')

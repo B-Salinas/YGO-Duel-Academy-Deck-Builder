@@ -7,66 +7,65 @@ const GET_ONE_MONSTER_CARD = "monster_cards/GET_ONE_MONSTER_CARD"
 
 const getMonsterCards = (allMonsterCards) => ({
     type: GET_ALL_MONSTER_CARDS,
-    payload: allMonsterCards
+    allMonsterCards
 });
 
 const getMonsterCard = (oneMonsterCard) => ({
     type: GET_ONE_MONSTER_CARD,
-    payload: oneMonsterCard
+    oneMonsterCard
 });
-
-/***************************** INITIAL STATE *********************************/
-
-const initial_state = { 
-    monster_cards: null,
-    monster_card: null
-}
 
 /********************************* THUNKS ************************************/
 
-const getAllMonsterCards = () => async (dispatch) => {
+export const getAllMonsterCards = () => async (dispatch) => {
     const response = await fetch('/api/monster_cards')
 
     if (!response.ok) {
         const errors = await response.json()
-        return `Uh oh! Something went wrong: ${ errors }` // debugging purposes
+        return `Uh oh! Something went wrong: ${ errors }`
     }
 
     const allMonsterCards = await response.json()
     dispatch(getMonsterCards(allMonsterCards))
 }
 
-const getOneMonsterCard = (id) => async (dispatch) => {
+
+
+
+export const getOneMonsterCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/monster_cards/${id}`)
 
     if (!response.ok) {
         const errors = await response.json()
-        return `Uh oh! Something went wrong: ${errors}`  // debugging purposes
+        return `Uh oh! Something went wrong: ${errors}`
     }
 
     const oneMonsterCard = await response.json()
     dispatch(getMonsterCard(oneMonsterCard))
 }
 
+/***************************** INITIAL STATE *********************************/
+
+const initialState = {
+    all: {},
+    current: {}
+}
 /****************************** REDUCER ************************************/
 
-export default function monsterCardsReducer(state = initial_state, action) {
-    let newState;
-
+// the reducer only goes to the index.js file in the store folder
+export default function monsterCardsReducer(state = initialState, action) {
     switch(action.type) {
         case GET_ALL_MONSTER_CARDS:
-            newState = {
+            return {
                 ...state,
-                monster_cards: action.payload
+                all: action.allMonsterCards
             }
-            return newState;
-        
+
         case GET_ONE_MONSTER_CARD:
-            newState = {
+            return {
                 ...state,
-                monster_card: action.payload
+                current: action.oneMonsterCard
             }
-            return newState;
         
         default:
             return state;
