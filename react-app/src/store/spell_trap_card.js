@@ -1,7 +1,7 @@
-/**************************** CONSTANTS ***********************************/
+/**************************** TYPES ***********************************/
 
-const GET_ALL_SPELL_TRAP_CARDS = "spell_trap_cards/SET_ALL_SPELL_TRAP_CARDS"
-const GET_ONE_SPELL_TRAP_CARD = "spell_trap_cards/SET_ONE_SPELL_TRAP_CARD"
+const GET_ALL_SPELL_TRAP_CARDS = "spell_trap_cards/GET_ALL_SPELL_TRAP_CARDS"
+const GET_ONE_SPELL_TRAP_CARD = "spell_trap_cards/GET_ONE_SPELL_TRAP_CARD"
 
 /***************************** ACTION CREATORS *********************************/
 
@@ -17,9 +17,9 @@ const getSpellTrapCard = (oneSpellTrapCard) => ({
 
 /***************************** INITIAL STATE *********************************/
 
-const intialState = {
-    spell_trap_cards: {},
-    spell_trap_card: {}
+const initialState = {
+    all: {},
+    current: {}
 }
 
 /********************************* THUNKS ************************************/
@@ -34,12 +34,10 @@ export const getAllSpellTrapCards = () => async (dispatch) => {
 
     const allSpellTrapCards = await response.json()
     dispatch(getSpellTrapCards(allSpellTrapCards))
-    return allSpellTrapCards
 }
 
 
-
-const getOneSpellTrapCard = (id) => async (dispatch) => {
+export const getOneSpellTrapCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/spell_trap_cards/${id}`)
 
     if (!response.ok) {
@@ -49,25 +47,24 @@ const getOneSpellTrapCard = (id) => async (dispatch) => {
 
     const oneSpellTrapCard = await response.json()
     dispatch(getSpellTrapCard(oneSpellTrapCard))
-    return oneSpellTrapCard
 }
 
 /****************************** REDUCER ************************************/
 
-export default function spellTrapCardsReducer(state = intialState, action) {
+export default function spellTrapCardsReducer(state = initialState, action) {
     let newState;
 
     switch (action.type) {
         case GET_ALL_SPELL_TRAP_CARDS:
             return {
                 ...state,
-                spell_trap_cards: action.allSpellTrapCards
+                all: action.allSpellTrapCards
             }
 
         case GET_ONE_SPELL_TRAP_CARD:
             return {
                 ...state,
-                spell_trap_card: action.onSpellTrapCard
+                current: action.allSpellTrapCards
             }
 
         default:

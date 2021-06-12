@@ -7,24 +7,24 @@ const GET_ONE_MONSTER_CARD = "monster_cards/GET_ONE_MONSTER_CARD"
 
 const getMonsterCards = (allMonsterCards) => ({
     type: GET_ALL_MONSTER_CARDS,
-    payload: allMonsterCards
+    allMonsterCards
 });
 
 const getMonsterCard = (oneMonsterCard) => ({
     type: GET_ONE_MONSTER_CARD,
-    payload: oneMonsterCard
+    oneMonsterCard
 });
 
 /***************************** INITIAL STATE *********************************/
 
 const initial_state = { 
-    monster_cards: null,
-    monster_card: null
+    monster_cards: {},
+    monster_card: {}
 }
 
 /********************************* THUNKS ************************************/
 
-const getAllMonsterCards = () => async (dispatch) => {
+export const getAllMonsterCards = () => async (dispatch) => {
     const response = await fetch('/api/monster_cards')
 
     if (!response.ok) {
@@ -36,7 +36,7 @@ const getAllMonsterCards = () => async (dispatch) => {
     dispatch(getMonsterCards(allMonsterCards))
 }
 
-const getOneMonsterCard = (id) => async (dispatch) => {
+export const getOneMonsterCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/monster_cards/${id}`)
 
     if (!response.ok) {
@@ -55,18 +55,14 @@ export default function monsterCardsReducer(state = initial_state, action) {
 
     switch(action.type) {
         case GET_ALL_MONSTER_CARDS:
-            newState = {
-                ...state,
-                monster_cards: action.payload
-            }
-            return newState;
+            newState = {...state}
+            newState = action.allMonsterCards
+            return newState
         
         case GET_ONE_MONSTER_CARD:
-            newState = {
-                ...state,
-                monster_card: action.payload
-            }
-            return newState;
+            newState = { ...state }
+            newState = action.oneMonsterCard
+            return newState
         
         default:
             return state;
