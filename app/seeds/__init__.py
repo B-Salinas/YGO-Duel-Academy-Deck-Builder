@@ -4,6 +4,8 @@ from .dorms import seed_dorms, undo_dorms
 from .titles import seed_titles, undo_titles
 from .profile_images import seed_profile_images, undo_profile_images
 
+from .decks import seed_decks, undo_decks
+
 from .monster_card_types import seed_monster_card_types, undo_monster_card_types
 from .monster_card_races import seed_monster_card_races, undo_monster_card_races
 from .monster_card_attributes import seed_monster_card_attributes, undo_monster_card_attributes
@@ -28,6 +30,8 @@ def seed():
     seed_profile_images()
     seed_users()
 
+    seed_decks()
+
     seed_monster_card_types()
     seed_monster_card_races()
     seed_monster_card_attributes()
@@ -48,6 +52,8 @@ def undo():
     undo_titles()
     undo_profile_images
     undo_users()
+
+    undo_decks()
 
     undo_monster_card_types()
     undo_monster_card_races()

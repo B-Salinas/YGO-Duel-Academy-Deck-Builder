@@ -54,6 +54,27 @@ const initialState = {
 
 // the reducer only goes to the index.js file in the store folder
 export default function monsterCardsReducer(state = initialState, action) {
+    switch (action.type) {
+        case GET_ALL_MONSTER_CARDS:
+            return {
+                ...state,
+                all: action.allMonsterCards
+            }
+
+        case GET_ONE_MONSTER_CARD:
+            return {
+                ...state,
+                current: action.oneMonsterCard
+            }
+
+        default:
+            return state;
+    }
+}
+/****************************** REDUCER ************************************/
+
+// the reducer only goes to the index.js file in the store folder
+export default function monsterCardsReducer(state = initialState, action) {
     switch(action.type) {
         case GET_ALL_MONSTER_CARDS:
             return {

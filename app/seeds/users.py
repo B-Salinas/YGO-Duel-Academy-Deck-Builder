@@ -34,6 +34,18 @@ def seed_users():
     db.session.add(jaden)
 
 
+    # 3
+    yugi = User(
+        name="Yugi Moto",
+        email="kog@yugioh.com",
+        password="gramps",
+        dorm_id=1,
+        title_id=9,
+        profile_img=1
+    )
+    db.session.add(yugi)
+
+
 
 
     db.session.commit()

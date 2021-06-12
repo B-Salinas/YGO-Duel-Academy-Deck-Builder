@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import backref, relationship
-from .user_card import user_monster_cards, user_spell_trap_cards
+from .trunk import user_monster_cards, user_spell_trap_cards
 
 from .monster_card import Monster_Card
 from .spell_trap_card import Spell_Trap_Card

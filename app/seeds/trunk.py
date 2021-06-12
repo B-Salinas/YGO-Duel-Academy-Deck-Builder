@@ -1,6 +1,6 @@
 from app.models import db, User, Monster_Card, Spell_Trap_Card
 
-def seed_user_cards():
+def seed_trunk():
 
     demo = User.query.get(1)
     demo.monster_cards = Monster_Card.query.all()
@@ -10,7 +10,7 @@ def seed_user_cards():
 
 
 
-def undo_user_cards():
+def undo_trunk():
     db.session.execute('TRUNCATE user_monster_cards RESTART IDENTITY CASCADE;')
     db.session.execute('TRUNCATE user_spell_trap_cards RESTART IDENTITY CASCADE;')
 

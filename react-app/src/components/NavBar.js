@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 // import the thunks that you need
 import { getAllSpellTrapCards } from '../store/spell_trap_card'
 import { getAllMonsterCards } from '../store/monster_card';
+import { getAllDecks } from '../store/deck'
 
 // CHNAGE THE NAMES
 import { getAllTypes, getAllRaces, getAllAttributes } from '../store/monster_card_extra';
@@ -18,18 +19,20 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const spell_trap_cards = useSelector(state => state.spell_trap_cards.all)
   const monster_cards = useSelector(state => state.monster_cards.all)
-  const mc_types = useSelector(state => state.monster_card_extras.types)
+  // const mc_types = useSelector(state => state.monster_card_extras.types)
+  const decks = useSelector(state => state.decks.all)
 
   useEffect(() => {
     dispatch(getAllSpellTrapCards());
     dispatch(getAllMonsterCards());
     dispatch(getAllTypes());
+    dispatch(getAllDecks())
   }, [dispatch])
 
   // useEffect(() => {
   //   dispatch(getAllMonsterCards());
   // }, [dispatch])
-
+ 
   return (
     <nav>
       <ul>
