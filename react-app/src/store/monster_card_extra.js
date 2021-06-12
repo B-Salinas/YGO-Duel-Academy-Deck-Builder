@@ -35,6 +35,9 @@ export const getAllTypes = () => async (dispatch) => {
     dispatch(getTypes(allTypes))
 }
 
+
+
+
 export const getAllRaces = () => async (dispatch) => {
     const response = await fetch('/api/monster_card_races')
 
@@ -46,6 +49,9 @@ export const getAllRaces = () => async (dispatch) => {
     const allRaces = await response.json()
     dispatch(getRaces(allRaces))
 }
+
+
+
 
 export const getAllAttributes = () => async (dispatch) => {
     const response = await fetch('/api/monster_card_attributes')

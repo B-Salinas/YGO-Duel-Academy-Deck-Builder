@@ -29,6 +29,9 @@ export const getAllMonsterCards = () => async (dispatch) => {
     dispatch(getMonsterCards(allMonsterCards))
 }
 
+
+
+
 export const getOneMonsterCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/monster_cards/${id}`)
 

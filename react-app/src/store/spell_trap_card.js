@@ -37,6 +37,8 @@ export const getAllSpellTrapCards = () => async (dispatch) => {
 }
 
 
+
+
 export const getOneSpellTrapCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/spell_trap_cards/${id}`)
 

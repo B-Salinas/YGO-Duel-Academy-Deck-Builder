@@ -5,7 +5,10 @@ import LogoutButton from './auth/LogoutButton';
 // import the thunks that you need
 import { getAllSpellTrapCards } from '../store/spell_trap_card'
 import { getAllMonsterCards } from '../store/monster_card';
+
+// CHNAGE THE NAMES
 import { getAllTypes, getAllRaces, getAllAttributes } from '../store/monster_card_extra';
+// import { getAllTypes, getAllRaces } from '../store/spell_trap_card_extra'
 
 // making sure my store works
 import { useState, useEffect } from 'react';
