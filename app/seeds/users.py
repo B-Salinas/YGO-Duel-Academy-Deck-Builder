@@ -14,10 +14,7 @@ def seed_users():
     demo = User(
         name="Demo Duelist",
         email="demo@aa.io",
-        password="password",
-        dorm_id=1,
-        title_id=1,
-        profile_img=1
+        password="password"
     )
     db.session.add(demo)
 
@@ -26,10 +23,7 @@ def seed_users():
     jaden = User(
         name="Jaden Yugi",
         email="J.Yugi@da.com",
-        password="winged_kuriboh",
-        dorm_id=1, 
-        title_id=5,
-        profile_img=2
+        password="winged_kuriboh"
     )
     db.session.add(jaden)
 
@@ -38,10 +32,7 @@ def seed_users():
     yugi = User(
         name="Yugi Moto",
         email="kog@yugioh.com",
-        password="gramps",
-        dorm_id=1,
-        title_id=9,
-        profile_img=1
+        password="gramps"
     )
     db.session.add(yugi)
 

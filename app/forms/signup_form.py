@@ -4,7 +4,6 @@ from wtforms import validators
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
-from app.models import Dorm, Title, Profile_Image
 
 def user_exists(form, field):
     print("Checking if user exits", field.data)
@@ -22,6 +21,13 @@ class SignUpForm(FlaskForm):
     name = StringField("Full Name", validators=[DataRequired()])
     email = StringField("Email Address", validators=[DataRequired(), user_exists])
     password = StringField("Password", validators=[DataRequired()])
-    dorm = SelectField("Dorm", validators=[DataRequired()], choices=Dorm.query.all())
-    title = SelectField("Title", validators=[DataRequired()], choices=Title.query.all()) # Connect w database to seed this
-    profile_image = SelectField("Profile Image", validators=[DataRequired()], choices=Profile_Image.query.all()) # Connect w database to seed this
+    # dorm = SelectField("Dorm", validators=[DataRequired()], choices = final_dorm_list)
+    # title = SelectField("Title", validators=[DataRequired()]) # Connect w database to seed this
+    # profile_image = SelectField("Profile Image", validators=[DataRequired()]) # Connect w database to seed this
+
+
+    # dorm = SelectField("Dorm", validators=[DataRequired()])
+    # Connect w database to seed this
+    # title = SelectField("Title", validators=[
+    #                     DataRequired()], choices=Dorm.query.all())
+    # profile_image = SelectField("Profile Image", validators=[DataRequired()])  # Connect w database to seed this

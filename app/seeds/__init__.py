@@ -1,8 +1,6 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .dorms import seed_dorms, undo_dorms
-from .titles import seed_titles, undo_titles
-from .profile_images import seed_profile_images, undo_profile_images
+
 
 from .decks import seed_decks, undo_decks
 
@@ -25,9 +23,7 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
-    seed_dorms()
-    seed_titles()
-    seed_profile_images()
+
     seed_users()
 
     seed_decks()
@@ -48,9 +44,7 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_dorms()
-    undo_titles()
-    undo_profile_images
+
     undo_users()
 
     undo_decks()

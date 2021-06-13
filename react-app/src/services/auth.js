@@ -31,7 +31,7 @@ export const logout = async () => {
 };
 
 
-export const signUp = async (name, email, password, dorm, title, profile_image) => {
+export const signUp = async ({name, email, password}) => {
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     headers: {
@@ -41,9 +41,6 @@ export const signUp = async (name, email, password, dorm, title, profile_image) 
       name,
       email,
       password,
-      dorm,
-      title,
-      profile_image
     }),
   });
   return await response.json();

@@ -59,7 +59,7 @@ export const authenticate = () => async (dispatch) => {
   };
   
   
-  export const signUp = (name, email, password, dorm, title, profile_image) => async (dispatch)  => {
+  export const signUp = ({name, email, password}) => async (dispatch)  => {
     const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -69,13 +69,11 @@ export const authenticate = () => async (dispatch) => {
         name,
         email,
         password,
-        dorm,
-        title,
-        profile_image
       }),
     });
     const data = await response.json();
     if (data.errors) {
+        dispatch(setUser(null))
         return data;
     }
     
