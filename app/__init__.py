@@ -9,9 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 
-from .api.dorm_routes import dorm_routes
-from .api.title_routes import title_routes
-from .api.profile_image_routes import profile_image_routes
+from .api.deck_routes import deck_routes
 
 from .api.monster_card_type_routes import monster_card_type_routes
 from .api.monster_card_race_routes import monster_card_race_routes
@@ -47,9 +45,11 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 
-app.register_blueprint(dorm_routes, url_prefix='/api/dorms')
-app.register_blueprint(title_routes, url_prefix='/api/titles')
-app.register_blueprint(profile_image_routes, url_prefix="/api/profile_images")
+# app.register_blueprint(dorm_routes, url_prefix='/api/dorms')
+# app.register_blueprint(title_routes, url_prefix='/api/titles')
+# app.register_blueprint(profile_image_routes, url_prefix="/api/profile_images")
+
+app.register_blueprint(deck_routes, url_prefix='/api/decks')
 
 app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
 app.register_blueprint(monster_card_type_routes, url_prefix='/api/monster_card_types')
