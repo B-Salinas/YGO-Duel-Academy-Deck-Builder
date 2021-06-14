@@ -20,7 +20,7 @@ from .api.spell_trap_card_type_routes import spell_trap_card_type_routes
 from .api.spell_trap_card_race_routes import spell_trap_card_race_routes
 from .api.spell_trap_card_routes import spell_trap_card_routes
 
-# I do not have api routes for Decks or User_Cards (Joins Table) aka the Trunk
+# I don't have an API Route for the trunk, do I need that??
 
 from .seeds import seed_commands
 
@@ -44,10 +44,6 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-
-# app.register_blueprint(dorm_routes, url_prefix='/api/dorms')
-# app.register_blueprint(title_routes, url_prefix='/api/titles')
-# app.register_blueprint(profile_image_routes, url_prefix="/api/profile_images")
 
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
 

@@ -17,10 +17,6 @@ class Monster_Card(db.Model):
     img_url = db.Column(db.String, nullable=False)
     img_url_small = db.Column(db.String, nullable=False)
 
-    # types = db.relationship("Monster_Card_Type", back_populates="monster_cards")
-    # races = db.relationship("Monster_Card_Race", back_populates="monster_cards")
-    # attributes = db.relationship("Monster_Card_Attribute", back_populates="monster_cards")
-
     def to_dict(self):
         return {
             "id": self.id,

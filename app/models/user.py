@@ -1,5 +1,4 @@
 from .db import db
-# import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
@@ -17,16 +16,9 @@ class User(db.Model, UserMixin):
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, nullable=False, unique=True)
   hashed_password = db.Column(db.String, nullable=False)
-  # dorm_id = db.Column(db.Integer, db.ForeignKey("dorms.id"), nullable=False)
-  # title_id = db.Column(db.Integer, db.ForeignKey("titles.id"), nullable=False)
-  # profile_img = db.Column(db.Integer, db.ForeignKey("profile_images.id"), nullable=False)
 
   monster_cards = db.relationship("Monster_Card", secondary=user_monster_cards, backref="users")
   spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=user_spell_trap_cards, backref="users")
-
-  # dorm = db.relationship("Dorm", back_populates="users")
-  # title = db.relationship("Title", back_populates="users")
-  # profile_image = db.relationship("Profile_Image", back_populates="users")
 
   decks = db.relationship("Deck", back_populates="user")
 
@@ -64,8 +56,5 @@ class User(db.Model, UserMixin):
       "id": self.id,
       "name": self.name,
       "email": self.email,
-      "hashed_password": self.hashed_password,
-      # "dorm_id": self.dorm_id,
-      # "title_id": self.title_id,
-      # "profile_img": self.profile_img
+      "hashed_password": self.hashed_password
     }

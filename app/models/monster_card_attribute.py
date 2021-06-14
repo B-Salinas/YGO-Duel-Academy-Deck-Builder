@@ -7,8 +7,6 @@ class Monster_Card_Attribute(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     attribute = db.Column(db.String, nullable=False)
 
-    # monster_cards = db.relationship("Monster_Card", back_populates="attributes")
-
     def to_dict(self):
         return {
             "id": self.id,

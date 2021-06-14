@@ -10,19 +10,14 @@ import spell_trap_card_extras from './spell_trap_card_extra'
 
 import decks from './deck'
 
-// import user_extras from './user_extra'
-
-
 const rootReducer = combineReducers({
     session,
-    // user_extras,
     monster_cards,
     monster_card_extras,
     spell_trap_cards,
     spell_trap_card_extras,
     decks
 });
-
 
 let enhancer;
 

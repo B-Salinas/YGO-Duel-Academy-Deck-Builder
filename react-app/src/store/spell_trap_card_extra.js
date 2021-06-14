@@ -29,7 +29,7 @@ export const getAllTypes = () => async (dispatch) => {
     dispatch(getTypes(allTypes))
 }
 
-
+/*****/
 
 export const getAllRaces = () => async (dispatch) => {
     const response = await fetch('/api/spell_trap_card_races')

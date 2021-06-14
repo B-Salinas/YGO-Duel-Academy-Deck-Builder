@@ -11,9 +11,12 @@ import {
   FormHelperText,
   VStack,
   Input,
+  InputGroup,
   Button,
   isRequired,
-  Flex
+  Flex,
+  Box,
+  Spacer
 } from "@chakra-ui/react";
 
 const LoginForm = () => {
@@ -66,46 +69,59 @@ const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        
         <div>
           {errors.map((error, idx) => <div key={idx}>{error}</div>)}
         </div>
-        <VStack spacing={2}>
-          <FormControl isRequired>
-      
-            <FormLabel>Email address</FormLabel>
-            <Input
-              placeholder="Email Address"
-              type="email"
-              value={email}
-              onChange={updateEmail}
-            />
+
+        <VStack spacing="24px">
+          <FormControl isRequired >
+            <FormLabel>Email Address</FormLabel>
+            <InputGroup>
+              <Input
+                placeholder="Email Address"
+                type="email"
+                value={email}
+                onChange={updateEmail}
+              />s
+            </InputGroup>
+            
+            <br />
 
             <FormLabel>Password</FormLabel>
-            <Input
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={updatePassword}
-            />
+            <InputGroup>
+              <Input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={updatePassword}
+              />
+            </InputGroup>
+            
 
-            <Flex
-              align={"right"}
-              justify={"right"}
-            >
-              <Button type="Submit" bg='#0055FF' color='white' _hover={{ bg: '#004de6' }}>Continue</Button>
+            <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
+
+              <Box>
+                <Button  type="Submit" bg='#0055FF' color='white' _hover={{ bg: '#004de6' }}>Continue</Button>
+              </Box>
+
+              <Spacer />
+
+              <Box>
+                <form onSubmit={handleDemo}>
+                  <Flex align={"right"} justify={"right"} >
+                    <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: '#004de6' }}>Guest Duelist</Button>
+                  </Flex>
+                </form>
+              </Box>
+
             </Flex>
+            
           </FormControl>
         </VStack>
       </form>
 
-      <form onSubmit={handleDemo}>
-            <Flex
-              align={"right"}
-              justify={"right"}
-            >
-              <Button type="Submit" bg='#0055FF' color='white' _hover={{ bg: '#004de6' }}>Guest Duelist</Button>
-            </Flex>
-      </form>
+      
     </>
   );
 };
