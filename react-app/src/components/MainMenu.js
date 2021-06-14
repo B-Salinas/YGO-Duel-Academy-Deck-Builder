@@ -32,12 +32,29 @@ export default function MainMenu () {
                 <br />
 
                 <VStack align={"center"} justify={"center"} spacing={10}>
+                
+                    <Flex>
+                        <NavLink to="/store" exact={true} activeClassName="active">
+                            <Button bg={"green.500"} color={"white"} _hover={{ bg: "green.700" }} w={"750px"} letterSpacing='widest'>
+                                STORE
+                            </Button>
+                        </NavLink>
+                    </Flex>
+
                     <Flex>
                         <NavLink to="/deckbuilder" exact={true} activeClassName="active"> 
                             <Button bg={"red.600"} color={"white"} _hover={{bg: "red.900" }} w={"750px"} letterSpacing='widest'>
                                 DECK BUILDER
                             </Button>
                         </NavLink> 
+                    </Flex>
+
+                    <Flex>
+                        <NavLink to="/store" exact={true} activeClassName="active">
+                            <Button bg={"blue.400"} color={"white"} _hover={{ bg: "blue.700" }} w={"750px"} letterSpacing='widest'>
+                                USER PROFILE
+                            </Button>
+                        </NavLink>
                     </Flex>
 
                     <Flex>
