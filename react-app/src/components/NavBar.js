@@ -34,33 +34,39 @@ const NavBar = () => {
   // }, [dispatch])
  
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
-    </nav>
+    // <nav>
+    //   <ul>
+    //     <li>
+    //       <NavLink to="/" exact={true} activeClassName="active">
+    //         Home
+    //       </NavLink>
+    //     </li>
+    //     <li>
+    //       <NavLink to="/login" exact={true} activeClassName="active">
+    //         Login
+    //       </NavLink>
+    //     </li>
+    //     <li>
+    //       <NavLink to="/sign-up" exact={true} activeClassName="active">
+    //         Sign Up
+    //       </NavLink>
+    //     </li>
+    //     <li>
+    //       <NavLink to="/users" exact={true} activeClassName="active">
+    //         Users
+    //       </NavLink>
+    //     </li>
+    //     <li>
+    //       <LogoutButton />
+    //     </li>
+    //   </ul>
+    // </nav>
+
+    // <>
+      {/* <Flex >
+        <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} type="Submit" color='white' > BACK TO MENU </Button>
+      </Flex>
+    </> */}
   );
 }
 

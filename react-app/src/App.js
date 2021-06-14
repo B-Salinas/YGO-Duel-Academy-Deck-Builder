@@ -16,6 +16,8 @@ import SplashPage from "./components/SplashPage";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 
+import Footer from "./components/Footer";
+
 
 import { authenticate } from "./store/session";
 
@@ -64,6 +66,7 @@ function App() {
           <MainMenu />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

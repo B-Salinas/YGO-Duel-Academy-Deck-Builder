@@ -8,21 +8,35 @@ import {
     Text,
     VStack,
     ButtonGroup,
-    Heading
+    Heading,
+    Container,
+    Grid
 } from "@chakra-ui/react";
 import { NavLink } from 'react-router-dom';
-import { SiLinkedin, SiGithub, SiGit } from 'react-icons/si';
+import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 export default function AboutPage() {
+
+
+
     return (
         <>
             
             <Flex bg={'#f7f7f7'} direction={"column"}>
 
-                <Box align={"center"} justify={"center"} direction={'column'} mt={8}>
-                    <Heading >
-                        About the Dev
-                    </Heading>
+                <Box align={"center"} justify={"center"} direction={'row'} mt={8}>
+                    <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                        <Flex ml={10}>
+                            <NavLink to="/mainmenu" exact={true} activeClassName="active">
+                                <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > BACK TO MENU </Button>
+                            </NavLink>
+                        </Flex>
+                        <Box>
+                            <Heading>
+                                About the Dev
+                            </Heading>
+                        </Box>
+                    </Grid>
                 </Box>
 
                 <Spacer />
@@ -63,7 +77,7 @@ export default function AboutPage() {
                                 </ButtonGroup>
 
                                 <br />
-                                <Box align={"left"} justify={"center"} w={'700px'} >
+                                <Container align={"left"} justify={"center"} w={'700px'} >
                                     <Text fontSize="lg">
                                         After graduating with a B.S. in Mathematics, I decided to transition into tech and software development by attending App Academy as a full-time software engineering student in the midst of a global pandemic.
                                     </Text>
@@ -71,7 +85,7 @@ export default function AboutPage() {
                                     <Text>
                                         In my free time, I enjoy going on long walks and reading — I'm currently reading "all about love: new visions" by bell hooks and "In the Realm of Hungry Ghosts" by Gabor Maté
                                     </Text>
-                                </Box>
+                                </Container>
                                 
                             </VStack>
                         </VStack>
