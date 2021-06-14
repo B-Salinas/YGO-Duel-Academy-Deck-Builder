@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { signUp, login } from '../../store/session';
 
 import {
   FormControl,
@@ -10,13 +10,17 @@ import {
   FormHelperText,
   VStack,
   Input,
+  InputGroup,
   Button,
   isRequired,
-  Flex
+  Flex,
+  Box,
+  Spacer
 } from "@chakra-ui/react";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(state => state.session.user);
 
   const [name, setName] = useState("");
@@ -45,6 +49,19 @@ const SignUpForm = () => {
     }
   }
 
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    const email = 'demo@aa.io';
+    const password = 'password'
+    const dispatched = await dispatch(login(email, password))
+
+    if (dispatched.errors) {
+      setErrors(dispatched.errors)
+    } else {
+      history.push('/')
+    }
+  };
+
   const updateName = (e) => {
     setName(e.target.value);
   };
@@ -72,46 +89,72 @@ const SignUpForm = () => {
           <VStack spacing={2}>
             <FormControl isRequired>
               <FormLabel>Full Name</FormLabel>
-              <Input
-                placeholder="Full Name"
-                type="text"
-                value={name} 
-                onChange={updateName}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Full Name"
+                  type="text"
+                  value={name}
+                  onChange={updateName}
+                /> 
+              </InputGroup>
+              
+              <br />
 
               <FormLabel>Email address</FormLabel>
-              <Input
-                placeholder="Email Address"
-                type="email" 
-                value={email}
-                onChange={updateEmail}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Email Address"
+                  type="email"
+                  value={email}
+                  onChange={updateEmail}
+                />
+              </InputGroup>
+
+              <br />
 
               <FormLabel>Password</FormLabel>
-              <Input 
-                placeholder="Password"
-                type="password"
-                value={password} 
-                onChange={updatePassword}
-              />
+              <InputGroup>
+                <Input 
+                  placeholder="Password"
+                  type="password"
+                  value={password} 
+                  onChange={updatePassword}
+                />
+              </InputGroup>
+
+              <br />
 
               <FormLabel>Confirm Password</FormLabel>
-              <Input
-                placeholder="Confirm Password"
-                type="password"
-                value={repeatPassword}
-                onChange={updateRepeatPassword}
-              />
+              <InputGroup>
+                <Input
+                  placeholder="Confirm Password"
+                  type="password"
+                  value={repeatPassword}
+                  onChange={updateRepeatPassword}
+                />
+              </InputGroup>
 
-              <Flex
-                align={"right"}
-                justify={"right"}
-              >
+            <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
+
+              <Box>
                 <Button type="Submit" bg='#0055FF' color='white' _hover={{ bg: '#004de6' }}>New Game</Button>
-              </Flex>
+              </Box>
+
+              <Spacer />
+
+              <Box>
+                <form onSubmit={handleDemo}>
+                  <Flex align={"right"} justify={"right"} >
+                    <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: '#004de6' }}>Guest Duelist</Button>
+                  </Flex>
+                </form>
+              </Box>
+
+            </Flex>
             </FormControl>
           </VStack>
         </form>
+
     </>
   );
 };

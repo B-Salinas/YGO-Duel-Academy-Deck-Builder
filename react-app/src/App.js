@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import AuthPage from "./components/AuthPage";
 
 import NavBar from "./components/NavBar";
 
@@ -35,10 +36,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/login" exact={true}>
-          <LoginForm />
+          <AuthPage />
         </Route>
         <Route path="/sign-up" exact={true}>
-          <SignUpForm />
+          <AuthPage />
         </Route>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
