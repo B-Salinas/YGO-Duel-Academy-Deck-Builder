@@ -6,8 +6,11 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import AuthPage from "./components/AuthPage";
+<<<<<<< HEAD
 import MainMenu from "./components/MainMenu";
 import SplashPage from "./components/SplashPage";
+=======
+>>>>>>> a4420d3fdd1f08db677673b30bba58cd78a76630
 
 import NavBar from "./components/NavBar";
 import DeckBuilder from "./components/DeckBuilder";

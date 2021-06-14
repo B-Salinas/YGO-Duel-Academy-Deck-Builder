@@ -137,7 +137,11 @@ const SignUpForm = () => {
             <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
 
               <Box>
+<<<<<<< HEAD
                 <Button type="Submit" bg='blue.400' color='white' _hover={{ bg: 'blue.600' }}>New Game</Button>
+=======
+                <Button type="Submit" bg='#0055FF' color='white' _hover={{ bg: '#004de6' }}>New Game</Button>
+>>>>>>> a4420d3fdd1f08db677673b30bba58cd78a76630
               </Box>
 
               <Spacer />
@@ -145,7 +149,11 @@ const SignUpForm = () => {
               <Box>
                 <form onSubmit={handleDemo}>
                   <Flex align={"right"} justify={"right"} >
+<<<<<<< HEAD
                     <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
+=======
+                    <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: '#004de6' }}>Guest Duelist</Button>
+>>>>>>> a4420d3fdd1f08db677673b30bba58cd78a76630
                   </Flex>
                 </form>
               </Box>
