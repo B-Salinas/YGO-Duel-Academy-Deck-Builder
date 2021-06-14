@@ -8,6 +8,9 @@ import SignUpForm from "./components/auth/SignUpForm";
 import AuthPage from "./components/AuthPage";
 
 import NavBar from "./components/NavBar";
+import DeckBuilder from "./components/DeckBuilder";
+import AboutPage from "./components/AboutPage";
+import MainMenu from './components/MainMenu'
 
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -33,8 +36,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
+        <Route path="/" exact={true}>
+          <SplashPage />
+        </Route>
         <Route path="/login" exact={true}>
           <AuthPage />
         </Route>
@@ -44,11 +50,17 @@ function App() {
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
         </ProtectedRoute>
+        <ProtectedRoute path="/deckbuilder" exact={true} >
+          <DeckBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path="/about" exact={true} >
+          <AboutPage />
+        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path="/mainmenu" exact={true} >
+          <MainMenu />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -23,7 +23,7 @@ export default function AuthPage() {
             <>
                 <Flex align={"center"} justify={"center"} direction={'row'} mt={10}>
                     {formRender ? <p> Already have an account? &nbsp; </p> : <p> Don't have an account? &nbsp; </p>}
-                    <Button onClick={() => setFormRender(!formRender)}>
+                    <Button onClick={() => setFormRender(!formRender)} _hover={{ bg: 'gray.500', color: 'white'}}>
                         {formRender ? "Log In" : "Sign Up"}
                     </Button >
                 </Flex>
@@ -40,8 +40,7 @@ export default function AuthPage() {
                 <Box align={"center"} justify={"center"} direction={'column'} mt={8}>
                     <Text fontSize="4xl">
                         {formRender ? <center> <strong> Create a YGO DA Deck Builder Account </strong></center> : <center> <strong> Log in to YGO DA Deck Builder</strong></center>} 
-                    </Text>
-                    
+                    </Text> 
                 </Box>
 
                 <Flex justify={"center"} h={'100vh'} bg={'#f7f7f7'} >
