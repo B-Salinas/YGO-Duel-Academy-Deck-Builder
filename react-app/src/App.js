@@ -17,6 +17,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 
 import Footer from "./components/Footer";
+import DeckList from "./components/Decklist";
 
 
 import { authenticate } from "./store/session";
@@ -50,20 +51,25 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <AuthPage />
         </Route>
-        <ProtectedRoute path="/users" exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/deckbuilder" exact={true} >
-          <DeckBuilder />
+
+
+        <ProtectedRoute path="/mainmenu" exact={true} >
+          <MainMenu />
         </ProtectedRoute>
         <ProtectedRoute path="/about" exact={true} >
           <AboutPage />
         </ProtectedRoute>
+        <ProtectedRoute path="/deckbuilder" exact={true} >
+          <DeckBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path="/decklist" exact={true} >
+          <DeckList />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users" exact={true} >
+          <UsersList/>
+        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/mainmenu" exact={true} >
-          <MainMenu />
         </ProtectedRoute>
       </Switch>
       <Footer />
