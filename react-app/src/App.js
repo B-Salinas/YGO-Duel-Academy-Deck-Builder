@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar";
 import DeckBuilder from "./components/DeckBuilder";
 import AboutPage from "./components/AboutPage";
 import MainMenu from './components/MainMenu'
+import SplashPage from "./components/SplashPage";
 
 import UsersList from "./components/UsersList";
 import User from "./components/User";
