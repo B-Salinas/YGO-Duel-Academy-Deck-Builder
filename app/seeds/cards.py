@@ -79,7 +79,6 @@ def seed_all_cards():
     absolute_path = os.path.dirname(os.path.abspath(__file__))
 
     all_cards = loads(open(absolute_path + "/all_gba_cards.json").read())
-    # all_cards = [card["data"][0] for card in all_cards]
 
     for card in all_cards:
         db.session.add(card_creator(card["data"][0]))

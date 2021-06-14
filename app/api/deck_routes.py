@@ -1,4 +1,4 @@
-from app.models import db, Deck, deck
+from app.models import db, Deck
 from flask import Blueprint, jsonify
 
 deck_routes = Blueprint("decks", __name__)

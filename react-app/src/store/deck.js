@@ -29,6 +29,8 @@ export const getAllDecks = () => async (dispatch) => {
     dispatch(getDecks(allDecks))
 }
 
+/*****/
+
 export const getOneDeck = (id) => async (dispatch) => {
     const response = await fetch(`/api/decks/${id}`)
 

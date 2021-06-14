@@ -13,9 +13,6 @@ class Spell_Trap_Card (db.Model):
     img_url = db.Column(db.String, nullable=False)
     img_url_small = db.Column(db.String, nullable=False)
 
-    # types = db.relationship("Spell_Trap_Card_Type", back_populates="spell_trap_cards")
-    # races = db.relationship("Spell_Trap_Card_Race", back_populates="spell_trap_cards")
-
     def to_dict(self):
         return {
             "id": self.id,

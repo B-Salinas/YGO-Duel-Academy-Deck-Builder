@@ -30,7 +30,7 @@ export const getAllMonsterCards = () => async (dispatch) => {
 }
 
 
-
+/*****/
 
 export const getOneMonsterCard = (id) => async (dispatch) => {
     const response = await fetch(`/api/monster_cards/${id}`)
