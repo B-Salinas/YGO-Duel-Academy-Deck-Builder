@@ -5,8 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import AuthPage from "./components/AuthPage";
+import MainMenu from "./components/MainMenu";
+import SplashPage from "./components/SplashPage";
 
 import NavBar from "./components/NavBar";
+import DeckBuilder from "./components/DeckBuilder";
+import AboutPage from "./components/AboutPage";
 
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -32,22 +37,31 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
+        <Route path="/" exact={true}>
+          <SplashPage />
+        </Route>
         <Route path="/login" exact={true}>
-          <LoginForm />
+          <AuthPage />
         </Route>
         <Route path="/sign-up" exact={true}>
-          <SignUpForm />
+          <AuthPage />
         </Route>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
         </ProtectedRoute>
+        <ProtectedRoute path="/deckbuilder" exact={true} >
+          <DeckBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path="/about" exact={true} >
+          <AboutPage />
+        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path="/mainmenu" exact={true} >
+          <MainMenu />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
