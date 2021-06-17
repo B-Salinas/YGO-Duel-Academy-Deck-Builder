@@ -32,6 +32,15 @@ export default function MainMenu () {
                 <br />
 
                 <VStack align={"center"} justify={"center"} spacing={10}>
+                
+                    <Flex>
+                        <NavLink to="/store" exact={true} activeClassName="active">
+                            <Button bg={"green.500"} color={"white"} _hover={{ bg: "green.700" }} w={"750px"} letterSpacing='widest'>
+                                STORE
+                            </Button>
+                        </NavLink>
+                    </Flex>
+
                     <Flex>
                         <NavLink to="/deckbuilder" exact={true} activeClassName="active"> 
                             <Button bg={"red.600"} color={"white"} _hover={{bg: "red.900" }} w={"750px"} letterSpacing='widest'>
@@ -41,12 +50,19 @@ export default function MainMenu () {
                     </Flex>
 
                     <Flex>
+                        <NavLink to="/users/<int:id>" exact={true} activeClassName="active">
+                            <Button bg={"blue.400"} color={"white"} _hover={{ bg: "blue.700" }} w={"750px"} letterSpacing='widest'>
+                                USER PROFILE
+                            </Button>
+                        </NavLink>
+                    </Flex>
+
+                    <Flex>
                         <NavLink to="/about" exact={true} activeClassName="active">
                             <Button bg={"orange.400"} color={"white"} w={"750px"} letterSpacing='widest' _hover={{ bg: "orange.700", color: "white" }}  >
                                 ABOUT THE DEV
                             </Button>
                         </NavLink>
-                        
                     </Flex>
 
                     <Flex>
