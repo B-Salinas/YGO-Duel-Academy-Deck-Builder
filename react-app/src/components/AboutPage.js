@@ -33,7 +33,7 @@ export default function AboutPage() {
                         </Flex>
                         <Box>
                             <Heading>
-                                About the Dev
+                                ABOUT THE DEV
                             </Heading>
                         </Box>
                     </Grid>

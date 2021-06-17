@@ -12,6 +12,7 @@ import DeckBuilder from "./components/DeckBuilder";
 import AboutPage from "./components/AboutPage";
 import MainMenu from './components/MainMenu'
 import SplashPage from "./components/SplashPage";
+import Store from './components/Store'
 
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -70,6 +71,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path="/store" exact={true} >
+          <Store />
         </ProtectedRoute>
       </Switch>
       <Footer />

@@ -50,7 +50,7 @@ export default function MainMenu () {
                     </Flex>
 
                     <Flex>
-                        <NavLink to="/store" exact={true} activeClassName="active">
+                        <NavLink to="/users/<int:id>" exact={true} activeClassName="active">
                             <Button bg={"blue.400"} color={"white"} _hover={{ bg: "blue.700" }} w={"750px"} letterSpacing='widest'>
                                 USER PROFILE
                             </Button>
@@ -63,7 +63,6 @@ export default function MainMenu () {
                                 ABOUT THE DEV
                             </Button>
                         </NavLink>
-                        
                     </Flex>
 
                     <Flex>
