@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-  <img src="/ygo-da-gba-homescreen.gif" alt="YGO Duel Academy GBA Game Home Screen" width="750" height="500">
+  <img src="/other/ygo-da-gba-homescreen.gif" alt="YGO Duel Academy GBA Game Home Screen" width="750" height="500">
 </p>
 
 ## Technologies
@@ -59,8 +59,24 @@
 - Includes csrf attack protection and performs front-end and back-end validation on forms.
 
 ## Wiki Pages
+
+#### API Documentation
+- `/api/auth`
+- `/api/users`
+- `/api/users/:id/decks`
+- `/api/duelist/:id/cards`
+- `/api/store/packs`
+
 #### Database Schema
-![YGO DA Deck Builder Database Schema](/YGO-DA-Deck-Builder.png)
+![YGO DA Deck Builder Database Schema](/other/YGO-DA-Deck-Builder.png)
+
+#### Feature List
+1. User Authenticate
+2. Hosting on Heroku
+3. Trunk CRUD
+4. Deck CRUD
+5. Store
+6. Profile
 
 #### Frontend Routes
 - `/`
@@ -70,12 +86,7 @@
 - `/store`
 - `/users/:id`
 
-#### Backend Routes
-- `/api/auth`
-- `/api/users`
-- `/api/users/:id/decks`
-- `/api/duelist/:id/cards`
-- `/api/store/packs`
+#### [Mock Up](https://xd.adobe.com/view/3ccb6544-dbf4-4a6b-b874-bbfd839d67b6-6998/)
 
 ## Future Implementations
 - Allowing Users to select pre-populated profile pictures upon account creation/new game. 
