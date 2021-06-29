@@ -16,7 +16,7 @@
 <p align="center">
   <a href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder/wiki"><strong>Explore the Wiki »</strong></a> 
   or 
-  <a href="https://en.wikipedia.org/wiki/HTTP_404"><strong>Explore the Mock Up »</strong></a> 
+  <a href="https://xd.adobe.com/view/3ccb6544-dbf4-4a6b-b874-bbfd839d67b6-6998/"><strong>Explore the Mock Up »</strong></a> 
 </p>
 
 <p align="center">
