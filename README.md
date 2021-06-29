@@ -54,7 +54,7 @@
 ## Key Features
 - User authentication is handled using [Werkzeug's Security Helpers](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security) for password hashing.
 - Grants access to features such as creating, editing, renaming, and deleting decks to authorized users only.
-- Designed around a relational database schema, which allows users to browse, sort, and filter cards, as well as update their decks with dynamic data and rendering.
+- Designed around a relational database schema, which allows logged-in Duelists to browse, sort, and filter cards, as well as update their decks with dynamic data and rendering.
 - Makes use of AJAX / API Routes to render elements such as updating and deleting cards and decks asynchronously.
 - Includes csrf attack protection and performs front-end and back-end validation on forms.
 
@@ -71,12 +71,12 @@
 ![YGO DA Deck Builder Database Schema](/other/YGO-DA-Deck-Builder.png)
 
 #### Feature List
-1. User Authenticate
-2. Hosting on Heroku
-3. Trunk CRUD
-4. Deck CRUD
-5. Store
-6. Profile
+- User Authenticate
+- Hosting on Heroku
+- Trunk CRUD
+- Deck CRUD
+- Store
+- Profile
 
 #### Frontend Routes
 - `/`
@@ -89,8 +89,8 @@
 #### [Mock Up](https://xd.adobe.com/view/3ccb6544-dbf4-4a6b-b874-bbfd839d67b6-6998/)
 
 ## Future Implementations
-- Allowing Users to select pre-populated profile pictures upon account creation/new game. 
-- Allowing Duelist to favorite cards in their trunk. 
+- Allowing Duelists to select pre-populated profile pictures upon account creation/new game. 
+- Allowing Duelists to favorite cards in their trunk. 
 - Dynamically rendering music, much like the in-game Deck Builder.
 
 ---
