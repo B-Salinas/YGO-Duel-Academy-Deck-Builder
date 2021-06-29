@@ -3,6 +3,8 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
+
+    url_path = "https://res.cloudinary.com/soundtrack-2/image/upload/v1623173089/ygo-da-deck-builder/profile_images/"
     
     # 1
     demo = User(
@@ -11,7 +13,9 @@ def seed_users():
         password="password",
         dorm="Slifer Red Dorm",
         title="Apprentice Duelist",
-        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1623173089/ygo-da-deck-builder/profile_images/prof_banner_c5qipu.png"
+        profile_img='{url}{char}'.format(
+            url=url_path, 
+            char="prof_banner_c5qipu.png")
         
     )
     db.session.add(demo)
@@ -24,7 +28,9 @@ def seed_users():
         password="winged_kuriboh",
         dorm="Slifer Red Dorm",
         title="Superior Duelist",
-        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1623173089/ygo-da-deck-builder/profile_images/jaden_yugi_nhd8fu.png"
+        profile_img='{url}{char}'.format(
+            url=url_path, 
+            char="jaden_yugi_nhd8fu.png")
     )
     db.session.add(jaden)
 
@@ -36,7 +42,9 @@ def seed_users():
         password="gramps",
         dorm="Slifer Red Dorm",
         title="King of Games",
-        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1624999224/ygo-da-deck-builder/profile_images/yugi-moto_x30ozk.png"
+        profile_img='{url}{char}'.format(
+            url=url_path, 
+            char="yugi-moto_x30ozk.png")
     )
     db.session.add(yugi)
 
