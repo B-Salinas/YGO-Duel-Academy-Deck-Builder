@@ -64,15 +64,17 @@
 
 #### Frontend Routes
 - `/`
-- `/Edit-Deck`
-- `/Store`
-- `/Duelist/:id`
+- `/mainmenu`
+- `/deck-builder`
+- `/deck-list`
+- `/store`
+- `/users/:id`
 
 #### Backend Routes
 - `/api/auth`
-- `/api/duelist`
-- `/api/duelist/:id/deck`
-- `/api/duelist/:id/card`
+- `/api/users`
+- `/api/users/:id/decks`
+- `/api/duelist/:id/cards`
 - `/api/store/packs`
 
 ## Future Implementations
