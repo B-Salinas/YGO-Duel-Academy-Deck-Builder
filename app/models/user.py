@@ -16,6 +16,9 @@ class User(db.Model, UserMixin):
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, nullable=False, unique=True)
   hashed_password = db.Column(db.String, nullable=False)
+  dorm = db.Column(db.String, nullable=False)
+  title = db.Column(db.String, nullable=False)
+  profile_img = db.Column(db.String, nullable=False)
 
   monster_cards = db.relationship("Monster_Card", secondary=user_monster_cards, backref="users")
   spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=user_spell_trap_cards, backref="users")
@@ -56,5 +59,8 @@ class User(db.Model, UserMixin):
       "id": self.id,
       "name": self.name,
       "email": self.email,
-      "hashed_password": self.hashed_password
+      "hashed_password": self.hashed_password,
+      "dorm": self.dorm,
+      "title": self.title,
+      "profile_img": self.profile_img
     }

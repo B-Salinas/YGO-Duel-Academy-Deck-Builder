@@ -22,6 +22,12 @@ def seed_decks():
     )
     db.session.add(starter_wind)
 
+    starter_static = Deck(
+        name="Static",
+        user_id=1
+    )
+    db.session.add(starter_wind)
+
 
 
     db.session.commit()

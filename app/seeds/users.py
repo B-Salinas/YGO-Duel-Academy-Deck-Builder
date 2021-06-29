@@ -8,7 +8,11 @@ def seed_users():
     demo = User(
         name="Demo Duelist",
         email="demo@aa.io",
-        password="password"
+        password="password",
+        dorm="Slifer Red Dorm",
+        title="Apprentice Duelist",
+        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1623173089/ygo-da-deck-builder/profile_images/prof_banner_c5qipu.png"
+        
     )
     db.session.add(demo)
 
@@ -17,16 +21,22 @@ def seed_users():
     jaden = User(
         name="Jaden Yugi",
         email="J.Yugi@da.com",
-        password="winged_kuriboh"
+        password="winged_kuriboh",
+        dorm="Slifer Red Dorm",
+        title="Superior Duelist",
+        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1623173089/ygo-da-deck-builder/profile_images/jaden_yugi_nhd8fu.png"
     )
     db.session.add(jaden)
 
 
     # 3
     yugi = User(
-        name="Yugi Moto",
+        name="Yugi Muto",
         email="kog@yugioh.com",
-        password="gramps"
+        password="gramps",
+        dorm="Slifer Red Dorm",
+        title="King of Games",
+        profile_img="https://res.cloudinary.com/soundtrack-2/image/upload/v1624999224/ygo-da-deck-builder/profile_images/yugi-moto_x30ozk.png"
     )
     db.session.add(yugi)
 
