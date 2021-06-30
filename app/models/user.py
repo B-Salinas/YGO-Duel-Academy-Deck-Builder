@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
   title = db.Column(db.String, nullable=False)
   profile_img = db.Column(db.String, nullable=False)
 
+  # I never actually have to use these, thats what def cards is for down below
   monster_cards = db.relationship("Monster_Card", secondary=user_monster_cards, backref="users")
   spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=user_spell_trap_cards, backref="users")
 
@@ -36,6 +37,9 @@ class User(db.Model, UserMixin):
   def check_password(self, password):
     return check_password_hash(self.password, password)
 
+
+  # this is grabbing all of the user's cards
+  # it grabs line 23 and 24 and puts them together
   @property
   def cards(self):
         return [*self.monster_cards, *self.spell_trap_cards]
