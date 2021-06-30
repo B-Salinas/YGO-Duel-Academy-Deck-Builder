@@ -3,6 +3,7 @@ from .db import db
 
 from .monster_card import Monster_Card
 from .spell_trap_card import Spell_Trap_Card
+from .deck_to_cards import deck_monster_cards, deck_spell_trap_cards
 
 class Deck(db.Model):
     __tablename__ = 'decks'
@@ -13,8 +14,8 @@ class Deck(db.Model):
 
     user = db.relationship("User", back_populates="decks")
 
-    monster_cards = db.relationship("Monster_Card", backref="deck")
-    spell_trap_cards = db.relationship("Spell_Trap_Card", backref="deck")
+    monster_cards = db.relationship("Monster_Card", backref="decks", secondary=deck_monster_cards)
+    spell_trap_cards = db.relationship("Spell_Trap_Card", backref="decks", secondary=deck_spell_trap_cards)
 
     @property
     def cards(self):

@@ -11,13 +11,9 @@ from .api.auth_routes import auth_routes
 
 from .api.deck_routes import deck_routes
 
-from .api.monster_card_type_routes import monster_card_type_routes
-from .api.monster_card_race_routes import monster_card_race_routes
-from .api.monster_card_attribute_routes import monster_card_attribute_routes
 from .api.monster_card_routes import monster_card_routes
 
-from .api.spell_trap_card_type_routes import spell_trap_card_type_routes
-from .api.spell_trap_card_race_routes import spell_trap_card_race_routes
+
 from .api.spell_trap_card_routes import spell_trap_card_routes
 
 # I don't have an API Route for the trunk, do I need that??
@@ -48,13 +44,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
 
 app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
-app.register_blueprint(monster_card_type_routes, url_prefix='/api/monster_card_types')
-app.register_blueprint(monster_card_race_routes, url_prefix='/api/monster_card_races')
-app.register_blueprint(monster_card_attribute_routes, url_prefix='/api/monster_card_attributes')
-
 app.register_blueprint(spell_trap_card_routes, url_prefix="/api/spell_trap_cards")
-app.register_blueprint(spell_trap_card_type_routes, url_prefix="/api/spell_trap_card_types")
-app.register_blueprint(spell_trap_card_race_routes, url_prefix="/api/spell_trap_card_races")
 db.init_app(app)
 Migrate(app, db)
 

@@ -26,7 +26,7 @@ def seed_decks():
         name="Static",
         user_id=1
     )
-    db.session.add(starter_wind)
+    db.session.add(starter_static)
 
 
 

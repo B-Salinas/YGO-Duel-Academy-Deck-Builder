@@ -1,5 +1,5 @@
-from app.models import db, Monster_Card, Monster_Card_Type, Monster_Card_Race, Monster_Card_Attribute
-from app.models import Spell_Trap_Card, Spell_Trap_Card_Type, Spell_Trap_Card_Race
+from app.models import db, Monster_Card
+from app.models import Spell_Trap_Card
 
 # from urllib.request import Request, urlopen
 # from urllib.parse import urlencode, unquote

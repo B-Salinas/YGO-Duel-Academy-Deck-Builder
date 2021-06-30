@@ -25,13 +25,6 @@ def seed():
 
     seed_decks()
 
-    # seed_monster_card_types()
-    # seed_monster_card_races()
-    # seed_monster_card_attributes()
-
-    # seed_spell_trap_card_types()
-    # seed_spell_trap_card_races()
-
     seed_all_cards()
     seed_trunk()
 
@@ -43,13 +36,6 @@ def undo():
     undo_users()
 
     undo_decks()
-
-    # undo_monster_card_types()
-    # undo_monster_card_races()
-    # undo_monster_card_attributes()
-
-    # undo_spell_trap_card_types()
-    # undo_spell_trap_card_races()
 
     undo_all_cards()
     undo_trunk()
