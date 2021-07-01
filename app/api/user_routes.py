@@ -4,15 +4,33 @@ from app.models import User
 
 user_routes = Blueprint('users', __name__)
 
+#  USER ROUTES
+
 @user_routes.route('/')
-@login_required
+# @login_required
 def users():
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
 
 
 @user_routes.route('/<int:id>')
-@login_required
+# @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+# TRUNK ROUTES  
+
+@user_routes.route('/<int:id>/trunk')
+def trunk(id):
+    user = User.query.get(id)
+    return jsonify([card.to_dict() for card in user.cards])
+
+
+# DECK ROUTES  
+
+@user_routes.route('/<int:id>/decks')
+def decks(id):
+    user = User.query.get(id)
+    return jsonify([deck.to_dict() for deck in user.decks])
