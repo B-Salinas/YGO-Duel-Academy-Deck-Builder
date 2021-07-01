@@ -28,6 +28,18 @@ def seed_decks():
     )
     db.session.add(starter_static)
 
+    elemental_hero = Deck(
+        name="Elemental Hero",
+        user_id=2
+    )
+    db.session.add(elemental_hero)
+
+    duelist_kingdom = Deck(
+        name="Duelist Kingdom",
+        user_id=3
+    )
+    db.session.add(duelist_kingdom)
+
 
 
     db.session.commit()

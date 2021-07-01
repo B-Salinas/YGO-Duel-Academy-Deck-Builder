@@ -21,7 +21,7 @@ def user(id):
 
 
 # TRUNK ROUTES  
-
+# This might not work because what if a user wants to get a specific card from there trunk -- thats 2 ids, how do i pass that?
 @user_routes.route('/<int:id>/trunk')
 def trunk(id):
     user = User.query.get(id)
@@ -34,3 +34,10 @@ def trunk(id):
 def decks(id):
     user = User.query.get(id)
     return jsonify([deck.to_dict() for deck in user.decks])
+
+@user_routes.route('/<int:id>/decks/cards')
+def deck_cards(user_id, deck_id):
+    user = User.query.get(user_id)
+    deck = User.decks(deck_id)
+
+    return jsonify([card.to_dict() for card in deck])
