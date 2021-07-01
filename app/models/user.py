@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import backref, relationship
-from .trunk import user_monster_cards, user_spell_trap_cards
+from .trunk_cards import trunk_monster_cards, trunk_spell_trap_cards
 
 from .monster_card import Monster_Card
 from .spell_trap_card import Spell_Trap_Card
@@ -20,9 +20,9 @@ class User(db.Model, UserMixin):
   title = db.Column(db.String, nullable=False)
   profile_img = db.Column(db.String, nullable=False)
 
-  # I never actually have to use these, thats what def cards is for down below
-  monster_cards = db.relationship("Monster_Card", secondary=user_monster_cards, backref="users")
-  spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=user_spell_trap_cards, backref="users")
+
+  monster_cards = db.relationship("Monster_Card", secondary=trunk_monster_cards, backref="users")
+  spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=trunk_spell_trap_cards, backref="users")
 
   decks = db.relationship("Deck", back_populates="user")
 
@@ -38,7 +38,7 @@ class User(db.Model, UserMixin):
     return check_password_hash(self.password, password)
 
 
-  # this is grabbing all of the user's cards
+  # this is grabbing all of the user's cards (which live in the trunk)
   # it grabs line 23 and 24 and puts them together
   @property
   def cards(self):
