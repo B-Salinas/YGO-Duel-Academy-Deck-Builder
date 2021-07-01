@@ -1,7 +1,7 @@
 from .db import db
 
-user_monster_cards = db.Table(
-    "user_monster_cards",
+trunk_monster_cards = db.Table(
+    "trunk_monster_cards",
     db.Column(
         "user_id",
         db.Integer,
@@ -16,8 +16,8 @@ user_monster_cards = db.Table(
     )
 )
 
-user_spell_trap_cards = db.Table(
-    "user_spell_trap_cards",
+trunk_spell_trap_cards = db.Table(
+    "trunk_spell_trap_cards",
     db.Column(
         "user_id",
         db.Integer,
