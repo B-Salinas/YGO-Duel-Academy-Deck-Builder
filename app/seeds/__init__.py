@@ -11,7 +11,7 @@ from .decks import seed_decks, undo_decks
 # from .spell_trap_card_races import seed_spell_trap_card_races, undo_spell_trap_card_races
 
 from .cards import seed_all_cards, undo_all_cards
-from .trunk import seed_trunk, undo_trunk
+from .trunk_cards import seed_trunk_cards, undo_trunk_cards
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -26,7 +26,7 @@ def seed():
     seed_decks()
 
     seed_all_cards()
-    seed_trunk()
+    seed_trunk_cards()
 
 
 # Creates the `flask seed undo` command
@@ -38,4 +38,4 @@ def undo():
     undo_decks()
 
     undo_all_cards()
-    undo_trunk()
+    undo_trunk_cards()
