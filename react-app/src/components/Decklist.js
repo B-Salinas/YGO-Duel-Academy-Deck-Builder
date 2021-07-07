@@ -9,27 +9,30 @@ import {
     Heading
 } from "@chakra-ui/react";
 import { NavLink } from 'react-router-dom';
+import { MainModal } from '../modal/Modal';
+import { Alert } from '../alert/Alert';
+import DeckForm from '../modal/DeckForm';
 
 
 export default function DeckList() {
+
     return (
         <>
             <Box align={"center"} justify={"center"} direction={'row'} mt={8}>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6} justify="center">
                     <Flex align="left" ml={10}>
                         <NavLink to="/deckbuilder" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > BACK TO DECK BUILDER </Button>
+                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > BACK TO DECK BUILDER </Button>
                         </NavLink>
                     </Flex>
                     <Box align="center">
                         <Heading>
-                            DECK NAME GOES HERE
+                            DECK LIST
                         </Heading>
                     </Box>
                     <Flex align="right" ml={300}>
-                        <NavLink to="/decklist" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > DELETE </Button>
-                        </NavLink>
+                        <MainModal />
+                        {/* <Alert /> */}
                     </Flex>
 
                 </Grid>

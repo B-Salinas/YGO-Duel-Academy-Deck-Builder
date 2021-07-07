@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
   title = db.Column(db.String, nullable=False)
   profile_img = db.Column(db.String, nullable=False)
 
-
   monster_cards = db.relationship("Monster_Card", secondary=trunk_monster_cards, backref="users")
   spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=trunk_spell_trap_cards, backref="users")
 
