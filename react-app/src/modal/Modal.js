@@ -21,6 +21,8 @@ import DeckForm from "./DeckForm";
 
 export function MainModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const initialRef = React.useRef()
+    const finalRef = React.useRef()
 
 
     // const [formRender, setFormRender] = useState(true)
@@ -43,15 +45,15 @@ export function MainModal() {
 
     return (
         <>
-            <Flex align="right" ml={300}>
-                <Button onClick={onOpen} bg="red.400" color="white" letterSpacing="widest" _hover={{ bg: "red.800", color: "white" }} > ADD </Button>
+            <Flex align="right" marginRight={75}>
+                <Button onClick={onOpen} bg="green.400" color="white" letterSpacing="widest" _hover={{ bg: "green.800", color: "white" }} > ADD </Button>
             </Flex>
 
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
                 <ModalContent >
                     <ModalHeader>
-                        Create a Deck
+                        Add a New Deck
                     </ModalHeader>
 
                     <ModalCloseButton />

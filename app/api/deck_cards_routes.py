@@ -10,7 +10,7 @@ deck_cards_routes = Blueprint("deck_cards", __name__)
 @deck_cards_routes.route('/<int:deck_id>/all')
 def get_all_cards_in_deck(deck_id):
     deck = Deck.query.get(deck_id)
-    return deck.cards
+    return jsonify([card.to_dict() for card in deck.cards])
 
 
 # M O N S T E R   C A R D S 
@@ -25,6 +25,8 @@ def add_monster_card_to_deck(deck_id):
     # I DONT EVEN KNOW HOW TO BEGIN THIS ROUTE
     deck = Deck.query.get(deck_id)
     return deck.monster_cards
+
+
 
 @deck_cards_routes.route('/<int:deck_id>/monster_cards/<int:monster_card_id>')
 def get_monster_card_from_deck(deck_id, monster_card_id):

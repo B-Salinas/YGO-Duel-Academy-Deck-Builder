@@ -8,7 +8,8 @@ import {
     Button,
     Heading
 } from "@chakra-ui/react";
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, Link } from 'react-router-dom';
 import { MainModal } from '../modal/Modal';
 import { Alert } from '../alert/Alert';
 import DeckForm from '../modal/DeckForm';
@@ -16,7 +17,9 @@ import DeckForm from '../modal/DeckForm';
 
 export default function DeckList() {
 
-    return (
+    const user = useSelector((state) => state.session.user)
+
+    return user && (
         <>
             <Box align={"center"} justify={"center"} direction={'row'} mt={8}>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6} justify="center">
@@ -32,7 +35,6 @@ export default function DeckList() {
                     </Box>
                     <Flex align="right" ml={300}>
                         <MainModal />
-                        {/* <Alert /> */}
                     </Flex>
 
                 </Grid>
@@ -41,16 +43,15 @@ export default function DeckList() {
             <br />
             <br />
 
-
             <Box pl={30} pr={30}>
                 <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100" ml={10} mr={10}>
-                    {/* This is where I will map over all of the cards, so I would generate the grid items ... is there a way to do overview scroll/hide? */}
-
-                    <GridItem rowSpan={1} colSpan={5} bg="blue.100"> Deck #1 </GridItem>
-                    <GridItem rowSpan={1} colSpan={5}> Deck #2 </GridItem>
-                    <GridItem rowSpan={1} colSpan={5}> Deck #3 </GridItem>
-                    <GridItem rowSpan={1} colSpan={5}> Deck #4 </GridItem>
-                    <GridItem rowSpan={1} colSpan={5}> Deck #5 </GridItem>
+                    {user.decks.map((deck, idx) => (
+                        <GridItem key={idx} rowSpan={1} colSpan={5} bg="blue.100"> 
+                            <Link to={`/decks/${deck.id}/edit`}>
+                                {deck.name}
+                            </Link>
+                        </GridItem>
+                    ))}
                 </Grid>
             </Box>
         </>

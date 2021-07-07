@@ -65,5 +65,7 @@ class User(db.Model, UserMixin):
       "hashed_password": self.hashed_password,
       "dorm": self.dorm,
       "title": self.title,
-      "profile_img": self.profile_img
+      "profile_img": self.profile_img,
+      "decks": [deck.to_dict() for deck in self.decks],
+      "trunk_cards": {card.card_id: card.to_dict() for card in self.cards}
     }

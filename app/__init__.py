@@ -13,7 +13,7 @@ from .api.auth_routes import auth_routes
 from .api.masterlist_routes import masterlist_routes
 
 from .api.deck_routes import deck_routes
-# from .api.deck_cards_routes import deck_cards_routes
+from .api.deck_cards_routes import deck_cards_routes
 from .api.trunk_cards_routes import trunk_cards_routes
 
 from .seeds import seed_commands
@@ -41,7 +41,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 
 app.register_blueprint(masterlist_routes, url_prefix='/api/masterlist')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
-# app.register_blueprint(deck_cards_routes, url_prefix="/api/decks")
+app.register_blueprint(deck_cards_routes, url_prefix="/api/deck_cards")
 app.register_blueprint(trunk_cards_routes, url_prefix="/api/trunk")
 
 

@@ -60,7 +60,10 @@ function App() {
         <ProtectedRoute path="/about" exact={true} >
           <AboutPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/deckbuilder" exact={true} >
+        <ProtectedRoute path="/decks/new" exact={true} >
+          <DeckBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path="/decks/:deck_id/edit" exact={true} >
           <DeckBuilder />
         </ProtectedRoute>
         <ProtectedRoute path="/decklist" exact={true} >

@@ -41,5 +41,6 @@ class Deck(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "user_id": self.user_id
+            "user_id": self.user_id,
+            "deck_cards": {card.card_id: card.to_dict() for card in self.cards}
         }

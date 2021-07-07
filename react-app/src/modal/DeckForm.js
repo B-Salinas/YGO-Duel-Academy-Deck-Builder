@@ -28,8 +28,8 @@ const DeckForm = () => {
 
     const [errors, setErrors] = useState([]);
 
-    if (user) {
-        return <Redirect to="/" />;
+    if (!user) {
+        return <Redirect to="/decklist" />;
     }
 
     const handleSubmit = async (e) => {

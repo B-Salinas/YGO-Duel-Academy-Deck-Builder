@@ -2,10 +2,10 @@ import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
 import session from "./session"
+import deckbuilder from "./deckbuilder";
 
 import monster_cards from './monster_card'
 import spell_trap_cards from './spell_trap_card'
-
 
 import decks from './deck'
 
@@ -13,7 +13,8 @@ const rootReducer = combineReducers({
     session,
     monster_cards,
     spell_trap_cards,
-    decks
+    decks,
+    deckbuilder
 });
 
 let enhancer;

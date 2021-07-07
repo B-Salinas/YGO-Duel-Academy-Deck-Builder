@@ -42,9 +42,9 @@ export default function MainMenu () {
                     </Flex>
 
                     <Flex>
-                        <NavLink to="/deckbuilder" exact={true} activeClassName="active"> 
+                        <NavLink to="/decklist" exact={true} activeClassName="active"> 
                             <Button bg={"red.600"} color={"white"} _hover={{bg: "red.900" }} w={"750px"} letterSpacing='widest'>
-                                DECK BUILDER
+                                DECK LIST
                             </Button>
                         </NavLink> 
                     </Flex>

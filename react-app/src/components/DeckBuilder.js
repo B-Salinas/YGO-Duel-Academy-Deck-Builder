@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Flex,
     Text,
@@ -8,16 +8,24 @@ import {
     Heading,
     HStack,
 } from "@chakra-ui/react";
-import {NavLink} from 'react-router-dom';
-
+import {NavLink, useParams} from 'react-router-dom';
 import DeckNav from './DeckNav';
 import Builder from './Builder';
 import Trunk from './Trunk'
 import Deck from './Deck'
 import CardView from './CardView';
+import { useDispatch } from 'react-redux';
+import { getOneDeck } from '../store/deckbuilder';
 
 
 export default function DeckBuilder() {
+
+    const {deck_id} = useParams()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getOneDeck(deck_id))
+    }, [deck_id])
 
     return (
         <>
