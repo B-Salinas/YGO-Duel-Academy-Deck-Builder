@@ -1,9 +1,16 @@
+/**************************** CONSTANTS ***********************************/
+
 const GET_ONE_DECK = "deckbuilder/GET_ONE_DECK"
+
+/***************************** ACTION CREATORS *********************************/
 
 const getDeck = (oneDeck) => ({
     type: GET_ONE_DECK,
     oneDeck
 });
+
+
+/********************************* THUNKS ************************************/
 
 export const getOneDeck = (id) => async (dispatch) => {
     const response = await fetch(`/api/decks/${id}`)
@@ -17,12 +24,15 @@ export const getOneDeck = (id) => async (dispatch) => {
     dispatch(getDeck(oneDeck))
 }
 
+/***************************** INITIAL STATE *********************************/
 
 const initialState = {
     current_deck: null,
 }
 
-export default function reducer (state = initialState, action) {
+/****************************** REDUCER ************************************/
+
+export default function deckBuilderReducer (state = initialState, action) {
     switch (action.type) {
         case GET_ONE_DECK:
             return {

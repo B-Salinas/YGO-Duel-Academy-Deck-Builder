@@ -24,25 +24,6 @@ export function MainModal() {
     const initialRef = React.useRef()
     const finalRef = React.useRef()
 
-
-    // const [formRender, setFormRender] = useState(true)
-
-    // const renderButton = () => {
-    //     const buttonRender = (
-    //         <>
-    //             {formRender ? <p> Already have an account? &nbsp; </p> : <p> Don't have an account? &nbsp; </p>}
-    //             <Button onClick={() => setFormRender(!formRender)}>
-    //                 {formRender ? "Log In" : "Sign Up"}
-    //             </Button >
-    //         </>
-    //     )
-    //     return buttonRender
-    // }
-
-    // useEffect(() => {
-    //     onOpen()
-    // }, [])
-
     return (
         <>
             <Flex align="right" marginRight={75}>
@@ -63,7 +44,13 @@ export function MainModal() {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} > Create new Deck  </Button>
+                        
+                            <Button bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} > 
+                                <Link to={`/decks/new`}> 
+                                    Create new Deck 
+                                </Link> 
+                            </Button>
+                        
                     </ModalFooter>
                 </ModalContent>
             </Modal>

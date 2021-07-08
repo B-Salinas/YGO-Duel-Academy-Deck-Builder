@@ -69,7 +69,7 @@ function App() {
         <ProtectedRoute path="/decklist" exact={true} >
           <DeckList />
         </ProtectedRoute>
-        <ProtectedRoute path="/users" exact={true} >
+        <ProtectedRoute path="/users/:userId" exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >

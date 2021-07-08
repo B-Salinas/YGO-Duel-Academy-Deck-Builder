@@ -24,8 +24,12 @@ export default function DeckList() {
             <Box align={"center"} justify={"center"} direction={'row'} mt={8}>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6} justify="center">
                     <Flex align="left" ml={10}>
-                        <NavLink to="/deckbuilder" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > BACK TO DECK BUILDER </Button>
+                        <NavLink to="/mainmenu" exact={true} activeClassName="active">
+                            <Button 
+                                bg='gray.400' 
+                                color={"white"} 
+                                letterSpacing='widest' 
+                                _hover={{ bg: "gray.800", color: "white" }} > BACK TO MENU </Button>
                         </NavLink>
                     </Flex>
                     <Box align="center">

@@ -13,13 +13,12 @@ export default function Deck() {
 
     const user = useSelector((state) => state.session.user)
     const current_deck = useSelector((state) => state.deckbuilder.current_deck)
+    const [scrollBehavior, setScrollBehavior] = React.useState("inside")
 
     return user && current_deck && (
         <>
             <Box pl={30} pr={30}>
-                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100">
-                    {/* This is where I will map over all of the cards, so I would generate the grid items ... is there a way to do overview scroll/hide? */}
-
+                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100" >
                     {Object.values(current_deck.deck_cards).map((card, idx) => (
                         <GridItem key={idx} rowSpan={1} colSpan={5} bg="blue.100"> {card.name} </GridItem>
                     ))}
