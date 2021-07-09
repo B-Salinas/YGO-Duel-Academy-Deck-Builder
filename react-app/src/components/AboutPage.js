@@ -17,8 +17,6 @@ import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 export default function AboutPage() {
 
-
-
     return (
         <>
             

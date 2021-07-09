@@ -27,18 +27,24 @@ export default function SplashPage() {
         return <Redirect to="/mainmenu" />;
     }
 
-    const handleDemo = async (e) => {
-        e.preventDefault();
-        const email = 'demo@aa.io';
-        const password = 'password'
-        const dispatched = await dispatch(login(email, password))
+    // const handleDemo = async (e) => {
+    //     e.preventDefault();
+    //     const email = 'demo@aa.io';
+    //     const password = 'password'
+    //     const dispatched = await dispatch(login(email, password))
 
-        if (dispatched.errors) {
-            setErrors(dispatched.errors)
-        } else {
-            history.push('/')
-        }
-    };
+    //     if (dispatched.errors) {
+    //         setErrors(dispatched.errors)
+    //     } else {
+    //         history.push('/')
+    //     }
+    // };
+
+    const demoLogin = () => {
+        const email = "demo@aa.io"
+        const password = "password"
+        dispatch(login(email, password))
+    }
 
 
     return (
@@ -63,7 +69,7 @@ export default function SplashPage() {
                     </Flex>
 
                     <Flex>
-                        <Button bg={"red.600"} color={"white"} _hover={{ bg: "red.900" }} letterSpacing='widest' onClick={handleDemo}>
+                        <Button bg={"red.600"} color={"white"} _hover={{ bg: "red.900" }} letterSpacing='widest' onClick={demoLogin}>
                             GUEST DUELIST
                         </Button>
                     </Flex>

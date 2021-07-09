@@ -7,13 +7,14 @@ trunK_routes = Blueprint('trunk_cards', __name__)
 
 # U S E R 
 
+# all users
 @user_routes.route('/')
 @login_required
 def users():
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
 
-
+# one user
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
@@ -22,22 +23,32 @@ def user(id):
 
 
 # TRUNK ROUTES  
-# This might not work because what if a user wants to get a specific card from there trunk -- thats 2 ids, how do i pass that?
-@user_routes.route('/<int:id>/trunk')
-def trunk(id):
-    user = User.query.get(id)
+
+# all cards in trunk
+@user_routes.route('/<int:user_id>/trunk')
+def trunk(user_id):
+    user = User.query.get(user_id)
     return jsonify([card.to_dict() for card in user.cards])
+
+# one card in trunk 
+@user_routes.route('/<int:user_id>/trunk/<int:card_id>')
+def trunk_card(user_id, card_id):
+    user = User.query.get(user_id)
+    
+    for card in user.cards:
+        if card.id == card_id:
+            return jsonify(card.to_dict())
 
 
 # DECK ROUTES  
 
-#  all of the user's decks
+#  all user decks
 @user_routes.route('/<int:id>/decks')
 def all_user_decks(id):
     user = User.query.get(id)
     return jsonify([deck.to_dict() for deck in user.decks])
 
-#  only 1 user deck
+#  one user deck
 @user_routes.route('/<int:user_id>/decks/<int:deck_id>')
 def one_user_deck(user_id, deck_id):
     user = User.query.get(user_id)

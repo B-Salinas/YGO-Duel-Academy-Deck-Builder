@@ -1,15 +1,14 @@
 from app.models import db, User, Deck
 from flask import Blueprint, jsonify
 
-user_routes = Blueprint("users", __name__)
 trunk_cards_routes = Blueprint("trunk_cards", __name__)
 
 # A L L
 
-@trunk_cards_routes.route('/all')
+@trunk_cards_routes.route('<int:user_id>/all')
 def get_all_cards_in_trunk(user_id):
     user = User.query.get(user_id)
-    return user.cards # This doesn't seem right, its like I'm missing something
+    return jsonify([card.to_dict() for card in user.cards]) # This doesn't seem right, its like I'm missing something
 
 # M O N S T E R   C A R D S 
 

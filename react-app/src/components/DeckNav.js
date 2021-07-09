@@ -9,9 +9,15 @@ import {
     HStack,
     VStack
 } from "@chakra-ui/react";
+import { useSelector } from 'react-redux';
+
 
 export default function DeckNav () {
-    return (
+
+    const user = useSelector((state) => state.session.user)
+    const current_deck = useSelector((state) => state.deckbuilder.current_deck)
+
+    return user && current_deck && (
         <>
             <Box>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
@@ -25,7 +31,7 @@ export default function DeckNav () {
                     </Grid>
                     <Box align="center" >
                         <Heading>
-                            DECK NAME GOES HERE
+                            {current_deck.name}
                         </Heading>
                     </Box>
                 </Grid>
@@ -34,7 +40,7 @@ export default function DeckNav () {
 
                 <Grid templateColumns="repeat(3, 1fr)" gap={2} bg="red.100" h={100} align="center">
                     <Box align="center" h={50} mt={45}>
-                        <Heading size="xs" > # of Cards in Trunk </Heading>
+                        <Heading size="xs" > Trunk Cards: {Object.keys(user.trunk_cards).length} </Heading>
                     </Box>
 
                     <Grid templateColumns="repeat(9, 1fr)" gap={2} align="center" justify="center" mt={3} h={75} bg="green.400">

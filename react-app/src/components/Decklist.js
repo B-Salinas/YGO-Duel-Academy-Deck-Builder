@@ -52,7 +52,9 @@ export default function DeckList() {
                     {user.decks.map((deck, idx) => (
                         <GridItem key={idx} rowSpan={1} colSpan={5} bg="blue.100"> 
                             <Link to={`/decks/${deck.id}/edit`}>
-                                {deck.name}
+                                <Heading size="lg"> 
+                                    {deck.name} 
+                                </Heading>
                             </Link>
                         </GridItem>
                     ))}

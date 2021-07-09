@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 export default function Trunk() {
     
     const user = useSelector((state) => state.session.user)
-    const [scrollBehavior, setScrollBehavior] = React.useState("inside")
 
 
     return user && (

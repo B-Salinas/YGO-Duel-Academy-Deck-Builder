@@ -13,7 +13,7 @@ export default function Deck() {
 
     const user = useSelector((state) => state.session.user)
     const current_deck = useSelector((state) => state.deckbuilder.current_deck)
-    const [scrollBehavior, setScrollBehavior] = React.useState("inside")
+    // const [scrollBehavior, setScrollBehavior] = React.useState("inside")
 
     return user && current_deck && (
         <>
