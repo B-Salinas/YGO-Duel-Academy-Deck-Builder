@@ -26,7 +26,7 @@ export default function AboutPage() {
                     <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                         <Flex ml={10}>
                             <NavLink to="/mainmenu" exact={true} activeClassName="active">
-                                <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > BACK TO MENU </Button>
+                                <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > BACK TO MENU </Button>
                             </NavLink>
                         </Flex>
                         <Box>

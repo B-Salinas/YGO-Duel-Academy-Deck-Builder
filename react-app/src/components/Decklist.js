@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Flex,
-    Text,
     Box,
     Grid,
     GridItem,
@@ -11,8 +10,6 @@ import {
 import { useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { MainModal } from '../modal/Modal';
-import { Alert } from '../alert/Alert';
-import DeckForm from '../modal/DeckForm';
 
 
 export default function DeckList() {

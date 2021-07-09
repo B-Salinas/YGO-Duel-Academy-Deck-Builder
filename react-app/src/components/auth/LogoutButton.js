@@ -17,7 +17,7 @@ const LogoutButton = () => {
   return (
     <>
       <Flex >
-        <Button bg='gray.400' color={"black"} w={"750px"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} onClick={onLogout} type="Submit"  color='white' > LOG OUT </Button>
+        <Button onClick={onLogout} bg='gray.400' color={"black"} w={"750px"} letterSpacing='widest'  type="Submit" _hover={{ bg: "gray.800", color: "white" }}  > LOG OUT </Button>
       </Flex>
     </>
   )

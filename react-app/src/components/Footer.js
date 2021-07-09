@@ -1,22 +1,12 @@
 import React from 'react';
 import {
     Box,
-    Grid,
     Flex,
     Link,
-    Stack,
     Spacer,
     Heading,
-    Container,
-    SimpleGrid,
-    ListHeader,
-    useColorModeValue,
-    Text,
-    HStack,
-    Icon
 } from '@chakra-ui/react';
 import { SiLinkedin, SiGithub } from 'react-icons/si';
-import { ReactNode } from 'react';
 
 
 export default function Footer() {
@@ -28,8 +18,9 @@ export default function Footer() {
                 <Box p="2" ml={25}>
                     <Link href={"https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder"}>
                         <Flex direction={"row"} >
+                            {/* Checkout Rene's Github for a nice footer!! */}
+                            <Heading size="md"> <SiLinkedin /> </Heading>
                             <Heading size="md"> <SiGithub /> </Heading>
-                            <Heading size="sm"> &nbsp; Checkout the Github!</Heading>
                         </Flex>
                     </Link>
                 </Box>

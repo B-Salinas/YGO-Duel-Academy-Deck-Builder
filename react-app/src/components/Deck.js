@@ -1,19 +1,14 @@
 import React from 'react';
 import {
-    Flex,
-    Text,
     Box,
     Grid,
     GridItem,
-    Button,
-    Heading
 } from "@chakra-ui/react";
 import { useSelector } from 'react-redux';
 export default function Deck() {
 
     const user = useSelector((state) => state.session.user)
     const current_deck = useSelector((state) => state.deckbuilder.current_deck)
-    // const [scrollBehavior, setScrollBehavior] = React.useState("inside")
 
     return user && current_deck && (
         <>

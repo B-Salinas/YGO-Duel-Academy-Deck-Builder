@@ -1,12 +1,8 @@
 import React from 'react';
 import {
-    Flex,
-    Text,
     Box,
     Grid,
     GridItem,
-    Button,
-    Heading
 } from "@chakra-ui/react";
 import { useSelector } from 'react-redux';
 export default function Trunk() {

@@ -6,9 +6,7 @@ import {
     Spacer,
     Text
 } from "@chakra-ui/react";
-import React, { useContext, useRef, useState, useEffect } from 'react';
-// import
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import SignUpForm from './auth/SignUpForm'
 import LoginForm from "./auth/LoginForm";
 

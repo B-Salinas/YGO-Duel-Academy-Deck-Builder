@@ -1,13 +1,9 @@
 import React from 'react';
 import {
-    Flex,
     Text,
     Box,
     Grid,
-    Button,
     Heading,
-    HStack,
-    VStack
 } from "@chakra-ui/react";
 import { useSelector } from 'react-redux';
 

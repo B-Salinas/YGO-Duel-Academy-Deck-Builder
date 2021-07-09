@@ -1,27 +1,19 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useSelector } from "react-redux";
+// import { useHistory } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
-import { login } from "../store/session";
 
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     VStack,
     Input,
     InputGroup,
-    Button,
-    isRequired,
-    Flex,
-    Box,
-    Spacer
 } from "@chakra-ui/react";
 
 const DeckForm = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
+    // const dispatch = useDispatch();
+    // const history = useHistory();
     const user = useSelector(state => state.session.user);
 
     const [deckName, setDeckName] = useState("");

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {
     Flex,
-    Text,
     Box,
     Grid,
     Button,

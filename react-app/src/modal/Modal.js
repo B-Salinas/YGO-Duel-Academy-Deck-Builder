@@ -8,12 +8,10 @@ import {
     ModalCloseButton,        //  The button that closes the modal.
     Button,
     useDisclosure,           //  A handler to handle the open, close etc of the modal
-    useOutsideClick,         //  A handler to handle click when outside the ref element to close
     Link,
     Flex
 } from "@chakra-ui/react";
-import React, {useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import DeckForm from "./DeckForm";
 
 // ------------------------------------------------------------------------------------------//
@@ -21,8 +19,6 @@ import DeckForm from "./DeckForm";
 
 export function MainModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const initialRef = React.useRef()
-    const finalRef = React.useRef()
 
     return (
         <>

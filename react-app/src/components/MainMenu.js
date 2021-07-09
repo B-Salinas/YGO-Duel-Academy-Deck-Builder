@@ -1,19 +1,14 @@
 import {
     Flex,
     Box,
-    Image,
     Button,
-    Spacer,
-    Text,
     Heading,
     VStack
 } from "@chakra-ui/react"; 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import DeckBuilder from "./DeckBuilder";
 import LogoutButton from './auth/LogoutButton';
-import AboutPage from './AboutPage'
 
 
 export default function MainMenu () {
