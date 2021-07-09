@@ -2,6 +2,8 @@ from app.models import db, User, Deck
 from flask import Blueprint, jsonify
 
 trunk_cards_routes = Blueprint("trunk_cards", __name__)
+#  /api/trunk_cards
+# This route also makes no sense ... /api/trunk_cards/<int:user_id>/all ???
 
 # A L L
 

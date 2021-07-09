@@ -42,7 +42,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(masterlist_routes, url_prefix='/api/masterlist')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
 app.register_blueprint(deck_cards_routes, url_prefix="/api/deck_cards")
-app.register_blueprint(trunk_cards_routes, url_prefix="/api/trunk")
+app.register_blueprint(trunk_cards_routes, url_prefix="/api/trunk_cards")
 
 
 

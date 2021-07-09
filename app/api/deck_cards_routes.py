@@ -1,9 +1,9 @@
 from app.models import db, Deck
 from flask import Blueprint, jsonify
 
-deck_routes = Blueprint("decks", __name__)
-deck_cards_routes = Blueprint("deck_cards", __name__)
-
+deck_cards_routes = Blueprint("deck_cards", __name__) 
+#  /api/deck_cards...
+# These routes (like the url path) make no sense ... /api/deck_cards/<int:deck_id>/card ????
 
 # A L L
 

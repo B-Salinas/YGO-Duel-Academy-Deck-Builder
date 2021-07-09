@@ -13,6 +13,13 @@ export default function DeckNav () {
     const user = useSelector((state) => state.session.user)
     const current_deck = useSelector((state) => state.deckbuilder.current_deck)
 
+    const monster_card_low_levels = () => {
+        const user_monster_cards = user.monster_cards
+        const low_level = user_monster_cards.query.filter(user_monster_cards.level == Range(1,5))
+        return low_level 
+    }
+
+
     return user && current_deck && (
         <>
             <Box>
@@ -43,7 +50,7 @@ export default function DeckNav () {
                         
                         <Box>
                             <Grid templateColumns="repeat(3, 1fr)" gap={2} mt={3} ml={7} h={50} align="center" bg="red.300">
-                                <Box w={100} bg="gray.100"> 1-4 </Box>
+                                <Box w={100} bg="gray.100"> asdf </Box>
                                 <Box w={100} bg="gray.100"> 5-6 </Box>
                                 <Box w={100} bg="gray.100"> 7+ </Box>
                             </Grid>

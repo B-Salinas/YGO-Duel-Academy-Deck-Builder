@@ -2,7 +2,9 @@ from app.models import db, Deck
 from flask import Blueprint, jsonify
 
 deck_routes = Blueprint("decks", __name__)
+#  /api/decks...
 
+# D E C K S
 @deck_routes.route('/')
 def get_all_decks():
     decks = Deck.query.all()
@@ -25,3 +27,6 @@ def delete_deck(id):
     db.session.delete(delete_deck)
     db.session.commit()
     return {"success": "success"}
+
+# D E C K   C A R D S 
+

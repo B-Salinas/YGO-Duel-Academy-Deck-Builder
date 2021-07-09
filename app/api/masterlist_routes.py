@@ -2,6 +2,7 @@ from app.models import db, Monster_Card, Spell_Trap_Card
 from flask import Blueprint, jsonify
 
 masterlist_routes = Blueprint('masterlist', __name__)
+# /api/masterlist...
 
 def masterlist_creation():
     masterlist = []

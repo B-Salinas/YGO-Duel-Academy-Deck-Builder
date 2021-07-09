@@ -13,17 +13,21 @@ import Trunk from './Trunk'
 import Deck from './Deck'
 import CardView from './CardView';
 import { useDispatch } from 'react-redux';
-import { getOneDeck } from '../store/deckbuilder';
+import { getOneDeck, getOneCard } from '../store/deckbuilder';
 
 
 export default function DeckBuilder() {
 
     const dispatch = useDispatch()
-    const {deck_id} = useParams()
+    const {deck_id, card_id} = useParams()
 
     useEffect(() => {
         dispatch(getOneDeck(deck_id))
     }, [deck_id])
+
+    useEffect(() => {
+        dispatch(getOneCard(card_id))
+    }, [card_id])
 
     return (
         <>
