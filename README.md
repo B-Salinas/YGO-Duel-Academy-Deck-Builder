@@ -9,7 +9,7 @@
 </p>
 
 
-#  Welcome to YGO Duel Academy Deck Builder!
+<h1 align="center"> Welcome to YGO Duel Academy Deck Builder! </h1>
 
 ### Live Link: [YGO DA Deck Builder](https://ygo-da-deck-builder.herokuapp.com/login)
 
