@@ -1,17 +1,26 @@
 import React from 'react';
 import {
-    Flex,
     Text,
     Box,
     Grid,
-    Button,
     Heading,
-    HStack,
-    VStack
 } from "@chakra-ui/react";
+import { useSelector } from 'react-redux';
+
 
 export default function DeckNav () {
-    return (
+
+    const user = useSelector((state) => state.session.user)
+    const current_deck = useSelector((state) => state.deckbuilder.current_deck)
+
+    const monster_card_low_levels = () => {
+        const user_monster_cards = user.monster_cards
+        const low_level = user_monster_cards.query.filter(user_monster_cards.level == Range(1,5))
+        return low_level 
+    }
+
+
+    return user && current_deck && (
         <>
             <Box>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
@@ -25,7 +34,7 @@ export default function DeckNav () {
                     </Grid>
                     <Box align="center" >
                         <Heading>
-                            DECK NAME GOES HERE
+                            {current_deck.name}
                         </Heading>
                     </Box>
                 </Grid>
@@ -34,14 +43,14 @@ export default function DeckNav () {
 
                 <Grid templateColumns="repeat(3, 1fr)" gap={2} bg="red.100" h={100} align="center">
                     <Box align="center" h={50} mt={45}>
-                        <Heading size="xs" > # of Cards in Trunk </Heading>
+                        <Heading size="xs" > Trunk Cards: {Object.keys(user.trunk_cards).length} </Heading>
                     </Box>
 
                     <Grid templateColumns="repeat(9, 1fr)" gap={2} align="center" justify="center" mt={3} h={75} bg="green.400">
                         
                         <Box>
                             <Grid templateColumns="repeat(3, 1fr)" gap={2} mt={3} ml={7} h={50} align="center" bg="red.300">
-                                <Box w={100} bg="gray.100"> 1-4 </Box>
+                                <Box w={100} bg="gray.100"> asdf </Box>
                                 <Box w={100} bg="gray.100"> 5-6 </Box>
                                 <Box w={100} bg="gray.100"> 7+ </Box>
                             </Grid>

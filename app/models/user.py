@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
   title = db.Column(db.String, nullable=False)
   profile_img = db.Column(db.String, nullable=False)
 
-
   monster_cards = db.relationship("Monster_Card", secondary=trunk_monster_cards, backref="users")
   spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=trunk_spell_trap_cards, backref="users")
 
@@ -66,5 +65,7 @@ class User(db.Model, UserMixin):
       "hashed_password": self.hashed_password,
       "dorm": self.dorm,
       "title": self.title,
-      "profile_img": self.profile_img
+      "profile_img": self.profile_img,
+      "decks": [deck.to_dict() for deck in self.decks],
+      "trunk_cards": {card.card_id: card.to_dict() for card in self.cards}
     }

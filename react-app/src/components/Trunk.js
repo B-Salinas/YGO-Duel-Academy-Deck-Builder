@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-    Flex,
-    Text,
     Box,
     Grid,
     GridItem,
-    Button,
-    Heading
+    Button
 } from "@chakra-ui/react";
+import { useSelector } from 'react-redux';
 export default function Trunk() {
-    return (
+    
+    const user = useSelector((state) => state.session.user)
+    const current_trunk_card = useSelector((state) => state.deckbuilder.current_trunk_card)
+    const [ trunkCard, setTrunkCard ] = useState()
+
+    // I want to be able to click on a card and have that render within the CardView Component 
+
+    return user && (
         <>
             <Box pl={30} pr={30}>
-                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"}  bg="green.100">
-                    {/* This is where I will map over all of the cards, so I would generate the grid items ... is there a way to do overview scroll/hide? */}
-                    <GridItem rowSpan={1} colSpan={3}> Mystical Elf </GridItem>
-                    <GridItem rowSpan={1} colSpan={3}> Baby Dragon </GridItem>
-                    <GridItem rowSpan={1} colSpan={3}> Time Wizard </GridItem>
-                    <GridItem rowSpan={1} colSpan={3}> Harpie Lady </GridItem>
-                    <GridItem rowSpan={1} colSpan={3}> Harpie Lady Sister </GridItem>
+                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100">
+                    {Object.values(user.trunk_cards).map((card, idx) => (
+                        <GridItem key={idx} rowSpan={1} colSpan={3}> {card.name} </GridItem>
+                    ))}
                 </Grid>
             </Box>
         </>

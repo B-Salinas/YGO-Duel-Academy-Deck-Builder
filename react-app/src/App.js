@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
 import AuthPage from "./components/AuthPage";
 
-import NavBar from "./components/NavBar";
 import DeckBuilder from "./components/DeckBuilder";
 import AboutPage from "./components/AboutPage";
 import MainMenu from './components/MainMenu'
@@ -24,15 +21,15 @@ import DeckList from "./components/Decklist";
 import { authenticate } from "./store/session";
 
 function App() {
-  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
-    })();
+    }
+    )();
   }, []);
 
   if (!loaded) {
@@ -41,7 +38,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
       <Switch>
         <Route path="/" exact={true}>
           <SplashPage />
@@ -60,13 +56,16 @@ function App() {
         <ProtectedRoute path="/about" exact={true} >
           <AboutPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/deckbuilder" exact={true} >
+        <ProtectedRoute path="/decks/new" exact={true} >
+          <DeckBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path="/decks/:deck_id/edit" exact={true} >
           <DeckBuilder />
         </ProtectedRoute>
         <ProtectedRoute path="/decklist" exact={true} >
           <DeckList />
         </ProtectedRoute>
-        <ProtectedRoute path="/users" exact={true} >
+        <ProtectedRoute path="/users/:userId" exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >

@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Flex,
-    Text,
     Box,
     Grid,
     Button,
     Heading,
     HStack,
 } from "@chakra-ui/react";
-import {NavLink} from 'react-router-dom';
-
+import {NavLink, useParams} from 'react-router-dom';
 import DeckNav from './DeckNav';
-import Builder from './Builder';
 import Trunk from './Trunk'
 import Deck from './Deck'
 import CardView from './CardView';
+import { useDispatch } from 'react-redux';
+import { getOneDeck, getOneCard } from '../store/deckbuilder';
 
 
 export default function DeckBuilder() {
+
+    const dispatch = useDispatch()
+    const {deck_id, card_id} = useParams()
+
+    useEffect(() => {
+        dispatch(getOneDeck(deck_id))
+    }, [deck_id])
+
+    useEffect(() => {
+        dispatch(getOneCard(card_id))
+    }, [card_id])
 
     return (
         <>
             <Box align={"center"} justify={"center"} direction={'row'} mt={8}>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6} justify="center">
                     <Flex align="left" ml={10}>
-                        <NavLink to="/mainmenu" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > BACK TO MENU </Button>
+                        <NavLink to="/decklist" exact={true} activeClassName="active">
+                            <Button bg='gray.400' color={"white"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > BACK TO DECK LIST </Button>
                         </NavLink>
                     </Flex>
                     <Box align="center">
@@ -34,9 +44,7 @@ export default function DeckBuilder() {
                         </Heading>
                     </Box>
                     <Flex align="right" ml={300}>
-                        <NavLink to="/decklist" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > DECK LIST </Button>
-                        </NavLink>
+                        <Button bg='green.400' color={"white"} letterSpacing='widest' _hover={{ bg: "green.800", color: "white" }} > SAVE DECK </Button>
                     </Flex>
 
                 </Grid>
@@ -58,10 +66,6 @@ export default function DeckBuilder() {
                     <Deck />
                 </Box>
             </HStack>
-
-            {/* <Box>
-                <Builder />
-            </Box> */}
 
             <br />
 

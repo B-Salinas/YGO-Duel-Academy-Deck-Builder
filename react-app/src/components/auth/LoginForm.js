@@ -7,13 +7,10 @@ import { login } from "../../store/session";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   VStack,
   Input,
   InputGroup,
   Button,
-  isRequired,
   Flex,
   Box,
   Spacer
@@ -45,18 +42,24 @@ const LoginForm = () => {
     }
   };
 
-  const handleDemo = async (e) => {
-    e.preventDefault();
-    const email = 'demo@aa.io';
-    const password = 'password'
-    const dispatched = await dispatch(login(email, password))
+  const demoLogin = () => {
+    const email = "demo@aa.io"
+    const password = "password"
+    dispatch(login(email, password))
+  }
 
-    if (dispatched.errors) {
-      setErrors(dispatched.errors)
-    } else {
-      history.push('/')
-    }
-  };
+  // const handleDemo = async (e) => {
+  //   e.preventDefault();
+  //   const email = 'demo@aa.io';
+  //   const password = 'password'
+  //   const dispatched = await dispatch(login(email, password))
+
+  //   if (dispatched.errors) {
+  //     setErrors(dispatched.errors)
+  //   } else {
+  //     history.push('/')
+  //   }
+  // };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -108,7 +111,7 @@ const LoginForm = () => {
               <Spacer />
 
               <Box>
-                <form onSubmit={handleDemo}>
+                <form onSubmit={demoLogin}>
                   <Flex align={"right"} justify={"right"} >
                     <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
                   </Flex>

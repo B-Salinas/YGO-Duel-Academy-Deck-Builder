@@ -15,7 +15,6 @@ class Spell_Trap_Card (db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "deck_id": self.deck_id,
             "card_id": self.card_id,
             "name": self.name,
             "type": self._type,

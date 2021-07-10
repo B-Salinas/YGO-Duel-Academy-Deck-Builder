@@ -60,7 +60,7 @@ export const logout = () => async (dispatch) => {
     }
   });
   
-  const data = await response.json();
+  // const data = await response.json();
   dispatch(removeUser());
 };
   

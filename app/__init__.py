@@ -6,17 +6,15 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
 from .models import db, User
+
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 
+from .api.masterlist_routes import masterlist_routes
+
 from .api.deck_routes import deck_routes
-
-from .api.monster_card_routes import monster_card_routes
-
-
-from .api.spell_trap_card_routes import spell_trap_card_routes
-
-# I don't have an API Route for the trunk, do I need that??
+from .api.deck_cards_routes import deck_cards_routes
+from .api.trunk_cards_routes import trunk_cards_routes
 
 from .seeds import seed_commands
 
@@ -38,13 +36,16 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
-app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(user_routes, url_prefix='/api/users')
 
+app.register_blueprint(masterlist_routes, url_prefix='/api/masterlist')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
+app.register_blueprint(deck_cards_routes, url_prefix="/api/deck_cards")
+app.register_blueprint(trunk_cards_routes, url_prefix="/api/trunk_cards")
 
-app.register_blueprint(monster_card_routes, url_prefix='/api/monster_cards')
-app.register_blueprint(spell_trap_card_routes, url_prefix="/api/spell_trap_cards")
+
+
 db.init_app(app)
 Migrate(app, db)
 

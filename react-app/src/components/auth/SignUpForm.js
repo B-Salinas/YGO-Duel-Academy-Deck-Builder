@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signUp, login } from '../../store/session';
 
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   VStack,
   Input,
   InputGroup,
   Button,
-  isRequired,
   Flex,
   Box,
   Spacer
@@ -20,7 +17,6 @@ import {
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector(state => state.session.user);
 
   const [name, setName] = useState("");
@@ -49,18 +45,24 @@ const SignUpForm = () => {
     }
   }
 
-  const handleDemo = async (e) => {
-    e.preventDefault();
-    const email = 'demo@aa.io';
-    const password = 'password'
-    const dispatched = await dispatch(login(email, password))
+  const demoLogin = () => {
+    const email = "demo@aa.io"
+    const password = "password"
+    dispatch(login(email, password))
+  }
 
-    if (dispatched.errors) {
-      setErrors(dispatched.errors)
-    } else {
-      history.push('/')
-    }
-  };
+  // const handleDemo = async (e) => {
+  //   e.preventDefault();
+  //   const email = 'demo@aa.io';
+  //   const password = 'password'
+  //   const dispatched = await dispatch(login(email, password))
+
+  //   if (dispatched.errors) {
+  //     setErrors(dispatched.errors)
+  //   } else {
+  //     history.push('/')
+  //   }
+  // };
 
   const updateName = (e) => {
     setName(e.target.value);
@@ -143,7 +145,7 @@ const SignUpForm = () => {
               <Spacer />
 
               <Box>
-                <form onSubmit={handleDemo}>
+                <form onSubmit={demoLogin}>
                   <Flex align={"right"} justify={"right"} >
                     <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
                   </Flex>
@@ -155,16 +157,7 @@ const SignUpForm = () => {
           </VStack>
         </form>
 
-    </>
-  );
-};
-
-export default SignUpForm;
-
-
-
-
-{/* <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
   <div> {errors.map((error, idx) => <span key={idx}>{error}</span>)}</div>
 
   <div>
@@ -211,3 +204,14 @@ export default SignUpForm;
   <button type="submit">Sign Up</button>
 
 </form> */}
+
+    </>
+  );
+};
+
+export default SignUpForm;
+
+
+
+
+
