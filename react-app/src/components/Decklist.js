@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Flex,
     Box,
@@ -7,14 +7,27 @@ import {
     Button,
     Heading
 } from "@chakra-ui/react";
-import { useSelector } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { FaTrash as DeleteIcon } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Link, useParams } from 'react-router-dom';
+import { deleteOneDeck } from '../store/deck';
 import { MainModal } from '../modal/Modal';
+
+import { getOneDeck} from '../store/deckbuilder';
 
 
 export default function DeckList() {
 
-    const user = useSelector((state) => state.session.user)
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state?.session?.user)
+    const newestDeck = useSelector(state => state?.decks?.new)
+    
+    useEffect(() => {
+    }, [newestDeck])
+
+    const handleDeleteDeck = async (value) => {
+        await dispatch(deleteOneDeck(value))
+    }
 
     return user && (
         <>
@@ -34,7 +47,7 @@ export default function DeckList() {
                             DECK LIST
                         </Heading>
                     </Box>
-                    <Flex align="right" ml={300}>
+                    <Flex align="right" ml={450}>
                         <MainModal />
                     </Flex>
 
@@ -44,16 +57,21 @@ export default function DeckList() {
             <br />
             <br />
 
-            <Box pl={30} pr={30}>
-                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100" ml={10} mr={10}>
+            <Box pl={100} pr={100}>
+                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} ml={10} mr={10}>
                     {user.decks.map((deck, idx) => (
-                        <GridItem key={idx} rowSpan={1} colSpan={5} bg="blue.100"> 
-                            <Link to={`/decks/${deck.id}/edit`}>
-                                <Heading size="lg"> 
-                                    {deck.name} 
-                                </Heading>
-                            </Link>
-                        </GridItem>
+                        <>
+                            <GridItem key={idx} rowSpan={1} colSpan={4}  >
+                                <Link to={`/decks/${deck.id}/edit`}>
+                                    <Heading size="lg" _hover={{ color: "green.400" }}> 
+                                        {deck.name} 
+                                    </Heading>
+                                </Link>
+                            </GridItem>
+                            <GridItem key={idx} rowSpan={1} colSpan={1} align="right">
+                                <Button align="right" value={deck.id} onClick={(value) => handleDeleteDeck(value)} _hover={{ color: "red.500" }}> <DeleteIcon /> </Button>
+                            </GridItem>
+                        </>
                     ))}
                 </Grid>
             </Box>

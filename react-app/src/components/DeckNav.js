@@ -33,7 +33,7 @@ export default function DeckNav () {
                         <Text> Side </Text>
                     </Grid>
                     <Box align="center" >
-                        <Heading>
+                        <Heading color="red.400">
                             {current_deck.name}
                         </Heading>
                     </Box>
@@ -41,29 +41,31 @@ export default function DeckNav () {
 
                 <br />
 
-                <Grid templateColumns="repeat(3, 1fr)" gap={2} bg="red.100" h={100} align="center">
-                    <Box align="center" h={50} mt={45}>
-                        <Heading size="xs" > Trunk Cards: {Object.keys(user.trunk_cards).length} </Heading>
+                <Grid templateColumns="repeat(3, 1fr)" gap={2} bg="gray.100" h={100} align="center">
+                    <Box align="center" h={50} mt={5}>
+                        <strong> Trunk Cards </strong> 
+                        <br /> 
+                        <Heading size="md"> {Object.keys(user.trunk_cards).length} </Heading>
                     </Box>
 
-                    <Grid templateColumns="repeat(9, 1fr)" gap={2} align="center" justify="center" mt={3} h={75} bg="green.400">
+                    <Grid templateColumns="repeat(9, 1fr)" gap={2} align="center" justify="center" mt={3} h={75} bg="gray.400">
                         
                         <Box>
-                            <Grid templateColumns="repeat(3, 1fr)" gap={2} mt={3} ml={7} h={50} align="center" bg="red.300">
-                                <Box w={100} bg="gray.100"> asdf </Box>
-                                <Box w={100} bg="gray.100"> 5-6 </Box>
-                                <Box w={100} bg="gray.100"> 7+ </Box>
+                            <Grid templateColumns="repeat(3, 1fr)" gap={2} mt={3} ml={7} h={50} align="center" bg="gray.500">
+                                <Box w={100} bg="white"> 1-4 </Box>
+                                <Box w={100} bg="white"> 5-6 </Box>
+                                <Box w={100} bg="white"> 7+ </Box>
                             </Grid>
                         </Box>
 
                         <Box>
-                            <Grid templateColumns="repeat(6, 1fr)" gap={2} mt={3} h={50} align="center" bg="red.300">
-                                <Box w={100} bg="yellow.100"> Spell </Box>
-                                <Box w={100} bg="yellow.100"> Trap </Box>
-                                <Box w={100} bg="yellow.100"> Normal </Box>
-                                <Box w={100} bg="yellow.100"> Effect </Box>
-                                <Box w={100} bg="yellow.100"> Fusion </Box>
-                                <Box w={100} bg="yellow.100"> Ritual </Box>
+                            <Grid templateColumns="repeat(6, 1fr)" gap={2} mt={3} h={50} align="center" bg="gray.500">
+                                <Box w={100} bg="white"> Spell </Box>
+                                <Box w={100} bg="white"> Trap </Box>
+                                <Box w={100} bg="white"> Normal </Box>
+                                <Box w={100} bg="white"> Effect </Box>
+                                <Box w={100} bg="white"> Fusion </Box>
+                                <Box w={100} bg="white"> Ritual </Box>
                             </Grid>
                         </Box>
                     </Grid>

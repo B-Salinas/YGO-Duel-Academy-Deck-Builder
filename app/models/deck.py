@@ -9,7 +9,7 @@ class Deck(db.Model):
     __tablename__ = 'decks'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, unique=True)
+    deckName = db.Column(db.String, nullable=False, unique=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     user = db.relationship("User", back_populates="decks")
@@ -40,7 +40,7 @@ class Deck(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "name": self.name,
+            "name": self.deckName,
             "user_id": self.user_id,
             "deck_cards": {card.card_id: card.to_dict() for card in self.cards}
         }

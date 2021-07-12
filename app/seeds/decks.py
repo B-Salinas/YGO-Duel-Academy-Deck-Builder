@@ -4,38 +4,38 @@ from app.models import db, Deck
 def seed_decks():
 
     starter_fire = Deck(
-        name="Fire",
+        deckName="Fire",
         user_id=1
     )
     db.session.add(starter_fire)
 
 
     starter_water = Deck(
-        name="Water",
+        deckName="Water",
         user_id=1
     )
     db.session.add(starter_water)
 
     starter_wind = Deck(
-        name="Wind",
+        deckName="Wind",
         user_id=1
     )
     db.session.add(starter_wind)
 
     starter_static = Deck(
-        name="Static",
+        deckName="Static",
         user_id=1
     )
     db.session.add(starter_static)
 
     elemental_hero = Deck(
-        name="Elemental Hero",
+        deckName="Elemental Hero",
         user_id=2
     )
     db.session.add(elemental_hero)
 
     duelist_kingdom = Deck(
-        name="Duelist Kingdom",
+        deckName="Duelist Kingdom",
         user_id=3
     )
     db.session.add(duelist_kingdom)

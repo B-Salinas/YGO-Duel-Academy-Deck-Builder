@@ -5,6 +5,8 @@ import {
     Button,
     Heading,
     HStack,
+    AspectRatio,
+    Center
 } from "@chakra-ui/react";
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux"
@@ -34,8 +36,8 @@ export default function SplashPage() {
     // };
 
     const demoLogin = () => {
-        const email = "demo@aa.io"
-        const password = "password"
+        const email = "kog@yugioh.com"
+        const password = "gramps"
         dispatch(login(email, password))
     }
 
@@ -44,7 +46,7 @@ export default function SplashPage() {
         <>
             <Flex bg={'#f7f7f7'} direction={"column"}>
 
-                <Box align={"center"} justify={"center"} direction={'column'} mt={8}>
+                <Box align={"center"} justify={"center"} direction={'column'} mt="35px">
                     <Heading fontSize="4xl">
                         YGO Duel Academy Deck Builder
                     </Heading>
@@ -52,8 +54,18 @@ export default function SplashPage() {
 
                 <br />
 
-                <HStack align={"center"} justify={"center"} spacing={10}>
-                    <Flex>
+                <AspectRatio maxW="560px" ratio={16 / 9} p="100px" mt="25px" ml="750px" mb="25px">
+                    <iframe
+                        title="YGO S1 Opening"
+                        src="https://www.youtube.com/embed/bDfgAKPrfq8"
+                        allowFullScreen
+                    />
+                </AspectRatio>
+
+                <br />
+
+                <HStack align={"center"} justify={"center"} spacing={10} mb="50px">
+                    <Flex> 
                         <Button bg={"purple.600"} color={"white"} _hover={{ bg: "purple.900" }} letterSpacing='widest'>
                             <NavLink to="/sign-up" exact={true} activeClassName="active">
                                 NEW GAME

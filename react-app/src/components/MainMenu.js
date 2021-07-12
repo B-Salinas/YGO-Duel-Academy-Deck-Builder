@@ -3,7 +3,8 @@ import {
     Box,
     Button,
     Heading,
-    VStack
+    VStack,
+    Tooltip
 } from "@chakra-ui/react"; 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -29,11 +30,14 @@ export default function MainMenu () {
                 <VStack align={"center"} justify={"center"} spacing={10}>
                 
                     <Flex>
-                        <NavLink to="/store" exact={true} activeClassName="active">
-                            <Button bg={"green.500"} color={"white"} _hover={{ bg: "green.700" }} w={"750px"} letterSpacing='widest'>
-                                STORE
-                            </Button>
-                        </NavLink>
+                        <Tooltip label="COMING SOON!"> 
+                            <NavLink to="/store" exact={true} activeClassName="active">
+                                <Button isDisabled bg={"green.500"} color={"white"} _hover={{ bg: "green.700" }} w={"750px"} letterSpacing='widest'>
+                                    STORE
+                                </Button>
+                            </NavLink>
+                        </Tooltip>
+                        
                     </Flex>
 
                     <Flex>

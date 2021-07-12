@@ -10,9 +10,7 @@ import AboutPage from "./components/AboutPage";
 import MainMenu from './components/MainMenu'
 import SplashPage from "./components/SplashPage";
 import Store from './components/Store'
-
-import UsersList from "./components/UsersList";
-import User from "./components/User";
+import ProfilePage from "./components/ProfilePage";
 
 import Footer from "./components/Footer";
 import DeckList from "./components/Decklist";
@@ -66,10 +64,7 @@ function App() {
           <DeckList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} >
-          <User />
+          <ProfilePage/>
         </ProtectedRoute>
         <ProtectedRoute path="/store" exact={true} >
           <Store />

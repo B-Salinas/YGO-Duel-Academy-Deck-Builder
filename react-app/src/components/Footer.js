@@ -14,21 +14,34 @@ export default function Footer() {
 
     return (
         <>
-            <Flex h={15} m={5}>
-                <Box p="2" ml={25}>
-                    <Link href={"https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder"}>
-                        <Flex direction={"row"} >
-                            {/* Checkout Rene's Github for a nice footer!! */}
-                            <Heading size="md"> <SiLinkedin /> </Heading>
-                            <Heading size="md"> <SiGithub /> </Heading>
-                        </Flex>
-                    </Link>
-                </Box>
-                <Spacer />
-                <Box mr={25}>
-                    <Heading size="md">© 2021 YGO DA Deck Builder</Heading>
+            <Flex h="60px" align="center" justify="space-between" boxShadow="md" p="6" rounded="md" bg="white" py="10px" px="80px" pos="relative">
+            
+                <Box fontSize="16px" > © 2021 YGO DA Deck Builder. No rights reserved. </Box>
+                
+                <Flex align="center" justify="space-between" >
+
+                    <Box mr="20px" >
+                        <Link href="https://github.com/b-salinas" fontSize="16px" _hover={{ color: "#CC4400", textDecoration: "none" }} isExternal> About the Developer </Link>
+                    </Box>
+                      
+                    <Box mr="20px">
+                        <Heading as="h2" size="xl">
+                            <Link href="https://github.com/B-Salinas/YGO-Duel-Academy-Deck-Builder" _hover={{ color: "#69a74e" }} isExternal>
+                                <SiGithub />
+                            </Link>
+                        </Heading>
+                    </Box>
+                        
+                    <Box mr="20px">
+                        <Heading as="h2" size="xl">
+                            <Link href="https://www.linkedin.com/in/b-salinas/" _hover={{ color: "#1877F2" }} isExternal>
+                                <SiLinkedin />
+                            </Link>
+                        </Heading>
+                    </Box>
                     
-                </Box>
+                </Flex>
+                
             </Flex>
         </>
     )
