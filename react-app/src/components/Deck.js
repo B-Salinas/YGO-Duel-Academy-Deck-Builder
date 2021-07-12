@@ -13,7 +13,7 @@ export default function Deck() {
     return user && current_deck && (
         <>
             <Box pl={30} pr={30}>
-                <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} bg="green.100" >
+                <Grid borderWidth="1px" borderRadius="sm" templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} >
                     {Object.values(current_deck.deck_cards).map((card, idx) => (
                         <GridItem key={idx} rowSpan={1} colSpan={5} bg="blue.100"> {card.name} </GridItem>
                     ))}

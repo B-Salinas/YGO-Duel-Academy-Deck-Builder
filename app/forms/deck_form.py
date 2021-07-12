@@ -3,9 +3,9 @@ from wtforms import StringField, IntegerField, SubmitField
 from wtforms.validators import DataRequired
 
 class NewDeckForm(FlaskForm):
-    name = StringField("name", validators=[DataRequired()])
+    deckName = StringField("Deck Name", validators=[DataRequired()])
     user_id = IntegerField("user_id", validators=[DataRequired()])
-    # submit = SubmitField("submit")
+    submit = SubmitField("submit")
 
 class AddToDeck(FlaskForm):
     card_id = IntegerField("card_id", validators=[DataRequired()])

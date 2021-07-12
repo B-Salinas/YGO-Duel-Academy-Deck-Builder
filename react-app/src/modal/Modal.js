@@ -9,16 +9,58 @@ import {
     Button,
     useDisclosure,           //  A handler to handle the open, close etc of the modal
     Link,
-    Flex
+    Flex,
+    FormControl,
+    FormLabel,
+    VStack,
+    Input,
+    InputGroup,
 } from "@chakra-ui/react";
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, Redirect } from "react-router-dom"
+
+import { addOneDeck } from '../store/deck'
+
 import DeckForm from "./DeckForm";
+
 
 // ------------------------------------------------------------------------------------------//
 
 
 export function MainModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const dispatch = useDispatch();
+    const user = useSelector(state => state?.session?.user);
+
+
+    const [deckName, setDeckName] = useState("");
+    const [errors, setErrors] = useState([]);
+
+    if (!user) {
+        return <Redirect to="/" />;
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+
+        const newDeckFormData = {
+            deckName,
+            user_id: user.id
+        }
+        console.log(newDeckFormData)
+
+        dispatch(addOneDeck(newDeckFormData))
+        onClose()
+    };
+
+  
+
+    const updateDeckName = (e) => {
+        setDeckName(e.target.value);
+    };
 
     return (
         <>
@@ -36,16 +78,39 @@ export function MainModal() {
                     <ModalCloseButton />
 
                     <ModalBody pb={6}>
-                        <DeckForm />
+                        <form onSubmit={handleSubmit}>
+
+                            <div>
+                                {errors.map((error, idx) => <div key={idx}>{error}</div>)}
+                            </div>
+
+                            <VStack spacing="24px">
+                                <FormControl isRequired >
+                                    <FormLabel>Deck Name</FormLabel>
+                                    <InputGroup>
+                                        <Input
+                                            placeholder="Deck Name"
+                                            type="text"
+                                            value={deckName}
+                                            onChange={updateDeckName}
+                                        />
+                                    </InputGroup>
+                                </FormControl>
+
+                                <Button onClick={handleSubmit} bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} >
+                                    Create new Deck
+                                </Button>
+                            </VStack>
+                        </form>
                     </ModalBody>
 
                     <ModalFooter>
                         
-                            <Button bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} > 
+                            {/* <Button bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} > 
                                 <Link to={`/decks/new`}> 
                                     Create new Deck 
                                 </Link> 
-                            </Button>
+                            </Button> */}
                         
                     </ModalFooter>
                 </ModalContent>

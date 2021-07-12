@@ -1,11 +1,22 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User
+from app.models import db, User, Deck
+from app.forms import NewDeckForm
 
 user_routes = Blueprint('users', __name__)
 #  /api/users...
 
 
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f"{field}: {error}")
+    return errorMessages
 
 
 
@@ -65,10 +76,10 @@ def get_card_from_trunk(user_id, card_id):
 
 # delete card from trunk 
 @user_routes.route('/<int:user_id>/trunk/<int:card_id>', methods=["DELETE"])
-def delete_card_from_trunk(user_id, monster_card_id):
+def delete_card_from_trunk(user_id, card_id):
     user = User.query.get(user_id)
-    delete_monster_card = user.monster_cards.query.get(monster_card_id)
-    db.session.delete(delete_monster_card)
+    delete_card = user.cards.query.get(card_id)
+    db.session.delete(delete_card)
     db.session.commit()
     return {"success": "success"}
 
@@ -87,11 +98,23 @@ def get_all_user_decks(user_id):
 
 # add a deck to a user
 @user_routes.route('/<int:user_id>/decks', methods=["POST"])
-def add_deck_to_user(user_id, card_id):
-    # I DONT EVEN KNOW HOW TO BEGIN THIS ROUTE
-    # user = User.query.get(user_id)
-    # return user.monster_cards
-    pass
+def add_deck_to_user(user_id):
+    form = NewDeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        data = form.data
+        new_deck = Deck(
+            deckName = data['deckName'],
+            user_id = data['user_id']
+        )
+        
+        db.session.add(new_deck)
+        db.session.commit()
+
+        return new_deck.to_dict()
+    
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #  get one user deck
 @user_routes.route('/<int:user_id>/decks/<int:deck_id>')

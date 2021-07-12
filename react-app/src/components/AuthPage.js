@@ -4,7 +4,9 @@ import {
     Image,
     Button,
     Spacer,
-    Text
+    Text,
+    Link,
+    AspectRatio
 } from "@chakra-ui/react";
 import React, { useState } from 'react';
 import SignUpForm from './auth/SignUpForm'
@@ -37,20 +39,22 @@ export default function AuthPage() {
 
                 <Box align={"center"} justify={"center"} direction={'column'} mt={8}>
                     <Text fontSize="4xl">
-                        {formRender ? <center> <strong> Create a YGO DA Deck Builder Account </strong></center> : <center> <strong> Log in to YGO DA Deck Builder</strong></center>} 
+                        <Link href="/" _hover={{ color: "red.500", textDecoration: "none" }}>
+                            {formRender ? <center> <strong> Create a YGO DA Deck Builder Account </strong></center> : <center> <strong> Log in to YGO DA Deck Builder</strong></center>} 
+                        </Link>
                     </Text> 
                 </Box>
 
                 <Flex justify={"center"} h={'100vh'} bg={'#f7f7f7'} >
                     <Box w={'800px'} >
                         <Flex align={"center"} justify={"center"} direction={'column'} mt={10} >
-                            <Image
-                                name={'image-next-to-signUp'}
-                                src={formRender ? "https://ms.yugipedia.com//7/72/Duel_Academy.jpg" : "https://www.wikihow.com/images/thumb/1/18/Build-a-Beginner-Yu-Gi-Oh%21-Deck-Step-2-Version-2.jpg/v4-460px-Build-a-Beginner-Yu-Gi-Oh%21-Deck-Step-2-Version-2.jpg.webp"}
-                                mb={'25px'}
-                                w={'600px'}
-                            >
-                            </Image>
+                                <Image
+                                    name={'image-next-to-signUp'}
+                                    src={formRender ? "https://ms.yugipedia.com//7/72/Duel_Academy.jpg" : "https://www.wikihow.com/images/thumb/1/18/Build-a-Beginner-Yu-Gi-Oh%21-Deck-Step-2-Version-2.jpg/v4-460px-Build-a-Beginner-Yu-Gi-Oh%21-Deck-Step-2-Version-2.jpg.webp"}
+                                    mb={'25px'}
+                                    w={'600px'}
+                                >
+                                </Image>
                         </Flex>
                     </Box>
 

@@ -36,9 +36,8 @@ def add_new_deck():
     if form.validate_on_submit():
         data = form.data
         new_deck = Deck(
-            name = data['name'],
+            deckName = data['deckName'],
             user_id = data['user_id']
-            
         )
         
         db.session.add(new_deck)

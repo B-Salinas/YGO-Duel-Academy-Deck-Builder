@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom"
+import {addOneDeck} from '../store/deck'
+
 // import { useHistory } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
 
@@ -12,28 +15,29 @@ import {
 } from "@chakra-ui/react";
 
 const DeckForm = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const history = useHistory();
-    const user = useSelector(state => state.session.user);
+    const user = useSelector(state => state?.session?.user);
+    
+
+    const { id } = useParams()
 
     const [deckName, setDeckName] = useState("");
-
     const [errors, setErrors] = useState([]);
 
     if (!user) {
-        return <Redirect to="/decklist" />;
+        return <Redirect to="/" />;
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors([]);
-        // const dispatched = await dispatch(login(email, password))
 
-        // if (dispatched.errors) {
-        //     setErrors(dispatched.errors)
-        // } else {
-        //     history.push('/')
-        // }
+        const newDeckFormData = {
+            deckName,
+            user_id: id
+        }
+
+        dispatch(addOneDeck(newDeckFormData))
     };
 
     const updateDeckName = (e) => {
