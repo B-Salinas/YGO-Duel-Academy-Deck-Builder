@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Redirect } from "react-router-dom"
+import { useParams, Redirect, useHistory } from "react-router-dom"
 
 import { addOneDeck } from '../store/deck'
 
@@ -31,38 +31,35 @@ import DeckForm from "./DeckForm";
 export function MainModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    const dispatch = useDispatch();
-    const user = useSelector(state => state?.session?.user);
 
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const user = useSelector((state) => state?.session?.user);
 
     const [deckName, setDeckName] = useState("");
     const [errors, setErrors] = useState([]);
 
-    if (!user) {
-        return <Redirect to="/" />;
-    }
-
+    
+ 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-
         const newDeckFormData = {
             deckName,
             user_id: user.id
         }
-        console.log(newDeckFormData)
 
-        dispatch(addOneDeck(newDeckFormData))
+        const dispatched = await dispatch(addOneDeck(newDeckFormData))
         onClose()
+        return <Redirect push to={"/decklist"} />
     };
-
-  
 
     const updateDeckName = (e) => {
         setDeckName(e.target.value);
     };
 
-    return (
+
+    return user && (
         <>
             <Flex align="right" marginRight={75}>
                 <Button onClick={onOpen} bg="green.400" color="white" letterSpacing="widest" _hover={{ bg: "green.800", color: "white" }} > ADD </Button>
@@ -98,7 +95,7 @@ export function MainModal() {
                                 </FormControl>
 
                                 <Button onClick={handleSubmit} bg="blue.400" color="white" letterSpacing="widest" _hover={{ bg: "blue.800", color: "white" }} >
-                                    Create new Deck
+                                    Create New Deck
                                 </Button>
                             </VStack>
                         </form>

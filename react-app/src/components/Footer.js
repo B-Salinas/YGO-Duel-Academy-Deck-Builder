@@ -14,7 +14,7 @@ export default function Footer() {
 
     return (
         <>
-            <Flex h="60px" align="center" justify="space-between" boxShadow="md" p="6" rounded="md" bg="white" py="10px" px="80px" pos="relative">
+            <Flex h="60px" align="center" justify="space-between" boxShadow="md" p="6" rounded="md" bg="white" py="10px" px="80px" w="100%" pos="fixed" bottom="0">
             
                 <Box fontSize="16px" > © 2021 YGO DA Deck Builder. No rights reserved. </Box>
                 
