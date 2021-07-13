@@ -24,14 +24,14 @@ def validation_errors_to_error_messages(validation_errors):
 
 # all users
 @user_routes.route('/')
-@login_required
+# @login_required
 def get_all_users():
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
 
 # one user
 @user_routes.route('/<int:id>')
-@login_required
+# @login_required
 def get_one_user(id):
     user = User.query.get(id)
     return user.to_dict()
@@ -132,8 +132,9 @@ def get_one_user_deck(user_id, deck_id):
 @user_routes.route('/<int:user_id>/decks/<int:deck_id>', methods=["DELETE"])
 def delete_one_user_deck(user_id, deck_id):
     user = User.query.get(user_id)
-    delete_user_deck = user.decks.query.get(deck_id)
-    db.session.delete(delete_user_deck)
+    deck = Deck.query.filter_by(user_id == user.id, id == deck_id).first()
+    # delete_user_deck = user.decks.query.get(deck_id)
+    db.session.delete(deck)
     db.session.commit()
     return {"success": "success"}
 

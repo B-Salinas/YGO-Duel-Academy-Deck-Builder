@@ -20,14 +20,13 @@ import { getOneDeck} from '../store/deckbuilder';
 export default function DeckList() {
 
     const dispatch = useDispatch()
-
+    
     const user = useSelector((state) => state?.session?.user)
-    // useEffect(() => {
-        
-    // }, [newestDeck])
+    const user_decks = useSelector((state) => state?.session?.user?.decks)
+    
 
     const handleDeleteDeck = async (value) => {
-        await dispatch(deleteOneDeck(value))
+        await dispatch(deleteOneDeck(user.id, value))
     }
 
     return user && (
@@ -60,7 +59,7 @@ export default function DeckList() {
 
             <Box pl={100} pr={100}>
                 <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} ml={10} mr={10}>
-                    {user.decks.map((deck, idx) => (
+                    {user_decks.map((deck, idx) => (
                         <>
                             <GridItem key={idx} rowSpan={1} colSpan={4}>
                                 <Flex>
@@ -73,7 +72,7 @@ export default function DeckList() {
                                     </Box>
                                     <Spacer />
                                     <Box>
-                                        <Button value={deck.id} onClick={(value) => handleDeleteDeck(value)} _hover={{ color: "red.500" }}> <DeleteIcon /> </Button>
+                                        <Button value={deck.name} onClick={(value) => handleDeleteDeck(value)} _hover={{ color: "red.500" }}> <DeleteIcon /> </Button>
                                     </Box>
                                 </Flex>
                             </GridItem>

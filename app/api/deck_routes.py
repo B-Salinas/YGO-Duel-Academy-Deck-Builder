@@ -28,24 +28,25 @@ def get_all_decks():
     decks = Deck.query.all()
     return jsonify([deck.to_dict() for deck in decks])
 
-@deck_routes.route('/', methods=["POST"])
-def add_new_deck():
-    form = NewDeckForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+# @deck_routes.route('/', methods=["POST"])
+# def add_new_deck(user_id):
+#     print("hello, this is right after the function executes!")
+#     form = NewDeckForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
     
-    if form.validate_on_submit():
-        data = form.data
-        new_deck = Deck(
-            deckName = data['deckName'],
-            user_id = data['user_id']
-        )
+#     if form.validate_on_submit():
+#         data = form.data
+#         new_deck = Deck(
+#             deckName = data['deckName'],
+#             user_id = data['user_id']
+#         )
         
-        db.session.add(new_deck)
-        db.session.commit()
+#         db.session.add(new_deck)
+#         db.session.commit()
 
-        return new_deck.to_dict()
+#         return new_deck.to_dict()
     
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @deck_routes.route('/<int:id>')
 def get_one_deck(id):

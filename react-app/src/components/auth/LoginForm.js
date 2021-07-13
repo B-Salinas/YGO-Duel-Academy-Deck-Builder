@@ -15,6 +15,7 @@ import {
   Box,
   Spacer
 } from "@chakra-ui/react";
+import { getAllDecks } from "../../store/deck";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
+    
     const dispatched = await dispatch(login(email, password))
 
     if (dispatched.errors) {
