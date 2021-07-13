@@ -13,7 +13,7 @@ export default function CardView() {
     const current_trunk_card = useSelector((state) => state.deckbuilder.current_trunk_card)
     const current_deck = useSelector((state) => state.deckbuilder.current_deck)
 
-    return current_trunk_card && (
+    return current_trunk_card &&  (
         <>
             <Box>
                 <Grid templateColumns="repeat(9, 1fr)" gap={2} h={40}> 
