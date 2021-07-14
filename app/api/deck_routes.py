@@ -16,19 +16,14 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f"{field}: {error}")
     return errorMessages
 
-
-
-
-
-
-
-# D E C K S
-@deck_routes.route('/')
+# Gets all Decks, regardless of user_id
+@deck_routes.route('') # THIS ROUTE WORKS
 def get_all_decks():
     decks = Deck.query.all()
     return jsonify([deck.to_dict() for deck in decks])
 
-@deck_routes.route('/', methods=["POST"])
+# Adds a deck to all decks
+@deck_routes.route('', methods=["POST"]) # THIS ROUTE WORKS 
 def add_new_deck():
     form = NewDeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -47,20 +42,38 @@ def add_new_deck():
     
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@deck_routes.route('/<int:id>')
+# Gets 1 deck based on deck_id
+@deck_routes.route('/<int:id>') # THIS ROUTE WORKS
 def get_one_deck(id):
     deck = Deck.query.get(id)
     return deck.to_dict() # returns deck informaiton: id, name, user_id
 
-@deck_routes.route('/<int:id>', methods=["DELETE"])
+
+#  Deletes deck based on deck_id
+@deck_routes.route('/<int:id>', methods=["DELETE"]) # THIS ROUTE WORKS
 def delete_deck(id):
     delete_deck = Deck.query.get(id) # I think I have t ouse the user to grab the deck that belongs to them? 
     db.session.delete(delete_deck)
     db.session.commit()
     return {"success": "success"}
 
+
+
+
+
+
+
+
+
+
+
+
+
+#  I G N O R E
+
+
 # D E C K   C A R D S 
-@deck_routes.route('/<int:deck_id>/all')
-def get_all_cards_in_deck(deck_id):
-    deck = Deck.query.get(deck_id)
-    return jsonify([card.to_dict() for card in deck.cards])
+# @deck_routes.route('/<int:deck_id>/all')
+# def get_all_cards_in_deck(deck_id):
+#     deck = Deck.query.get(deck_id)
+#     return jsonify([card.to_dict() for card in deck.cards])

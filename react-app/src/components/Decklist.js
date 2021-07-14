@@ -11,23 +11,27 @@ import {
 import { FaTrash as DeleteIcon } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link, useParams } from 'react-router-dom';
-import { deleteOneDeck } from '../store/deck';
+
 import { MainModal } from '../modal/Modal';
 
+import { deleteOneDeck } from '../store/deck';
 import { getOneDeck} from '../store/deckbuilder';
 
 
 export default function DeckList() {
 
     const dispatch = useDispatch()
-
+     
     const user = useSelector((state) => state?.session?.user)
-    // useEffect(() => {
-        
-    // }, [newestDeck])
+    const user_decks = useSelector((state) => state?.session?.user?.decks)
 
-    const handleDeleteDeck = async (value) => {
-        await dispatch(deleteOneDeck(value))
+    const [deckId, setDeckId] = useState(0)
+    
+
+    const handleDeleteDeck = async (deck_id) => {
+        console.log("DECK_ID", deck_id)
+        const dispatched = await dispatch(deleteOneDeck(deck_id))
+        console.log("DISPATCHED", dispatched)
     }
 
     return user && (
@@ -60,24 +64,22 @@ export default function DeckList() {
 
             <Box pl={100} pr={100}>
                 <Grid templateRows="repeat(5, 1fr)" templateColumns="repeat(5, 1fr)" gap={4} h={"400px"} ml={10} mr={10}>
-                    {user.decks.map((deck, idx) => (
-                        <>
-                            <GridItem key={idx} rowSpan={1} colSpan={4}>
-                                <Flex>
-                                    <Box>
-                                        <Link to={`/decks/${deck.id}/edit`}>
-                                            <Heading size="lg" _hover={{ color: "green.400" }}>
-                                                {deck.name}
-                                            </Heading>
-                                        </Link>
-                                    </Box>
-                                    <Spacer />
-                                    <Box>
-                                        <Button value={deck.id} onClick={(value) => handleDeleteDeck(value)} _hover={{ color: "red.500" }}> <DeleteIcon /> </Button>
-                                    </Box>
-                                </Flex>
-                            </GridItem>
-                        </>
+                    {user_decks?.map((deck, idx) => (
+                        <GridItem key={idx} rowSpan={1} colSpan={4}>
+                            <Flex>
+                                <Box>
+                                    <Link to={`/decks/${deck.id}/edit`}>
+                                        <Heading size="lg" _hover={{ color: "green.400" }}>
+                                            {deck.name}
+                                        </Heading>
+                                    </Link>
+                                </Box>
+                                <Spacer />
+                                <Box>
+                                    <Button value={deck.id} onClick={() => handleDeleteDeck(deck.id) } _hover={{ color: "red.500" }}> <DeleteIcon /> </Button>
+                                </Box>
+                            </Flex>
+                        </GridItem>
                     ))}
                 </Grid>
             </Box>

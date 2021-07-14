@@ -31,8 +31,8 @@ const deleteDeck = () => ({
 
 /********************************* THUNKS ************************************/
 
-export const getAllDecks = () => async (dispatch) => {
-    const response = await fetch('/api/decks')
+export const getAllDecks = (user_id) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user_id}/decks`)
 
     if (!response.ok) {
         const errors = await response.json()
@@ -45,8 +45,8 @@ export const getAllDecks = () => async (dispatch) => {
 
 /*****/
 
-export const getOneDeck = (id) => async (dispatch) => {
-    const response = await fetch(`/api/decks/${id}`)
+export const getOneDeck = ({deck_id, user_id}) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user_id}/decks/${deck_id}`)
 
     if (!response.ok) {
         const errors = await response.json()
@@ -60,7 +60,10 @@ export const getOneDeck = (id) => async (dispatch) => {
 /*****/
 
 export const addOneDeck = ({deckName, user_id}) => async dispatch => {
-    const response = await fetch(`/api/decks/`, {
+    console.log("DECK NAME", deckName)
+    console.log("USER ID", user_id)
+
+    const response = await fetch(`/api/users/${user_id}/decks`, {
         method: `POST`,
         headers: {
             'Content-Type': "application/json"
@@ -71,26 +74,26 @@ export const addOneDeck = ({deckName, user_id}) => async dispatch => {
         })
     })
 
+    console.log("RESPONSE INFO", response)
+
+
     if (!response.ok) {
         const errors = await response.json()
         return `Yikes! Something went wrong: ${errors}`
     }
 
     const newDeck = await response.json()
+    console.log("NEW DECK INFO AFTER RESPONSE.JSON", newDeck)
+    
     dispatch(addDeck(newDeck))
 }
 
 /*****/
 
-export const deleteOneDeck = ({deck_id}) => async dispatch => {
+export const deleteOneDeck = (deck_id) => async dispatch => {
+    console.log("DECK_ID INSIDE STORE", deck_id)
     const response = await fetch(`/api/decks/${deck_id}`, {
-        method: `DELETE`,
-        // headers: {
-        //     'Content-Type': "application/json"
-        // },
-        // body: JSON.stringify({
-        //     deck_id
-        // })
+        method: `DELETE`
     })
 
     if (!response.ok) {
@@ -99,6 +102,7 @@ export const deleteOneDeck = ({deck_id}) => async dispatch => {
     }
 
     const deletedDeck = await response.json()
+    console.log("DELETED DECK", deletedDeck)
     dispatch(deleteDeck(deletedDeck))
     return null
 }
@@ -136,7 +140,7 @@ export default function deckReducer(state = initialState, action) {
         case ADD_DECK:
             return {
                 ...state,
-                new: action.deck
+                new: action.newDeck
             }
         
         case DELETE_DECK:

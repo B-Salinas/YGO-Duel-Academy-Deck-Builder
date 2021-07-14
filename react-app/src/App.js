@@ -17,6 +17,8 @@ import DeckList from "./components/Decklist";
 
 
 import { authenticate } from "./store/session";
+import LoginPage from "./components/LoginPage";
+import SignUpPage from "./components/SignUpPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,36 +39,36 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact={true}>
+        <Route path="/" exact>
           <SplashPage />
         </Route>
-        <Route path="/login" exact={true}>
-          <AuthPage />
+        <Route path="/login" exact>
+          <LoginPage />
         </Route>
-        <Route path="/sign-up" exact={true}>
-          <AuthPage />
+        <Route path="/sign-up" exact>
+          <SignUpPage />
         </Route>
 
 
-        <ProtectedRoute path="/mainmenu" exact={true} >
+        <ProtectedRoute path="/mainmenu" exact >
           <MainMenu />
         </ProtectedRoute>
-        <ProtectedRoute path="/about" exact={true} >
+        <ProtectedRoute path="/about" exact >
           <AboutPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/decks/new" exact={true} >
+        <ProtectedRoute path="/decks/new" exact >
           <DeckBuilder />
         </ProtectedRoute>
-        <ProtectedRoute path="/decks/:deck_id/edit" exact={true} >
+        <ProtectedRoute path="/decks/:deck_id/edit" exact >
           <DeckBuilder />
         </ProtectedRoute>
-        <ProtectedRoute path="/decklist" exact={true} >
+        <ProtectedRoute path="/decklist" exact >
           <DeckList />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} >
+        <ProtectedRoute path="/users/:userId" exact >
           <ProfilePage/>
         </ProtectedRoute>
-        <ProtectedRoute path="/store" exact={true} >
+        <ProtectedRoute path="/store" exact >
           <Store />
         </ProtectedRoute>
       </Switch>

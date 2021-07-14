@@ -6,7 +6,8 @@ import {
     Heading,
     HStack,
     AspectRatio,
-    Center
+    Center,
+    Link
 } from "@chakra-ui/react";
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux"
@@ -54,22 +55,25 @@ export default function SplashPage() {
 
                 <br />
 
-                <AspectRatio maxW="560px" ratio={16 / 9} p="100px" mt="25px" ml="750px" mb="25px">
-                    <iframe
-                        title="YGO S1 Opening"
-                        src="https://www.youtube.com/embed/bDfgAKPrfq8"
-                        allowFullScreen
-                    />
-                </AspectRatio>
+                <Flex alignContent="center" justify="center" pb="50px">
+                    <AspectRatio w="50em" ratio={16 / 9} m="25px">
+                        <iframe
+                            title="YGO S1 Opening"
+                            src="https://www.youtube.com/embed/bDfgAKPrfq8"
+                            allowFullScreen
+                        />
+                    </AspectRatio>
+                </Flex>
+                
 
                 <br />
 
                 <HStack align={"center"} justify={"center"} spacing={10} mb="50px">
                     <Flex> 
                         <Button bg={"purple.600"} color={"white"} _hover={{ bg: "purple.900" }} letterSpacing='widest'>
-                            <NavLink to="/sign-up" exact={true} activeClassName="active">
+                            <Link href="/sign-up">
                                 NEW GAME
-                            </NavLink>
+                            </Link>
                         </Button>
                     </Flex>
 
@@ -81,9 +85,9 @@ export default function SplashPage() {
 
                     <Flex>
                         <Button bg={"yellow.400"} color={"white"} letterSpacing='wider' _hover={{ bg: "yellow.700", color: "white" }}  >
-                            <NavLink to="/login" exact={true} activeClassName="active">
+                            <Link href="/login">
                                 CONTINUE
-                            </NavLink>
+                            </Link>
                         </Button>
                     </Flex>
                 </HStack>
