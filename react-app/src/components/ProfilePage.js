@@ -77,11 +77,11 @@ export default function ProfilePage() {
                                         <a href='/decklist'> DeckList </a>
                                     </Button>
 
-                                    <Tooltip label="COMING SOON!">
+                                    {/* <Tooltip label="COMING SOON!">
                                         <Button isDisabled bg="red.500" color="white" >
                                             <a href='#'> Edit Profile </a>
                                         </Button>
-                                    </Tooltip>
+                                    </Tooltip> */}
                                 </ButtonGroup>
                             </VStack>
                         </VStack>

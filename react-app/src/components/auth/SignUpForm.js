@@ -12,7 +12,8 @@ import {
   Button,
   Flex,
   Box,
-  Spacer
+  Spacer,
+  Select
 } from "@chakra-ui/react";
 
 const SignUpForm = () => {
@@ -135,6 +136,45 @@ const SignUpForm = () => {
                   onChange={updateRepeatPassword}
                 />
               </InputGroup>
+
+            <br />
+
+              <FormLabel>Select a Dorm</FormLabel>
+                <Select placeholder="Select a Dorm">
+                  <option> Slifer Red Dorm </option>
+                  <option> Ra Yellow Dorm </option>
+                  <option> Obelisk Blue Dorm </option>
+                </Select> 
+
+            <br />
+
+              <FormLabel>Select a Title</FormLabel>
+                <Select placeholder="Select a Title">
+                  <option> Apprentice Duelist </option>
+                  <option> Average Duelist </option>
+                  <option> Fiery Duelist </option>
+                  <option> Calm Duelist </option>
+                  <option> Superior Duelist </option>
+                  <option> Honored Duelist </option>
+                  <option> Elite Duelist </option>
+                  <option> Prince of Games </option>
+                  <option> King of Games </option>
+              </Select>
+
+            <br />
+
+              <FormLabel>Select a Profile Picture</FormLabel>
+                <Select placeholder="Select a Profile Picture">
+                  <option> Professor Banner </option>
+                  <option> Chumley Huffington </option>
+                  <option> Jaden Yuki </option>
+                  <option> Syrus Truesdale </option>
+                  <option> Chazz Princeton </option>
+                  <option> Bastion Misawa </option>
+                  <option> Alexis Rhodes </option>
+                  <option> Yugi Muto </option>
+              </Select>
+
 
             <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
 

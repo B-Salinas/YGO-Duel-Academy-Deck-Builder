@@ -90,15 +90,10 @@ export const addOneDeck = ({deckName, user_id}) => async dispatch => {
 
 /*****/
 
-export const deleteOneDeck = ({deck_id, user_id}) => async dispatch => {
-    const response = await fetch(`/api/users/${user_id}/decks/${deck_id}`, {
-        method: `DELETE`,
-        // headers: {
-        //     'Content-Type': "application/json"
-        // },
-        // body: JSON.stringify({
-        //     deck_id
-        // })
+export const deleteOneDeck = (deck_id) => async dispatch => {
+    console.log("DECK_ID INSIDE STORE", deck_id)
+    const response = await fetch(`/api/decks/${deck_id}`, {
+        method: `DELETE`
     })
 
     if (!response.ok) {
@@ -107,6 +102,7 @@ export const deleteOneDeck = ({deck_id, user_id}) => async dispatch => {
     }
 
     const deletedDeck = await response.json()
+    console.log("DELETED DECK", deletedDeck)
     dispatch(deleteDeck(deletedDeck))
     return null
 }
