@@ -55,7 +55,6 @@ export default function DeckList() {
                     <Flex align="right" ml={450}>
                         <MainModal />
                     </Flex>
-
                 </Grid>
             </Box>
 
