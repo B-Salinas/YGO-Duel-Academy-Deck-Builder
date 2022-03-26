@@ -14,6 +14,8 @@ import ProfilePage from "./components/ProfilePage";
 
 import Footer from "./components/Footer";
 import DeckList from "./components/Decklist";
+import User from './components/User';
+import UsersList from './components/UsersList';
 
 
 import { authenticate } from "./store/session";
