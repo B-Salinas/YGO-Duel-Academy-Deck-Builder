@@ -49,28 +49,6 @@ function App() {
           <SignUpPage />
         </Route>
 
-<<<<<<< HEAD
-
-        <ProtectedRoute path="/mainmenu" exact >
-          <MainMenu />
-        </ProtectedRoute>
-        <ProtectedRoute path="/about" exact >
-          <AboutPage />
-        </ProtectedRoute>
-        <ProtectedRoute path="/decks/new" exact >
-          <DeckBuilder />
-        </ProtectedRoute>
-        <ProtectedRoute path="/decks/:deck_id/edit" exact >
-          <DeckBuilder />
-        </ProtectedRoute>
-        <ProtectedRoute path="/decklist" exact >
-          <DeckList />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact >
-          <ProfilePage/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/store" exact >
-=======
         {/* All of these should be protected routes, but for the time being, I'm making them regular routes */}
         <Route path="/mainmenu" exact={true} >
           <MainMenu />
@@ -91,7 +69,6 @@ function App() {
           <User />
         </Route>
         <Route path="/store" exact={true} >
->>>>>>> 82aea66... removed protected routes for the meantime
           <Store />
         </Route>
       </Switch>

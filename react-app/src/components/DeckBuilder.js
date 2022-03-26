@@ -40,13 +40,7 @@ export default function DeckBuilder() {
                         </Heading>
                     </Box>
                     <Flex align="right" ml={300}>
-<<<<<<< HEAD
                         <Button bg='green.400' color={"white"} letterSpacing='widest' _hover={{ bg: "green.800", color: "white" }} > SAVE DECK </Button>
-=======
-                        <NavLink to="/decklist" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > DECK LIST </Button>
-                        </NavLink>
->>>>>>> 82aea66... removed protected routes for the meantime
                     </Flex>
 
                 </Grid>
