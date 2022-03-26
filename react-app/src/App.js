@@ -53,28 +53,28 @@ function App() {
           <AuthPage />
         </Route>
 
-
-        <ProtectedRoute path="/mainmenu" exact={true} >
+        {/* All of these should be protected routes, but for the time being, I'm making them regular routes */}
+        <Route path="/mainmenu" exact={true} >
           <MainMenu />
-        </ProtectedRoute>
-        <ProtectedRoute path="/about" exact={true} >
+        </Route>
+        <Route path="/about" exact={true} >
           <AboutPage />
-        </ProtectedRoute>
-        <ProtectedRoute path="/deckbuilder" exact={true} >
+        </Route>
+        <Route path="/deckbuilder" exact={true} >
           <DeckBuilder />
-        </ProtectedRoute>
-        <ProtectedRoute path="/decklist" exact={true} >
+        </Route>
+        <Route path="/decklist" exact={true} >
           <DeckList />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users" exact={true} >
+        </Route>
+        <Route path="/users" exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} >
+        </Route>
+        <Route path="/users/:userId" exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/store" exact={true} >
+        </Route>
+        <Route path="/store" exact={true} >
           <Store />
-        </ProtectedRoute>
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

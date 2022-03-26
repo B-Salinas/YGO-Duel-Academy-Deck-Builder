@@ -31,7 +31,6 @@ export default function DeckList() {
                             <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > DELETE </Button>
                         </NavLink>
                     </Flex>
-
                 </Grid>
             </Box>
 

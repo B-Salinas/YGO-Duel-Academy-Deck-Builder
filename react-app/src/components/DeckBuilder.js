@@ -35,7 +35,7 @@ export default function DeckBuilder() {
                     </Box>
                     <Flex align="right" ml={300}>
                         <NavLink to="/decklist" exact={true} activeClassName="active">
-                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} color='white' > DECK LIST </Button>
+                            <Button bg='gray.400' color={"black"} letterSpacing='widest' _hover={{ bg: "gray.800", color: "white" }} > DECK LIST </Button>
                         </NavLink>
                     </Flex>
 
