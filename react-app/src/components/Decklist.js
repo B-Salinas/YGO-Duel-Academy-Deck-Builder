@@ -53,7 +53,10 @@ function DeckList() {
               </NavLink>
             </Flex>
             <Box align="center">
-              <Heading> DECK LIST</Heading>
+              <Heading>
+                {" "}
+                DECK LIST adding something so it can be changed .......{" "}
+              </Heading>
             </Box>
             <Flex align="right" ml={450}>
               <MainModal />
@@ -79,7 +82,7 @@ function DeckList() {
                   <Box>
                     <Link to={`/decks/${deck.id}/edit`}>
                       <Heading size="lg" _hover={{ color: "green.400" }}>
-                        {deck.name}
+                        {deck.deckName}
                       </Heading>
                     </Link>
                   </Box>
