@@ -9,7 +9,12 @@ class Deck(db.Model):
   deck_name = db.Column(db.String, nullable=False)
 
   # user_deck_cards
-  cards = relationship("User_Deck_Card", backref="deck", cascade="all, delete")
+  cards = relationship(
+    "User_Deck_Card", 
+    backref="deck", 
+    cascade="all, delete",
+    lazy="dynamic"
+  )
 
   def to_dict(self):
     return {

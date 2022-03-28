@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Card, User_Deck_Card, Deck
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+
+from app.models.user_card import User_Card
 # import random
 # import string
 
@@ -93,10 +95,20 @@ def unauthorized():
 
 # @auth_routes.route('/testing')
 # def test():
-#   users = User_Card.query.filter(User_Card.user_id == 1, User_Card.card_id == 855).one()
+#   user = Card.query.get(1)
 
-#   return users.to_dict()
-#   # return {'data': [user.to_dict() for user in users]}
+#   print()
+#   print()
+#   print()
+#   print(current_user.remove_from_deck(2, 103, 100))
+#   print()
+#   print()
+#   print()
+
+
+
+#   return user.to_dict()
+  # return {'data': [user.to_dict() for user in users]}
 
 # @auth_routes.route('/signup-test')
 # def sign_up_test():

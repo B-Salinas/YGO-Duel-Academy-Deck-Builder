@@ -24,13 +24,28 @@ class User(db.Model, UserMixin):
   profile_img = db.Column(db.String, nullable=False)
 
   # user_cards
-  cards = relationship("User_Card", backref="user", cascade="all, delete")
+  cards = relationship(
+    "User_Card", 
+    backref="user", 
+    cascade="all, delete",
+    lazy="dynamic"
+  )
 
   # trunk
-  trunk = relationship("Trunk", backref="user", cascade="all, delete")
+  trunk = relationship(
+    "Trunk", 
+    backref="user", 
+    cascade="all, delete",
+    lazy="dynamic"
+  )
 
   # decks
-  decks = relationship("Deck", backref="user", cascade="all, delete")
+  decks = relationship(
+    "Deck", 
+    backref="user", 
+    cascade="all, delete", 
+    lazy="dynamic"
+  )
 
   @property                                         
   def password(self):
@@ -53,6 +68,160 @@ class User(db.Model, UserMixin):
       'profileImg': self.profile_img,
       'decks': [deck.to_dict() for deck in self.decks]
     }
+
+
+  def find_user_card(self, card_id):
+    return self.cards.filter(User_Card.card_id == card_id).first()
+
+
+  def find_card_in_trunk(self, user_card_id):
+    return self.trunk.first().cards.filter(
+      User_Trunk_Card.user_card_id == user_card_id
+    ).first()
+
+
+  def find_card_in_deck(self, user_card_id, deck_id):
+    return self.decks.filter(Deck.id == deck_id).first().cards.filter(
+      User_Deck_Card.user_card_id == user_card_id
+    ).first()
+
+
+  def find_deck_by_id(self, deck_id):
+    return self.decks.filter(Deck.id == deck_id).first()
+
+  
+  def find_deck_by_name(self, deck_name):
+    return self.decks.filter(Deck.deck_name == deck_name).first()
+
+
+  def create_deck(self, deck_name):
+    decks = self.decks.all()
+
+    if len(decks) == 9:
+      return None
+    else:
+      if self.find_deck_by_name(deck_name) is not None:
+        return None
+
+      new_user_deck = Deck(
+        user_id = self.id,
+        deck_name = deck_name
+      )
+
+      db.session.add(new_user_deck)
+      db.session.commit()
+
+      return new_user_deck
+
+  def rename_deck(self, deck_id, deck_name):
+    if self.find_deck_by_name(deck_name) is not None:
+      return None
+
+    user_deck = self.find_deck_by_id(deck_id)
+
+    if user_deck is not None:
+      user_deck.deck_name = deck_name
+    else:
+      return None
+
+    db.session.commit()
+    return user_deck
+
+  def delete_deck(self, deck_id):
+    user_deck = self.find_deck_by_id(deck_id)
+
+    if user_deck is not None:
+      db.session.delete(user_deck)
+    else:
+      return False
+
+    db.session.commit()
+    return True
+
+  
+  def add_to_deck(self, deck_id, user_card_id, quantity):
+    deck_card = self.find_card_in_deck(user_card_id, deck_id)
+    user_trunk_card = self.find_card_in_trunk(user_card_id)
+
+    if quantity <= user_trunk_card.quantity and quantity > 0:
+      if deck_card is None:
+        new_deck_card = User_Deck_Card(
+          user_card_id = user_card_id,
+          deck_id = deck_id,
+          quantity = quantity
+        )
+
+        db.session.add(new_deck_card)
+      else:
+        deck_card.quantity += quantity
+
+      user_trunk_card.quantity -= quantity
+      db.session.commit()
+      return deck_card
+    else:
+      return None
+
+
+  def remove_from_deck(self, deck_id, user_card_id, quantity):
+    deck_card = self.find_card_in_deck(user_card_id, deck_id)
+    og_deck_card_qty = deck_card.quantity
+    user_trunk_card = self.find_card_in_trunk(user_card_id)
+    
+    if quantity >= deck_card.quantity:
+      db.session.delete(deck_card)
+      user_trunk_card.quantity += og_deck_card_qty
+    elif quantity <= 0:
+      return False
+    else:
+      deck_card.quantity -= quantity
+      user_trunk_card.quantity += quantity
+
+    db.session.commit()
+    return True
+
+
+  def add_user_card(self, card_id, quantity):
+    existing_user_card = self.find_user_card(card_id)
+
+    if existing_user_card is None:
+      new_user_card = User_Card(
+        user_id = self.id,
+        card_id = card_id,
+        total_quantity = quantity
+      )
+
+      db.session.add(new_user_card)
+      db.session.commit()
+
+      new_trunk_card = User_Trunk_Card(
+        user_card_id = new_user_card.id,
+        trunk_id = self.trunk.first().id,
+        quantity = quantity
+      )
+
+      db.session.add(new_trunk_card)
+    else:
+      existing_trunk_card = self.find_card_in_trunk(existing_user_card.id)
+      existing_trunk_card.quantity += quantity
+      existing_user_card.total_quantity += quantity
+
+    db.session.commit()
+    return existing_user_card
+
+
+  def remove_user_card(self, card_id, quantity):
+    user_card = self.find_user_card(card_id)
+
+    if quantity <= 0 or user_card is None:
+      return False
+    elif quantity >= user_card.total_quantity:
+      db.session.delete(user_card)
+    else:
+      user_card.total_quantity -= quantity
+
+    db.session.commit()
+    return True
+
 
   def sign_up(self):
     FIRE_DECK_NAME = "Fire"
