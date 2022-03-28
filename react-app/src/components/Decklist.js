@@ -53,10 +53,7 @@ function DeckList() {
               </NavLink>
             </Flex>
             <Box align="center">
-              <Heading>
-                {" "}
-                DECK LIST adding something so it can be changed .......{" "}
-              </Heading>
+              <Heading> DECK LIST</Heading>
             </Box>
             <Flex align="right" ml={450}>
               <MainModal />
