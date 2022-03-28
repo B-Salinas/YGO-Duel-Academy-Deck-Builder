@@ -65,7 +65,7 @@ function App() {
           <DeckList />
         </Route>
         <Route path="/users" exact={true} >
-          <UsersList/>
+          <UsersList />
         </Route>
         <Route path="/users/:userId" exact={true} >
           <User />

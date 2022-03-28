@@ -24,7 +24,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  
+
   const [errors, setErrors] = useState([]);
 
   if (user) {
@@ -35,12 +35,12 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       setErrors([]);
-      const dispatched = await dispatch(signUp({name, email, password}))
-      
+      const dispatched = await dispatch(signUp({ name, email, password }))
+
       if (dispatched.errors) {
         setErrors(dispatched.errors)
       }
-      
+
     } else {
       setErrors(['Confirm Password field must be the same as the Password field']);
     }
@@ -84,96 +84,96 @@ const SignUpForm = () => {
   return (
 
     <>
-        <form onSubmit={handleSubmit}>
-          <div>
-            {errors.map((error, idx) => <div key={idx}>{error}</div>)}
-          </div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          {errors.map((error, idx) => <div key={idx}>{error}</div>)}
+        </div>
 
-          <VStack spacing={2}>
-            <FormControl isRequired>
-              <FormLabel>Full Name</FormLabel>
-              <InputGroup>
-                <Input
-                  placeholder="Full Name"
-                  type="text"
-                  value={name}
-                  onChange={updateName}
-                /> 
-              </InputGroup>
-              
-              <br />
-
-              <FormLabel>Email Address</FormLabel>
-              <InputGroup>
-                <Input
-                  placeholder="Email Address"
-                  type="email"
-                  value={email}
-                  onChange={updateEmail}
-                />
-              </InputGroup>
-
-              <br />
-
-              <FormLabel>Password</FormLabel>
-              <InputGroup>
-                <Input 
-                  placeholder="Password"
-                  type="password"
-                  value={password} 
-                  onChange={updatePassword}
-                />
-              </InputGroup>
-
-              <br />
-
-              <FormLabel>Confirm Password</FormLabel>
-              <InputGroup>
-                <Input
-                  placeholder="Confirm Password"
-                  type="password"
-                  value={repeatPassword}
-                  onChange={updateRepeatPassword}
-                />
-              </InputGroup>
+        <VStack spacing={2}>
+          <FormControl isRequired>
+            <FormLabel>Full Name</FormLabel>
+            <InputGroup>
+              <Input
+                placeholder="Full Name"
+                type="text"
+                value={name}
+                onChange={updateName}
+              />
+            </InputGroup>
 
             <br />
 
-              <FormLabel>Select a Dorm</FormLabel>
-                <Select placeholder="Select a Dorm">
-                  <option> Slifer Red Dorm </option>
-                  <option> Ra Yellow Dorm </option>
-                  <option> Obelisk Blue Dorm </option>
-                </Select> 
+            <FormLabel>Email Address</FormLabel>
+            <InputGroup>
+              <Input
+                placeholder="Email Address"
+                type="email"
+                value={email}
+                onChange={updateEmail}
+              />
+            </InputGroup>
 
             <br />
 
-              <FormLabel>Select a Title</FormLabel>
-                <Select placeholder="Select a Title">
-                  <option> Apprentice Duelist </option>
-                  <option> Average Duelist </option>
-                  <option> Fiery Duelist </option>
-                  <option> Calm Duelist </option>
-                  <option> Superior Duelist </option>
-                  <option> Honored Duelist </option>
-                  <option> Elite Duelist </option>
-                  <option> Prince of Games </option>
-                  <option> King of Games </option>
-              </Select>
+            <FormLabel>Password</FormLabel>
+            <InputGroup>
+              <Input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={updatePassword}
+              />
+            </InputGroup>
 
             <br />
 
-              <FormLabel>Select a Profile Picture</FormLabel>
-                <Select placeholder="Select a Profile Picture">
-                  <option> Professor Banner </option>
-                  <option> Chumley Huffington </option>
-                  <option> Jaden Yuki </option>
-                  <option> Syrus Truesdale </option>
-                  <option> Chazz Princeton </option>
-                  <option> Bastion Misawa </option>
-                  <option> Alexis Rhodes </option>
-                  <option> Yugi Muto </option>
-              </Select>
+            <FormLabel>Confirm Password</FormLabel>
+            <InputGroup>
+              <Input
+                placeholder="Confirm Password"
+                type="password"
+                value={repeatPassword}
+                onChange={updateRepeatPassword}
+              />
+            </InputGroup>
+
+            <br />
+
+            <FormLabel>Select a Dorm</FormLabel>
+            <Select placeholder="Select a Dorm">
+              <option> Slifer Red Dorm </option>
+              <option> Ra Yellow Dorm </option>
+              <option> Obelisk Blue Dorm </option>
+            </Select>
+
+            <br />
+
+            <FormLabel>Select a Title</FormLabel>
+            <Select placeholder="Select a Title">
+              <option> Apprentice Duelist </option>
+              <option> Average Duelist </option>
+              <option> Fiery Duelist </option>
+              <option> Calm Duelist </option>
+              <option> Superior Duelist </option>
+              <option> Honored Duelist </option>
+              <option> Elite Duelist </option>
+              <option> Prince of Games </option>
+              <option> King of Games </option>
+            </Select>
+
+            <br />
+
+            <FormLabel>Select a Profile Picture</FormLabel>
+            <Select placeholder="Select a Profile Picture">
+              <option> Professor Banner </option>
+              <option> Chumley Huffington </option>
+              <option> Jaden Yuki </option>
+              <option> Syrus Truesdale </option>
+              <option> Chazz Princeton </option>
+              <option> Bastion Misawa </option>
+              <option> Alexis Rhodes </option>
+              <option> Yugi Muto </option>
+            </Select>
 
 
             <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
@@ -185,17 +185,17 @@ const SignUpForm = () => {
               <Spacer />
 
               <Box>
-                <form onSubmit={demoLogin}>
-                  <Flex align={"right"} justify={"right"} >
-                    <Button type="Submit" bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
-                  </Flex>
-                </form>
+                {/* <form onSubmit={demoLogin}> */}
+                <Flex align={"right"} justify={"right"} >
+                  <Button onClick={demoLogin} bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
+                </Flex>
+                {/* </form> */}
               </Box>
 
             </Flex>
-            </FormControl>
-          </VStack>
-        </form>
+          </FormControl>
+        </VStack>
+      </form>
 
       {/* <form onSubmit={handleSubmit}>
   <div> {errors.map((error, idx) => <span key={idx}>{error}</span>)}</div>
@@ -250,8 +250,3 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
-
-
-
-
-

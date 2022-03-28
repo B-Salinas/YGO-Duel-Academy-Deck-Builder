@@ -1,16 +1,11 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import backref, relationship
-from .trunk_cards import trunk_monster_cards, trunk_spell_trap_cards
-
-from .monster_card import Monster_Card
-from .spell_trap_card import Spell_Trap_Card
+from sqlalchemy.orm import relationship
 
 
 class User(db.Model, UserMixin):
-  __tablename__ = 'users'
+  __tablename__ = "users"
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String, nullable=False)
@@ -20,10 +15,14 @@ class User(db.Model, UserMixin):
   title = db.Column(db.String, nullable=False)
   profile_img = db.Column(db.String, nullable=False)
 
-  monster_cards = db.relationship("Monster_Card", secondary=trunk_monster_cards, backref="users")
-  spell_trap_cards = db.relationship("Spell_Trap_Card", secondary=trunk_spell_trap_cards, backref="users")
+  # user_cards
+  cards = relationship("User_Card", backref="user", cascade="all, delete")
 
-  decks = db.relationship("Deck", back_populates="user")
+  # trunk
+  trunk = relationship("Trunk", backref="user", cascade="all, delete")
+
+  # decks
+  decks = relationship("Deck", backref="user", cascade="all, delete")
 
   @property                                         
   def password(self):
@@ -36,36 +35,12 @@ class User(db.Model, UserMixin):
   def check_password(self, password):
     return check_password_hash(self.password, password)
 
-
-  # this is grabbing all of the user's cards (which live in the trunk)
-  # it grabs line 23 and 24 and puts them together
-  @property
-  def cards(self):
-        return [*self.monster_cards, *self.spell_trap_cards]
-
-  @cards.setter
-  def cards(self, cards_list):
-    self.monster_cards = []
-    self.spell_trap_cards = []
-
-    if not len(cards_list):
-        return
-
-    for card in cards_list:
-        if isinstance(card, Monster_Card):
-            self.monster_cards.append(card)
-        elif isinstance(card, Spell_Trap_Card):
-            self.spell_trap_cards.append(card)
-
   def to_dict(self):
-    return { 
-      "id": self.id,
-      "name": self.name,
-      "email": self.email,
-      "hashed_password": self.hashed_password,
-      "dorm": self.dorm,
-      "title": self.title,
-      "profile_img": self.profile_img,
-      "decks": [deck.to_dict() for deck in self.decks],
-      "trunk_cards": {card.card_id: card.to_dict() for card in self.cards}
+    return {
+      'id': self.id,
+      'name': self.name,
+      'email': self.email,
+      'dorm': self.dorm,
+      'title': self.title,
+      'profileImg': self.profile_img
     }
