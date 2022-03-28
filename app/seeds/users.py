@@ -3,7 +3,7 @@ from app.models import db, User, Profile_Image
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-  profile_img_prof_banner = Profile_Image.query.filter(Profile_Image.name.ilike("Prof. Banner")).one()
+  profile_img_prof_banner = Profile_Image.query.filter(Profile_Image.name.ilike("Professor Banner")).one()
   profile_img_jaden_yugi = Profile_Image.query.filter(Profile_Image.name.ilike("Jaden Yugi")).one()
   profile_img_yugi_mutou = Profile_Image.query.filter(Profile_Image.name.ilike("Yugi Mutou")).one()
 
@@ -42,10 +42,10 @@ def seed_users():
   )
   db.session.add(yugi)
 
-
-
-
   db.session.commit()
+
+
+  demo.sign_up()
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

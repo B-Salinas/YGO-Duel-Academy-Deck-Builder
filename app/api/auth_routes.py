@@ -3,8 +3,8 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
-import random
-import string
+# import random
+# import string
 
 auth_routes = Blueprint('auth', __name__)
 #  /api/auth...
@@ -76,6 +76,7 @@ def sign_up():
 
     db.session.add(user)
     db.session.commit()
+    user.sign_up()
 
     login_user(user)
     return user.to_dict()
@@ -90,26 +91,27 @@ def unauthorized():
   """
   return {'errors': ['Unauthorized']}, 401
 
-@auth_routes.route('/testing')
-def test():
-  users = User.query.all()
+# @auth_routes.route('/testing')
+# def test():
+#   users = User_Card.query.filter(User_Card.user_id == 1, User_Card.card_id == 855).one()
 
-  return {'data': [user.to_dict() for user in users]}
+#   return users.to_dict()
+#   # return {'data': [user.to_dict() for user in users]}
 
-@auth_routes.route('/signup-test')
-def sign_up_test():
-  letters = string.ascii_letters
-  user = User (
-    name=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
-    email=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4)))+'@gmail.com',
-    password=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
-    dorm=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
-    title=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
-    profile_img=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4)))
-  )
+# @auth_routes.route('/signup-test')
+# def sign_up_test():
+#   letters = string.ascii_letters
+#   user = User (
+#     name=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
+#     email=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4)))+'@gmail.com',
+#     password=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
+#     dorm=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
+#     title=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4))),
+#     profile_img=''.join(random.choice(letters) for i in range(int(random.random() * (21 - 4) + 4)))
+#   )
 
-  db.session.add(user)
-  db.session.commit()
+#   db.session.add(user)
+#   db.session.commit()
 
-  user.sign_up()
-  return user.to_dict()
+#   user.sign_up()
+#   return user.to_dict()
