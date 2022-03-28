@@ -6,7 +6,7 @@ class Deck(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-  deck_name = db.Column(db.String, nullable=False, unique=True)
+  deck_name = db.Column(db.String, nullable=False)
 
   # user_deck_cards
   cards = relationship("User_Deck_Card", backref="deck", cascade="all, delete")
