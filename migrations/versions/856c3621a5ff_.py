@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 50d8db4d773f
+Revision ID: 856c3621a5ff
 Revises: 
-Create Date: 2022-03-26 02:02:04.209390
+Create Date: 2022-03-27 23:32:02.611677
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '50d8db4d773f'
+revision = '856c3621a5ff'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,6 +36,14 @@ def upgrade():
     sa.UniqueConstraint('name'),
     sa.UniqueConstraint('official_id')
     )
+    op.create_table('profile_images',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('img_url', sa.String(), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('img_url'),
+    sa.UniqueConstraint('name')
+    )
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
@@ -52,8 +60,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('deck_name', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('deck_name')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('trunks',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -99,5 +106,6 @@ def downgrade():
     op.drop_table('trunks')
     op.drop_table('decks')
     op.drop_table('users')
+    op.drop_table('profile_images')
     op.drop_table('cards')
     # ### end Alembic commands ###
