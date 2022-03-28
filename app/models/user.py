@@ -42,5 +42,6 @@ class User(db.Model, UserMixin):
       'email': self.email,
       'dorm': self.dorm,
       'title': self.title,
-      'profileImg': self.profile_img
+      'profileImg': self.profile_img,
+      'decks': [deck.to_dict() for deck in self.decks]
     }

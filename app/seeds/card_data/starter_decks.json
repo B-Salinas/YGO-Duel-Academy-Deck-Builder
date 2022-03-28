@@ -1,0 +1,238 @@
+{
+  "fire": [
+    {
+      "name": "Red-Eyes Black Dragon",
+      "qty": 1
+    },
+    {
+      "name": "Black Pendant",
+      "qty": 1
+    },
+    {
+      "name": "Sparks",
+      "qty": 1
+    },
+    {
+      "name": "Magician of Faith",
+      "qty": 1
+    },
+    {
+      "name": "Man-Eater Bug",
+      "qty": 1
+    },
+    {
+      "name": "Needle Worm",
+      "qty": 1
+    },
+    {
+      "name": "Little Chimera",
+      "qty": 1
+    },
+    {
+      "name": "Salamandra",
+      "qty": 1
+    },
+    {
+      "name": "Meteor Dragon",
+      "qty": 1
+    },
+    {
+      "name": "Meteor Black Dragon",
+      "qty": 1
+    },
+    {
+      "name": "Negate Attack",
+      "qty": 1
+    },
+    {
+      "name": "Trap Hole",
+      "qty": 1
+    },
+    {
+      "name": "Polymerization",
+      "qty": 1
+    },
+    {
+      "name": "Burning Spear",
+      "qty": 1
+    },
+    {
+      "name": "Tribute to the Doomed",
+      "qty": 1
+    },
+    {
+      "name": "Magic Jammer",
+      "qty": 1
+    },
+    {
+      "name": "Upstart Goblin",
+      "qty": 1
+    },
+    {
+      "name": "Giant Trunade",
+      "qty": 1
+    },
+    {
+      "name": "UFO Turtle",
+      "qty": 1
+    },
+    {
+      "name": "Nobleman of Extermination",
+      "qty": 1
+    },
+    {
+      "name": "Twin-Headed Fire Dragon",
+      "qty": 1
+    },
+    {
+      "name": "Darkfire Soldier #1",
+      "qty": 2
+    },
+    {
+      "name": "Darkfire Soldier #2",
+      "qty": 1
+    },
+    {
+      "name": "Lady Assailant of Flames",
+      "qty": 1
+    },
+    {
+      "name": "Spirit of Flames",
+      "qty": 1
+    },
+    {
+      "name": "Book of Moon",
+      "qty": 1
+    },
+    {
+      "name": "Autonomous Action Unit",
+      "qty": 1
+    },
+    {
+      "name": "Token Thanksgiving",
+      "qty": 1
+    },
+    {
+      "name": "Legendary Flame Lord",
+      "qty": 1
+    },
+    {
+      "name": "Incandescent Ordeal",
+      "qty": 1
+    },
+    {
+      "name": "Inferno",
+      "qty": 1
+    },
+    {
+      "name": "Blazing Inpachi",
+      "qty": 2
+    },
+    {
+      "name": "The Thing in the Crater",
+      "qty": 1
+    },
+    {
+      "name": "Backfire",
+      "qty": 1
+    },
+    {
+      "name": "Special Hurricane",
+      "qty": 1
+    },
+    {
+      "name": "Charcoal Inpachi",
+      "qty": 1
+    },
+    {
+      "name": "Monster Reincarnation",
+      "qty": 1
+    },
+    {
+      "name": "Spiritual Fire Art - Kurenai",
+      "qty": 1
+    }
+  ],
+  "water": [
+    { "name": "Aqua Madoor", "qty": 1 },
+    { "name": "Steel Shell", "qty": 1 },
+    { "name": "Black Pendant", "qty": 1 },
+    { "name": "Power of Kaishin", "qty": 1 },
+    { "name": "Umi", "qty": 1 },
+    { "name": "7 Colored Fish", "qty": 1 },
+    { "name": "Giant Red Seasnake", "qty": 1 },
+    { "name": "Sinister Serpent", "qty": 1 },
+    { "name": "Star Boy", "qty": 1 },
+    { "name": "Penguin Soldier", "qty": 1 },
+    { "name": "Negate Attack", "qty": 1 },
+    { "name": "Fissure", "qty": 1 },
+    { "name": "Trap Hole", "qty": 1 },
+    { "name": "Magic Jammer", "qty": 1 },
+    { "name": "Upstart Goblin", "qty": 1 },
+    { "name": "Giant Trunade", "qty": 1 },
+    { "name": "Mother Grizzly", "qty": 1 },
+    { "name": "Umiiruka", "qty": 1 },
+    { "name": "Maiden of the Aqua", "qty": 1 },
+    { "name": "Amphibian Beast", "qty": 2 },
+    { "name": "Island Turtle", "qty": 1 },
+    { "name": "Aqua Spirit", "qty": 1 },
+    { "name": "A Legendary Ocean", "qty": 1 },
+    { "name": "Gora Turtle", "qty": 1 },
+    { "name": "Yomi Ship", "qty": 1 },
+    { "name": "Granadora", "qty": 1 },
+    { "name": "Gale Lizard", "qty": 1 },
+    { "name": "Fenrir", "qty": 1 },
+    { "name": "Giga Gagagigo", "qty": 1 },
+    { "name": "Terrorking Salmon", "qty": 1 },
+    { "name": "Amphibious Bugroth MK-3", "qty": 1 },
+    { "name": "Levia-Dragon - Daedalus", "qty": 1 },
+    { "name": "Salvage", "qty": 1 },
+    { "name": "Mermaid Knight", "qty": 1 },
+    { "name": "Ocean Dragon Lord - Neo-Daedalus", "qty": 1 },
+    { "name": "Des Frog", "qty": 1 },
+    { "name": "T.A.D.P.O.L.E.", "qty": 1 },
+    { "name": "Poison Draw Frog", "qty": 1 },
+    { "name": "Spiritual Water Art - Aoi", "qty": 1 }
+  ],
+  "wind": [
+    { "name": "Harpie Lady", "qty": 2 },
+    { "name": "Harpie Lady Sisters", "qty": 1 },
+    { "name": "Princess of Tsurugi", "qty": 1 },
+    { "name": "Black Pendant", "qty": 1 },
+    { "name": "Cyber Shield", "qty": 1 },
+    { "name": "Elegant Egotist", "qty": 1 },
+    { "name": "Harpie's Pet Dragon", "qty": 1 },
+    { "name": "Bladefly", "qty": 1 },
+    { "name": "Cyber-Tech Alligator", "qty": 1 },
+    { "name": "Negate Attack", "qty": 1 },
+    { "name": "Fissure", "qty": 1 },
+    { "name": "Trap Hole", "qty": 1 },
+    { "name": "Gust Fan", "qty": 1 },
+    { "name": "Tribute to the Doomed", "qty": 1 },
+    { "name": "Magic Jammer", "qty": 1 },
+    { "name": "Upstart Goblin", "qty": 1 },
+    { "name": "Giant Trunade", "qty": 1 },
+    { "name": "Flying Kamakiri #1", "qty": 1 },
+    { "name": "Rising Air Current", "qty": 1 },
+    { "name": "Sky Scout", "qty": 1 },
+    { "name": "Birdface", "qty": 1 },
+    { "name": "Girochin Kuwagata", "qty": 1 },
+    { "name": "Spirit of the Breeze", "qty": 1 },
+    { "name": "Dancing Fairy", "qty": 1 },
+    { "name": "Cyber Harpie Lady", "qty": 1 },
+    { "name": "Garuda the Wind Spirit", "qty": 1 },
+    { "name": "Spear Dragon", "qty": 1 },
+    { "name": "The Dragon Dwelling in the Cave", "qty": 1 },
+    { "name": "Cave Dragon", "qty": 1 },
+    { "name": "Gray Wing", "qty": 1 },
+    { "name": "Luster Dragon", "qty": 1 },
+    { "name": "Sasuke Samurai", "qty": 1 },
+    { "name": "Sonic Duck", "qty": 1 },
+    { "name": "Luster Dragon", "qty": 1 },
+    { "name": "Nin-Ken Dog", "qty": 1 },
+    { "name": "Silpheed", "qty": 1 },
+    { "name": "Lady Ninja Yae", "qty": 1 },
+    { "name": "Harpies' Hunting Ground", "qty": 1 },
+    { "name": "Spiritual Wind Art - Miyabi", "qty": 1 }
+  ]
+}
