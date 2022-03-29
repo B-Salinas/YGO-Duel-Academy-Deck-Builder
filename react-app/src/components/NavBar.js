@@ -5,6 +5,8 @@ import { Box, Grid, GridItem, Heading } from "@chakra-ui/react";
 import BackToMainMenu from "./Buttons/BackToMainMenuButton";
 import CreateNewDeck from "./Buttons/CreateNewDeckButton";
 
+import { MainModal } from "../modal/Modal";
+
 const NavBar = (Component, section) => {
   return (
     <>

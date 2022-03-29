@@ -40,7 +40,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       {loaded && (
         <Switch>
           <Route path="/" exact>
