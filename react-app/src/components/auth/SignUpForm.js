@@ -32,7 +32,9 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [profilePic, setProfilePic] = useState("");
+  const [profilePictureId, setProfilePictureId] = useState("");
+  const [titleId, setTitleId] = useState("");
+  const [dormId, setDormId] = useState("");
 
   const [errors, setErrors] = useState([]);
 
@@ -50,7 +52,15 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       setErrors([]);
-      const dispatched = await dispatch(signUp({ name, email, password }));
+      const dispatched = await dispatch(signUp({
+        name,
+        email,
+        password,
+        profilePictureId: parseInt(profilePictureId, 10),
+        titleId,
+        dormId
+      }));
+
 
       if (dispatched.errors) {
         setErrors(dispatched.errors);
@@ -157,15 +167,15 @@ const SignUpForm = () => {
             <br />
 
             <FormLabel>Select a Dorm</FormLabel>
-            <Select placeholder="Select a Dorm">
-              {dorms && dorms.map((dorm) => <option>{dorm.name}</option>)}
+            <Select value={dormId} onChange={(e) => { setDormId(e.target.value) }} placeholder="Select a Dorm">
+              {dorms && dorms.map((dorm) => <option value={dorm.id}>{dorm.name}</option>)}
             </Select>
 
             <br />
 
             <FormLabel>Select a Title</FormLabel>
-            <Select placeholder="Select a Title">
-              {titles && titles.map((title) => <option>{title.name}</option>)}
+            <Select value={titleId} onChange={(e) => { setTitleId(e.target.value) }} placeholder="Select a Title">
+              {titles && titles.map((title) => <option value={title.id}>{title.name}</option>)}
             </Select>
 
             <br />
@@ -179,11 +189,11 @@ const SignUpForm = () => {
                   </option>
                 ))}
             </Select> */}
-            <RadioGroup onChange={setProfilePic} value={profilePic}>
+            <RadioGroup onChange={setProfilePictureId} value={profilePictureId}>
               <Stack direction="row">
                 {profilePictures &&
                   profilePictures.map((profilePicture) => (
-                    <Radio value={profilePicture.name}>
+                    <Radio value={String(profilePicture.id)}>
                       <Avatar src={profilePicture.imgUrl} size="md" />
                     </Radio>
                   ))}
