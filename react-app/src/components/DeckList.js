@@ -16,9 +16,8 @@ import { FaTrash as DeleteIcon } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
 import { MainModal } from "../modal/Modal";
+import { deleteUserDeck } from "../store/session";
 
-import { deleteOneDeck } from "../store/deck";
-import { getOneDeck } from "../store/deckbuilder";
 
 function DeckList() {
   const dispatch = useDispatch();
@@ -30,8 +29,7 @@ function DeckList() {
 
   const handleDeleteDeck = async (deck_id) => {
     console.log("DECK_ID", deck_id);
-    const dispatched = await dispatch(deleteOneDeck(deck_id));
-    console.log("DISPATCHED", dispatched);
+    console.log("DISPATCHED");
   };
 
   return (

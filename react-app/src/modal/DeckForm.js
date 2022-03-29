@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom"
-import {addOneDeck} from '../store/deck'
 
 // import { useHistory } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
@@ -18,7 +17,7 @@ const DeckForm = () => {
     const dispatch = useDispatch();
     // const history = useHistory();
     const user = useSelector(state => state?.session?.user);
-    
+
 
     const { id } = useParams()
 
@@ -37,7 +36,6 @@ const DeckForm = () => {
             user_id: id
         }
 
-        dispatch(addOneDeck(newDeckFormData))
     };
 
     const updateDeckName = (e) => {

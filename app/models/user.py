@@ -267,10 +267,7 @@ class User(db.Model, UserMixin):
 
     for card in starter_deck_json["water"]:
       card_ref = Card.query.filter(Card.name.ilike(f"{card['name']}")).one()
-      existing_user_card = User_Card.query.filter(
-        User_Card.card_id == card_ref.id,
-        User_Card.user_id == self.id
-      ).first()
+      existing_user_card = self.find_user_card(card_ref.id)
 
       if existing_user_card is None:
         new_user_card = User_Card(
@@ -286,10 +283,7 @@ class User(db.Model, UserMixin):
 
     for card in starter_deck_json["wind"]:
       card_ref = Card.query.filter(Card.name.ilike(f"{card['name']}")).one()
-      existing_user_card = User_Card.query.filter(
-        User_Card.card_id == card_ref.id,
-        User_Card.user_id == self.id
-      ).first()
+      existing_user_card = self.find_user_card(card_ref.id)
 
       if existing_user_card is None:
         new_user_card = User_Card(
@@ -305,10 +299,7 @@ class User(db.Model, UserMixin):
 
     for card in starter_deck_json["fire"]:
       card_ref = Card.query.filter(Card.name.ilike(f"{card['name']}")).one()
-      user_card_ref = User_Card.query.filter(
-        User_Card.card_id == card_ref.id,
-        User_Card.user_id == self.id
-        ).one()
+      user_card_ref = self.find_user_card(card_ref.id)
       new_user_deck_card = User_Deck_Card(
         user_card_id = user_card_ref.id,
         deck_id = user_fire_deck.id,
@@ -319,10 +310,7 @@ class User(db.Model, UserMixin):
 
     for card in starter_deck_json["water"]:
       card_ref = Card.query.filter(Card.name.ilike(f"{card['name']}")).one()
-      user_card_ref = User_Card.query.filter(
-        User_Card.card_id == card_ref.id,
-        User_Card.user_id == self.id
-        ).one()
+      user_card_ref = self.find_user_card(card_ref.id)
       new_user_deck_card = User_Deck_Card(
         user_card_id = user_card_ref.id,
         deck_id = user_water_deck.id,
@@ -333,10 +321,7 @@ class User(db.Model, UserMixin):
 
     for card in starter_deck_json["wind"]:
       card_ref = Card.query.filter(Card.name.ilike(f"{card['name']}")).one()
-      user_card_ref = User_Card.query.filter(
-        User_Card.card_id == card_ref.id,
-        User_Card.user_id == self.id
-        ).one()
+      user_card_ref = self.find_user_card(card_ref.id)
       new_user_deck_card = User_Deck_Card(
         user_card_id = user_card_ref.id,
         deck_id = user_wind_deck.id,
@@ -345,7 +330,7 @@ class User(db.Model, UserMixin):
 
       db.session.add(new_user_deck_card)
 
-    for user_card in User_Card.query.filter(User_Card.user_id == self.id).all():
+    for user_card in self.cards.all():
       new_user_trunk_card = User_Trunk_Card(
         user_card_id = user_card.id,
         trunk_id = user_trunk.id,

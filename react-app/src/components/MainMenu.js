@@ -9,7 +9,6 @@ import {
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from 'react-router-dom';
-import { getAllDecks } from "../store/deck";
 
 import LogoutButton from './auth/LogoutButton';
 
@@ -19,12 +18,6 @@ export default function MainMenu() {
   const history = useHistory();
   const user = useSelector((state) => state?.session?.user)
   const user_decks = useSelector((state) => state?.session?.user?.decks)
-
-  useEffect(() => {
-    if (user) {
-      dispatch(getAllDecks(user.id));
-    }
-  }, [user]);
 
   if (!user) history.push("/");
 

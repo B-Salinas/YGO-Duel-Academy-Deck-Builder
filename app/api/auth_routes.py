@@ -1,10 +1,8 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, Card, User_Deck_Card, Deck
+from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
-
-from app.models.user_card import User_Card
 # import random
 # import string
 
@@ -104,8 +102,6 @@ def unauthorized():
 #   print()
 #   print()
 #   print()
-
-
 
 #   return user.to_dict()
   # return {'data': [user.to_dict() for user in users]}

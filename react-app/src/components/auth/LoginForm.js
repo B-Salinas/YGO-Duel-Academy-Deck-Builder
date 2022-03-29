@@ -15,7 +15,6 @@ import {
   Box,
   Spacer
 } from "@chakra-ui/react";
-import { getAllDecks } from "../../store/deck";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const [errors, setErrors] = useState([]);
-  
+
   if (user) {
     return <Redirect to="/" />;
   }
@@ -34,7 +33,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    
+
     const dispatched = await dispatch(login(email, password))
 
     if (dispatched.errors) {
@@ -69,12 +68,12 @@ const LoginForm = () => {
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
-  };  
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        
+
         <div>
           {errors.map((error, idx) => <div key={idx}>{error}</div>)}
         </div>
@@ -90,7 +89,7 @@ const LoginForm = () => {
                 onChange={updateEmail}
               />s
             </InputGroup>
-            
+
             <br />
 
             <FormLabel>Password</FormLabel>
@@ -102,12 +101,12 @@ const LoginForm = () => {
                 onChange={updatePassword}
               />
             </InputGroup>
-            
+
 
             <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
 
               <Box>
-                <Button  type="Submit" bg='blue.400' color='white' _hover={{ bg: 'blue.600' }}>Continue</Button>
+                <Button type="Submit" bg='blue.400' color='white' _hover={{ bg: 'blue.600' }}>Continue</Button>
               </Box>
 
               <Spacer />
@@ -121,12 +120,12 @@ const LoginForm = () => {
               </Box>
 
             </Flex>
-            
+
           </FormControl>
         </VStack>
       </form>
 
-      
+
     </>
   );
 };
