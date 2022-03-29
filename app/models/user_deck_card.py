@@ -15,6 +15,6 @@ class User_Deck_Card(db.Model):
   def to_dict(self):
     return {
       'id': self.id,
-      'card': self.user_trunk.to_dict(),
+      'card': self.user_trunk.card.to_dict(),
       'quantity': self.quantity
     }
