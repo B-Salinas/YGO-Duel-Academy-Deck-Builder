@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
 import { signUp, login } from '../../store/session';
+import { getSignUpData } from "../../store/signUp";
 
 import {
   FormControl,
@@ -19,6 +20,9 @@ import {
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+  const dorms = useSelector(state => state.signUp.dorms);
+  const titles = useSelector(state => state.signUp.titles);
+  const profilePictures = useSelector(state => state.signUp.profilePictures);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +30,12 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    if (!user) {
+      dispatch(getSignUpData());
+    }
+  }, []);
 
   if (user) {
     return <Redirect to="/" />;
@@ -141,38 +151,33 @@ const SignUpForm = () => {
 
             <FormLabel>Select a Dorm</FormLabel>
             <Select placeholder="Select a Dorm">
-              <option> Slifer Red Dorm </option>
-              <option> Ra Yellow Dorm </option>
-              <option> Obelisk Blue Dorm </option>
+              {dorms &&
+                dorms.map(dorm => (
+                  <option>{dorm.name}</option>
+                ))
+              }
             </Select>
 
             <br />
 
             <FormLabel>Select a Title</FormLabel>
             <Select placeholder="Select a Title">
-              <option> Apprentice Duelist </option>
-              <option> Average Duelist </option>
-              <option> Fiery Duelist </option>
-              <option> Calm Duelist </option>
-              <option> Superior Duelist </option>
-              <option> Honored Duelist </option>
-              <option> Elite Duelist </option>
-              <option> Prince of Games </option>
-              <option> King of Games </option>
+              {titles &&
+                titles.map(title => (
+                  <option>{title.name}</option>
+                ))
+              }
             </Select>
 
             <br />
 
             <FormLabel>Select a Profile Picture</FormLabel>
             <Select placeholder="Select a Profile Picture">
-              <option> Professor Banner </option>
-              <option> Chumley Huffington </option>
-              <option> Jaden Yuki </option>
-              <option> Syrus Truesdale </option>
-              <option> Chazz Princeton </option>
-              <option> Bastion Misawa </option>
-              <option> Alexis Rhodes </option>
-              <option> Yugi Muto </option>
+              {profilePictures &&
+                profilePictures.map(profilePicture => (
+                  <option>{profilePicture.name}</option>
+                ))
+              }
             </Select>
 
 

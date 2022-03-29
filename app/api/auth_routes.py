@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Dorm, Profile_Image, Title
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -55,6 +55,19 @@ def logout():
   """
   logout_user()
   return {'message': 'User logged out'}
+
+
+@auth_routes.route('/signup-data')
+def sign_up_data():
+  dorms = Dorm.query.all()
+  profile_images = Profile_Image.query.all()
+  titles = Title.query.all()
+
+  return {
+    'dorms': [dorm.to_dict() for dorm in dorms], 
+    'profilePictures': [profile_picture.to_dict() for profile_picture in profile_images], 
+    'titles': [title.to_dict() for title in titles]
+  }
 
 
 @auth_routes.route('/signup', methods=['POST'])

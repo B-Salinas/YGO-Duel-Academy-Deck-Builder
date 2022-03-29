@@ -114,7 +114,11 @@ export const deleteUserDeck = (deckId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log("data", data);
+    if (data.success) {
+      dispatch(deleteDeck(deckId));
+    } else {
+      console.log("error deleting deck...");
+    }
   } else {
     console.log("error deleting deck...");
   }
@@ -130,11 +134,18 @@ const initialState = {
 /****************************** REDUCER ************************************/
 
 export default function reducer(state = initialState, action) {
+  let newState;
+
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case DELETE_DECK:
+      newState = Object.assign({}, state);
+      newState.user.decks = state.user.decks.filter((deck) => deck.id !== action.payload);
+
+      return newState
     default:
       return state;
   }

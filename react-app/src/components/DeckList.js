@@ -27,8 +27,9 @@ function DeckList() {
 
   const [deckId, setDeckId] = useState(0);
 
-  const handleDeleteDeck = async (deck_id) => {
-    console.log("DECK_ID", deck_id);
+  const handleDeleteDeck = async (deckId) => {
+    dispatch(deleteUserDeck(deckId))
+    console.log("DECK_ID", deckId);
     console.log("DISPATCHED");
   };
 

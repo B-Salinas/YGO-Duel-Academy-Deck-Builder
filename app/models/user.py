@@ -131,6 +131,8 @@ class User(db.Model, UserMixin):
     user_deck = self.find_deck_by_id(deck_id)
 
     if user_deck is not None:
+      for card in self.decks.filter(Deck.id == deck_id).first().cards.all():
+        self.find_card_in_trunk(card.user_card_id).quantity += card.quantity
       db.session.delete(user_deck)
     else:
       return False
