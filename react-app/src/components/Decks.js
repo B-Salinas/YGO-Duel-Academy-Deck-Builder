@@ -15,18 +15,26 @@ function Decks({ deck }) {
         <Box p={2}>
           <EditDeckButton />
         </Box>
-        <Flex p={1} alignItems='baseline'>
-          <Link to={`/decks/${deck.id}/edit`}>
-            <Heading size="md" p={2} _hover={{ color: "blue.400" }}>
-              {deck.deckName}
-            </Heading>
-          </Link>
+        <Flex alignItems="baseline">
+          <Box p={2}>
+            <Link to={`/decks/${deck.id}/edit`}>
+              <Heading size="md" p={2} _hover={{ color: "blue.400" }}>
+                {deck.deckName}
+              </Heading>
+            </Link>
+          </Box>
           {/* Fix this box's spacing and text appearance */}
-          <Box p={2} fontSize="xs" fontWeight='semibold' letterSpacing='wide' fontStyle='italic'>
+          <Box
+            fontSize="xs"
+            fontWeight="semibold"
+            letterSpacing="wide"
+            fontStyle="italic"
+          >
             {deck.cards?.length} cards
           </Box>
         </Flex>
         <Box p={2} mr={0} ml="auto">
+          {/* I need to add an additional delete confirmation window about deleting a deck */}
           <DeleteDeckButton />
         </Box>
       </Flex>
