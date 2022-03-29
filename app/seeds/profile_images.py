@@ -9,7 +9,7 @@ def seed_profile_images():
     },
     {
       "name": 'Chumley Huffington',
-      "filename": "asdf.png"
+      "filename": "chumley_huffington_vwivmj.png"
     },
     {
       "name": 'Jaden Yugi',
@@ -17,19 +17,19 @@ def seed_profile_images():
     },
     {
       "name": 'Syrus Truesdale',
-      "filename": "prof_bann32er_c5qipu.png"
+      "filename": "syrus_truesdale_omrvam.png"
     },
     {
       "name": 'Chazz Princeton',
-      "filename": "prof_ban3aewfner_c5qipu.png"
+      "filename": "chazz_princeton_qdkrtn.png"
     },
     {
       "name": 'Bastion Misawa',
-      "filename": "asd332r.png"
+      "filename": "bastion_misawa_jsgyo1.png"
     },
     {
       "name": 'Alexis Rhodes',
-      "filename": "prof_banhshdhner_c5qipu.png"
+      "filename": "alexis_rhodes_frlh5k.png"
     },
     {
       "name": 'Yugi Mutou',

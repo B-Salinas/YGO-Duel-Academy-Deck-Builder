@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Dorm, Profile_Image, Title
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -57,6 +57,19 @@ def logout():
   return {'message': 'User logged out'}
 
 
+@auth_routes.route('/signup-data')
+def sign_up_data():
+  dorms = Dorm.query.all()
+  profile_images = Profile_Image.query.all()
+  titles = Title.query.all()
+
+  return {
+    'dorms': [dorm.to_dict() for dorm in dorms], 
+    'profilePictures': [profile_picture.to_dict() for profile_picture in profile_images], 
+    'titles': [title.to_dict() for title in titles]
+  }
+
+
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
   """
@@ -93,10 +106,18 @@ def unauthorized():
 
 # @auth_routes.route('/testing')
 # def test():
-#   users = User_Card.query.filter(User_Card.user_id == 1, User_Card.card_id == 855).one()
+#   user = Card.query.get(1)
 
-#   return users.to_dict()
-#   # return {'data': [user.to_dict() for user in users]}
+#   print()
+#   print()
+#   print()
+#   print(current_user.remove_from_deck(2, 103, 100))
+#   print()
+#   print()
+#   print()
+
+#   return user.to_dict()
+  # return {'data': [user.to_dict() for user in users]}
 
 # @auth_routes.route('/signup-test')
 # def sign_up_test():

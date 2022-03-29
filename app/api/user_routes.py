@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import current_user, login_required
 from app.models import db, User, Deck
 from app.forms import NewDeckForm
 
@@ -128,14 +128,11 @@ def get_one_user_deck(user_id, deck_id):
 #  the demo has 4 decks but the next person only has 1 but the deck_id is not 1, its 5
 
 #  delete a deck
-@user_routes.route('/<int:user_id>/decks/<int:deck_id>', methods=["DELETE"])
-def delete_one_user_deck(user_id, deck_id):
-  user = User.query.get(user_id)
-  deck = Deck.query.filter_by(user_id == user.id, id == deck_id).first()
-  # delete_user_deck = user.decks.query.get(deck_id)
-  db.session.delete(deck)
-  db.session.commit()
-  return {"success": "success"}
+@user_routes.route('/decks', methods=["DELETE"])
+def delete_one_user_deck():
+  deck_id = request.json["deckId"]
+
+  return {"success": current_user.delete_deck(deck_id)}
 
 
 
