@@ -30,7 +30,7 @@ function Decks({ deck }) {
             letterSpacing="wide"
             fontStyle="italic"
           >
-            {deck.cards?.length} cards
+            {deck.numCards} cards
           </Box>
         </Flex>
         <Box p={2} mr={0} ml="auto">

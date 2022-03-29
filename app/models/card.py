@@ -18,8 +18,13 @@ class Card(db.Model):
   card_img = db.Column(db.Text)
   card_img_small = db.Column(db.Text)
 
-  # user_cards
-  users = relationship("User_Card", backref="card", cascade="all, delete")
+  # user_trunk
+  user_cards = relationship(
+    "User_Trunk", 
+    backref="card", 
+    cascade="all, delete", 
+    uselist=False
+  )
 
   def to_dict(self):
     return {
