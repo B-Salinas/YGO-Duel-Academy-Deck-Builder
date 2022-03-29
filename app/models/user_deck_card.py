@@ -4,8 +4,8 @@ class User_Deck_Card(db.Model):
   __tablename__ = 'user_deck_cards'
 
   id = db.Column(db.Integer, primary_key=True)
-  user_card_id = db.Column(db.Integer, db.ForeignKey("user_cards.id"), nullable=False)
-  deck_id = db.Column(db.Integer, db.ForeignKey("decks.id"), nullable=False)
+  user_card_id = db.Column(db.Integer, db.ForeignKey("user_cards.id", ondelete="CASCADE"), nullable=False)
+  deck_id = db.Column(db.Integer, db.ForeignKey("decks.id", ondelete="CASCADE"), nullable=False)
   quantity = db.Column(db.Integer, nullable=False)
 
   # implicit associations:

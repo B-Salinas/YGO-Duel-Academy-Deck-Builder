@@ -20,8 +20,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Redirect, useHistory } from "react-router-dom";
 
-import { addOneDeck, getAllDecks } from "../store/deck";
-
 import DeckForm from "./DeckForm";
 
 // ------------------------------------------------------------------------------------------//
@@ -38,10 +36,6 @@ export function MainModal() {
 
   const [deckAdded, setDeckAdded] = useState(false);
 
-  useEffect(() => {
-    dispatch(getAllDecks(user.id));
-  }, [dispatch, deckAdded, setDeckAdded]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -51,8 +45,7 @@ export function MainModal() {
     };
     console.log("NEW DECK FORM DATA HERE!!", newDeckFormData);
 
-    const dispatched = await dispatch(addOneDeck(newDeckFormData));
-    console.log("DISPATCHING INFO", dispatched);
+    console.log("DISPATCHING INFO");
     onClose();
     setDeckAdded(!deckAdded);
     // return <Redirect push to={"/decklist"} />

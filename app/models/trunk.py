@@ -8,7 +8,12 @@ class Trunk(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   # user_cards
-  cards = relationship("User_Trunk_Card", backref="trunk", cascade="all, delete")
+  cards = relationship(
+    "User_Trunk_Card", 
+    backref="trunk", 
+    cascade="all, delete",
+    lazy="dynamic"
+  )
 
   def to_dict(self):
     return {
