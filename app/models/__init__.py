@@ -4,8 +4,6 @@ from .dorm import Dorm
 from .card import Card
 from .deck import Deck
 from .title import Title
-from .trunk import Trunk
-from .user_card import User_Card
+from .user_trunk import User_Trunk
 from .profile_image import Profile_Image
 from .user_deck_card import User_Deck_Card
-from .user_trunk_card import User_Trunk_Card

@@ -7,6 +7,14 @@ class Title(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String, nullable=False, unique=True)
 
+  # users
+  users = relationship(
+    "User",
+    backref="title",
+    cascade="all, delete",
+    uselist=False
+  )
+
   def to_dict(self):
     return {
       'id': self.id,

@@ -4,17 +4,17 @@ class User_Deck_Card(db.Model):
   __tablename__ = 'user_deck_cards'
 
   id = db.Column(db.Integer, primary_key=True)
-  user_card_id = db.Column(db.Integer, db.ForeignKey("user_cards.id", ondelete="CASCADE"), nullable=False)
+  user_trunk_id = db.Column(db.Integer, db.ForeignKey("user_trunks.id", ondelete="CASCADE"), nullable=False)
   deck_id = db.Column(db.Integer, db.ForeignKey("decks.id", ondelete="CASCADE"), nullable=False)
   quantity = db.Column(db.Integer, nullable=False)
 
   # implicit associations:
-  # ---> user_card
+  # ---> user_trunk
   # ---> deck
 
   def to_dict(self):
     return {
       'id': self.id,
-      'card': self.user_card.card.to_dict(),
+      'card': self.user_trunk.to_dict(),
       'quantity': self.quantity
     }
