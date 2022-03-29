@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<< HEAD:migrations/versions/3689051acb49_.py
-Revision ID: 3689051acb49
-Revises: 
-Create Date: 2022-03-28 20:31:12.440735
-=======
 Revision ID: 54d654609941
 Revises: 
 Create Date: 2022-03-29 00:14:27.829467
->>>>>>> refactor models. remove extra tables. change associations.:migrations/versions/54d654609941_.py
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<< HEAD:migrations/versions/3689051acb49_.py
-revision = '3689051acb49'
-=======
 revision = '54d654609941'
->>>>>>> refactor models. remove extra tables. change associations.:migrations/versions/54d654609941_.py
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -102,20 +92,7 @@ def upgrade():
     sa.Column('deck_id', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['deck_id'], ['decks.id'], ondelete='CASCADE'),
-<<<<<<< HEAD:migrations/versions/3689051acb49_.py
-    sa.ForeignKeyConstraint(['user_card_id'], ['user_cards.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('user_trunk_cards',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_card_id', sa.Integer(), nullable=False),
-    sa.Column('trunk_id', sa.Integer(), nullable=False),
-    sa.Column('quantity', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['trunk_id'], ['trunks.id'], ),
-    sa.ForeignKeyConstraint(['user_card_id'], ['user_cards.id'], ),
-=======
     sa.ForeignKeyConstraint(['user_trunk_id'], ['user_trunks.id'], ondelete='CASCADE'),
->>>>>>> refactor models. remove extra tables. change associations.:migrations/versions/54d654609941_.py
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
