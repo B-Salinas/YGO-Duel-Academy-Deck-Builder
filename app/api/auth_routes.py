@@ -82,9 +82,9 @@ def sign_up():
       name=form.data['name'],
       email=form.data['email'],
       password=form.data['password'],
-      dorm=form.data['dorm'],
-      title=form.data['title'],
-      profile_img=form.data['profile_img']
+      dorm_id=form.data['dorm'],
+      title_id=form.data['title'],
+      profile_img_id=form.data['profile_img']
     )
 
     db.session.add(user)
