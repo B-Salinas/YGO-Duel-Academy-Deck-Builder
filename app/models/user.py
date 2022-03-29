@@ -58,9 +58,9 @@ class User(db.Model, UserMixin):
       'id': self.id,
       'name': self.name,
       'email': self.email,
-      'dorm': self.dorm,
-      'title': self.title,
-      'profileImg': self.profile_img,
+      'dorm': self.dorm.to_dict()['name'],
+      'title': self.title.to_dict()['name'],
+      'profileImg': self.profile_img.to_dict(),
       'decks': [deck.to_dict() for deck in self.decks]
     }
 

@@ -19,5 +19,6 @@ class Deck(db.Model):
   def to_dict(self):
     return {
       'id': self.id,
-      'deckName': self.deck_name
+      'deckName': self.deck_name,
+      'numCards': len(self.cards.all())
     }
