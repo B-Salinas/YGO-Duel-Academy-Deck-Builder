@@ -24,6 +24,11 @@ const deleteDeck = (deckId) => ({
   payload: deckId
 });
 
+const getDeckCards = (deckData) => ({
+  type: GET_DECK_CARDS,
+  payload: deckData
+});
+
 /********************************* THUNKS ************************************/
 
 export const authenticate = () => async (dispatch) => {
@@ -133,6 +138,19 @@ export const deleteUserDeck = (deckId) => async (dispatch) => {
   }
 };
 
+/*****/
+
+export const getUserDeckCards = (deckId) => async (dispatch) => {
+  const response = await fetch(`/api/users/decks/${deckId}`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getDeckCards(data));
+  } else {
+    console.log("error fetching deck cards...");
+  }
+};
+
 
 /***************************** INITIAL STATE *********************************/
 
@@ -147,14 +165,20 @@ export default function reducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+      return { user: action.payload };
     case REMOVE_USER:
-      return { user: null }
+      return { user: null };
     case DELETE_DECK:
       newState = Object.assign({}, state);
       newState.user.decks = state.user.decks.filter((deck) => deck.id !== action.payload);
 
-      return newState
+      return newState;
+    case GET_DECK_CARDS:
+      newState = Object.assign({}, state);
+      const deck = newState.user.decks.find((deck) => deck.id === action.payload.deckId);
+      deck.cards = action.payload.cards;
+
+      return newState;
     default:
       return state;
   }

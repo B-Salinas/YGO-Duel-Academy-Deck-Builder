@@ -143,13 +143,13 @@ def delete_one_user_deck():
 # D E C K   C A R D S
 
 #  only cards from 1 user deck
-@user_routes.route('/<int:user_id>/decks/<int:deck_id>/cards')
-def get_all_cards_from_user_deck(user_id, deck_id):
-  user = User.query.get(user_id)
+@user_routes.route('/decks/<int:deck_id>')
+def get_all_cards_from_user_deck(deck_id):
+  cards = current_user.decks.filter(
+    Deck.id == deck_id
+  ).first().cards.all()
 
-  for deck in user.decks:
-    if deck.id == deck_id:
-      return jsonify([card.to_dict() for card in deck.cards])
+  return {"deckId": deck_id, "cards": [card.to_dict() for card in cards]}
 
 #  add a card to a user's deck
 @user_routes.route('/<int:user_id>/decks/<int:deck_id>/cards', methods=["POST"])
