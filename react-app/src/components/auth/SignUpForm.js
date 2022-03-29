@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import { Redirect } from 'react-router-dom';
-import { signUp, login } from '../../store/session';
+import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { signUp, login } from "../../store/session";
 import { getSignUpData } from "../../store/signUp";
 
 import {
+  Avatar,
   FormControl,
   FormLabel,
   VStack,
@@ -14,20 +15,24 @@ import {
   Flex,
   Box,
   Spacer,
-  Select
+  Select,
+  Stack,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/react";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
-  const dorms = useSelector(state => state.signUp.dorms);
-  const titles = useSelector(state => state.signUp.titles);
-  const profilePictures = useSelector(state => state.signUp.profilePictures);
+  const user = useSelector((state) => state.session.user);
+  const dorms = useSelector((state) => state.signUp.dorms);
+  const titles = useSelector((state) => state.signUp.titles);
+  const profilePictures = useSelector((state) => state.signUp.profilePictures);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
 
   const [errors, setErrors] = useState([]);
 
@@ -45,22 +50,23 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       setErrors([]);
-      const dispatched = await dispatch(signUp({ name, email, password }))
+      const dispatched = await dispatch(signUp({ name, email, password }));
 
       if (dispatched.errors) {
-        setErrors(dispatched.errors)
+        setErrors(dispatched.errors);
       }
-
     } else {
-      setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors([
+        "Confirm Password field must be the same as the Password field",
+      ]);
     }
-  }
+  };
 
   const demoLogin = () => {
-    const email = "demo@aa.io"
-    const password = "password"
-    dispatch(login(email, password))
-  }
+    const email = "demo@aa.io";
+    const password = "password";
+    dispatch(login(email, password));
+  };
 
   // const handleDemo = async (e) => {
   //   e.preventDefault();
@@ -92,11 +98,12 @@ const SignUpForm = () => {
   };
 
   return (
-
     <>
       <form onSubmit={handleSubmit}>
         <div>
-          {errors.map((error, idx) => <div key={idx}>{error}</div>)}
+          {errors.map((error, idx) => (
+            <div key={idx}>{error}</div>
+          ))}
         </div>
 
         <VStack spacing={2}>
@@ -151,52 +158,73 @@ const SignUpForm = () => {
 
             <FormLabel>Select a Dorm</FormLabel>
             <Select placeholder="Select a Dorm">
-              {dorms &&
-                dorms.map(dorm => (
-                  <option>{dorm.name}</option>
-                ))
-              }
+              {dorms && dorms.map((dorm) => <option>{dorm.name}</option>)}
             </Select>
 
             <br />
 
             <FormLabel>Select a Title</FormLabel>
             <Select placeholder="Select a Title">
-              {titles &&
-                titles.map(title => (
-                  <option>{title.name}</option>
-                ))
-              }
+              {titles && titles.map((title) => <option>{title.name}</option>)}
             </Select>
 
             <br />
 
             <FormLabel>Select a Profile Picture</FormLabel>
-            <Select placeholder="Select a Profile Picture">
+            {/* <Select placeholder="Select a Profile Picture">
               {profilePictures &&
-                profilePictures.map(profilePicture => (
-                  <option>{profilePicture.name}</option>
-                ))
-              }
-            </Select>
+                profilePictures.map((profilePicture) => (
+                  <option>
+                    <Avatar src={profilePicture.imgUrl} size="xs" />
+                  </option>
+                ))}
+            </Select> */}
+            <RadioGroup onChange={setProfilePic} value={profilePic}>
+              <Stack direction="row">
+                {profilePictures &&
+                  profilePictures.map((profilePicture) => (
+                    <Radio value={profilePicture.name}>
+                      <Avatar src={profilePicture.imgUrl} size="md" />
+                    </Radio>
+                  ))}
+              </Stack>
+            </RadioGroup>
 
-
-            <Flex align={"right"} justify={"right"} direction={'row'} mt={5} ml={2} mr={2}>
-
+            <Flex
+              align={"right"}
+              justify={"right"}
+              direction={"row"}
+              mt={5}
+              ml={2}
+              mr={2}
+            >
               <Box>
-                <Button type="Submit" bg='blue.400' color='white' _hover={{ bg: 'blue.600' }}>New Game</Button>
+                <Button
+                  type="Submit"
+                  bg="blue.400"
+                  color="white"
+                  _hover={{ bg: "blue.600" }}
+                >
+                  New Game
+                </Button>
               </Box>
 
               <Spacer />
 
               <Box>
                 {/* <form onSubmit={demoLogin}> */}
-                <Flex align={"right"} justify={"right"} >
-                  <Button onClick={demoLogin} bg='orange.400' color='white' _hover={{ bg: 'orange.600' }}>Guest Duelist</Button>
+                <Flex align={"right"} justify={"right"}>
+                  <Button
+                    onClick={demoLogin}
+                    bg="orange.400"
+                    color="white"
+                    _hover={{ bg: "orange.600" }}
+                  >
+                    Guest Duelist
+                  </Button>
                 </Flex>
                 {/* </form> */}
               </Box>
-
             </Flex>
           </FormControl>
         </VStack>
@@ -249,7 +277,6 @@ const SignUpForm = () => {
   <button type="submit">Sign Up</button>
 
 </form> */}
-
     </>
   );
 };

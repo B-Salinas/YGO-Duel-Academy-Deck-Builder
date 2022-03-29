@@ -6,7 +6,7 @@ import { EditIcon } from "@chakra-ui/icons";
 function EditDeckButton() {
   return (
     <>
-      <IconButton colorScheme="gray" icon={<EditIcon />} /> 
+      <IconButton colorScheme="gray" icon={<EditIcon />} />
     </>
   );
 }

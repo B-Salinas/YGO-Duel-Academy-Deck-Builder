@@ -35,7 +35,7 @@ function Decks({ deck }) {
         </Flex>
         <Box p={2} mr={0} ml="auto">
           {/* I need to add an additional delete confirmation window about deleting a deck */}
-          <DeleteDeckButton />
+          <DeleteDeckButton deckId={deck.id} />
         </Box>
       </Flex>
     </>

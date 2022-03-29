@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Link, useParams } from "react-router-dom";
 
 import {
@@ -12,14 +13,12 @@ import {
 } from "@chakra-ui/react";
 
 import { FaTrash as DeleteIcon } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
 
 import { MainModal } from "../modal/Modal";
 import { deleteUserDeck } from "../store/session";
 
 import NavBar from "./NavBar";
 import Decks from "./Decks";
-
 
 function DeckList() {
   const dispatch = useDispatch();
@@ -30,7 +29,7 @@ function DeckList() {
   const [deckId, setDeckId] = useState(0);
 
   const handleDeleteDeck = async (deckId) => {
-    dispatch(deleteUserDeck(deckId))
+    dispatch(deleteUserDeck(deckId));
     console.log("DECK_ID", deckId);
     console.log("DISPATCHED");
   };
