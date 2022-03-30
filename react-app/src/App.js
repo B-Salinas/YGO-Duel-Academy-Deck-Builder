@@ -59,7 +59,7 @@ function App() {
           <Route path="/about" exact={true}>
             <AboutPage />
           </Route>
-          <Route path="/deckbuilder" exact={true}>
+          <Route path="/decks/:deckId/edit" exact={true}>
             <DeckBuilder />
           </Route>
           <Route path="/decklist" exact={true}>

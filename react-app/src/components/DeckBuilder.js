@@ -56,10 +56,12 @@ export default function DeckBuilder() {
 
       <HStack>
         <Box w={"50%"}>
-          <Trunk />
+          {/* <Trunk /> */}
+          something in here
         </Box>
         <Box w={"50%"}>
-          <Deck />
+          {/* <Deck /> */}
+          spmething else in here
         </Box>
       </HStack>
 

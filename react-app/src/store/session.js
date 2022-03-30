@@ -3,11 +3,11 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const DELETE_DECK = "session/DELETE_DECK";
-const ADD_DECK = "session/ADD_DECK";
-const EDIT_DECK = "session/EDIT_DECK";
+// const ADD_DECK = "session/ADD_DECK";
+// const EDIT_DECK = "session/EDIT_DECK";
 const GET_DECK_CARDS = "session/GET_DECK_CARDS";
-const REMOVE_FROM_DECK = "session/REMOVE_FROM_DECK";
-const ADD_TO_DECK = "session/ADD_TO_DECK";
+// const REMOVE_FROM_DECK = "session/REMOVE_FROM_DECK";
+// const ADD_TO_DECK = "session/ADD_TO_DECK";
 
 /***************************** ACTION CREATORS *********************************/
 const setUser = (user) => ({
