@@ -45,10 +45,9 @@ def get_one_user(id):
 # T R U N K 
 
 # all cards in trunk
-@user_routes.route('/<int:user_id>/trunk')
-def get_all_cards_from_trunk(user_id):
-  user = User.query.get(user_id)
-  return jsonify([card.to_dict() for card in user.cards])
+@user_routes.route('/trunk')
+def get_all_cards_from_trunk():
+  return jsonify([card.to_dict() for card in current_user.cards.all()])
 
 # add card to trunk
 @user_routes.route('/<int:user_id>/trunk', methods=["POST"])

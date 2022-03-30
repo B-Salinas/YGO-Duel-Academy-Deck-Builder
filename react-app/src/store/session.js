@@ -8,6 +8,7 @@ const DELETE_DECK = "session/DELETE_DECK";
 const GET_DECK_CARDS = "session/GET_DECK_CARDS";
 // const REMOVE_FROM_DECK = "session/REMOVE_FROM_DECK";
 // const ADD_TO_DECK = "session/ADD_TO_DECK";
+const GET_ALL_USER_CARDS = "session/GET_ALL_USER_CARDS";
 
 /***************************** ACTION CREATORS *********************************/
 const setUser = (user) => ({
@@ -27,6 +28,11 @@ const deleteDeck = (deckId) => ({
 const getDeckCards = (deckData) => ({
   type: GET_DECK_CARDS,
   payload: deckData
+});
+
+const getAllUserCards = (cards) => ({
+  type: GET_ALL_USER_CARDS,
+  payload: cards
 });
 
 /********************************* THUNKS ************************************/
@@ -151,6 +157,19 @@ export const getUserDeckCards = (deckId) => async (dispatch) => {
   }
 };
 
+/*****/
+
+export const getAllCards = () => async (dispatch) => {
+  const response = await fetch("/api/users/trunk");
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(getAllUserCards(data));
+  } else {
+    console.log("error fetching all user cards...");
+  }
+};
+
 
 /***************************** INITIAL STATE *********************************/
 
@@ -177,6 +196,11 @@ export default function reducer(state = initialState, action) {
       newState = Object.assign({}, state);
       const deck = newState.user.decks.find((deck) => deck.id === action.payload.deckId);
       deck.cards = action.payload.cards;
+
+      return newState;
+    case GET_ALL_USER_CARDS:
+      newState = Object.assign({}, state);
+      newState.user.cards = action.payload;
 
       return newState;
     default:
