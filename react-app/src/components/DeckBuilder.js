@@ -1,16 +1,25 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Flex, Box, Grid, Button, Heading, HStack } from "@chakra-ui/react";
 import { NavLink, useParams } from "react-router-dom";
 import DeckNav from "./DeckNav";
 import Trunk from "./Trunk";
 import Deck from "./Deck";
 import CardView from "./CardView";
-import { useDispatch } from "react-redux";
+import { getUserDeckCards, getAllCards } from "../store/session";
 
 export default function DeckBuilder() {
   const dispatch = useDispatch();
-  const { deck_id } = useParams();
+  const { deckId } = useParams();
+  const deck = useSelector(state => state.session.user.decks.find(deck => deck.id === deckId));
+  const allUserCards = useSelector(state => state.session.user?.cards);
 
+  useEffect(() => {
+    if (!allUserCards) {
+      dispatch(getUserDeckCards(deckId));
+      dispatch(getAllCards());
+    }
+  }, [allUserCards]);
 
   return (
     <>
