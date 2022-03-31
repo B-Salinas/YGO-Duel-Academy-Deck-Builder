@@ -8,11 +8,13 @@ import Deck from "./Deck";
 import CardView from "./CardView";
 import { getUserDeckCards, getAllCards } from "../store/session";
 
-export default function DeckBuilder() {
+export default function DeckBuilder({ deck }) {
   const dispatch = useDispatch();
   const { deckId } = useParams();
-  const deck = useSelector(state => state.session.user.decks.find(deck => deck.id === deckId));
-  const allUserCards = useSelector(state => state.session.user?.cards);
+  const deck = useSelector((state) =>
+    state.session.user.decks.find((deck) => deck.id === deckId)
+  );
+  const allUserCards = useSelector((state) => state.session.user?.cards);
 
   useEffect(() => {
     if (!allUserCards) {
