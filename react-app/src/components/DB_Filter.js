@@ -2,57 +2,88 @@ import React from "react";
 
 import {
   Box,
+  Center,
   Flex,
   Grid,
   GridItem,
   Heading,
   HStack,
   SimpleGrid,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 
+// fix sizing of individual boxes so that the text doesnt look as squished
 function DB_Filter({ currentDeck }) {
   return (
     <>
-      <Box bg="blue.100">
+      <Box>
         <Grid templateColumns="repeat(12, 1fr)" gap={2}>
-          <GridItem colSpan={2} h="20" bg="red.100">
-            <Box># of Trunk Cards goes here</Box>
+          <GridItem colSpan={2} h="20">
+            <Center>
+              <Box borderWidth="2px" borderRadius="md" w="70px" h="70px" mt={1}>
+                <Center># of TC</Center>
+              </Box>
+            </Center>
           </GridItem>
-          <GridItem colSpan={8} bg="green.100">
+          <GridItem colSpan={8}>
             <Box>
-              <SimpleGrid templateColumns="repeat(8, 1fr)">
-                <GridItem>
-                  <Box>1-4</Box>
-                </GridItem>
-                <GridItem>
-                  <Box>5-6</Box>
-                </GridItem>
-                <GridItem>
-                  <Box>7+</Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Spell </Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Trap </Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Normal </Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Effect </Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Fusion </Box>
-                </GridItem>
-                <GridItem>
-                  <Box> Ritual </Box>
-                </GridItem>
-              </SimpleGrid>
+              <Wrap
+                justify="space-evenly"
+                borderWidth="2px"
+                borderRadius="xl"
+                p={2}
+              >
+                <WrapItem fontWeight="semibold" letterSpacing={2}>
+                  <Flex borderWidth="2px" borderRadius="sm" bg="blue.100">
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> 1-4 </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> 5-6 </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> 7+ </Center>
+                    </Box>
+                  </Flex>
+                </WrapItem>
+
+                <WrapItem fontWeight="semibold" letterSpacing={2}>
+                  <Flex borderWidth="2px" borderRadius="sm" bg="purple.100">
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Spell </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Trap </Center>
+                    </Box>
+                  </Flex>
+                </WrapItem>
+
+                <WrapItem fontWeight="semibold" letterSpacing={2}>
+                  <Flex borderWidth="2px" borderRadius="sm" bg="green.100">
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Normal </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Effect </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Fusion </Center>
+                    </Box>
+                    <Box borderWidth="2px" borderRadius="sm" w="70px" h="70px">
+                      <Center> Ritual </Center>
+                    </Box>
+                  </Flex>
+                </WrapItem>
+              </Wrap>
             </Box>
           </GridItem>
-          <GridItem colSpan={2} bg="red.100">
-            <Box>CSM goes here</Box>
+          <GridItem colSpan={2}>
+            <Center>
+              <Box borderWidth="2px" borderRadius="md" w="70px" h="70px" mt={1}>
+                <Center>CSM</Center>
+              </Box>
+            </Center>
           </GridItem>
         </Grid>
       </Box>

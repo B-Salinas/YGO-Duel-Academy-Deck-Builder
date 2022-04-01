@@ -14,7 +14,7 @@ function Footer() {
         <Grid templateColumns="repeat(12, 1fr)" gap={2}>
           <GridItem w="100%" h="20" />
           <GridItem colSpan={2}>
-            <Box align="center" mt={6}>
+            <Box align="center" mt={7}>
               <Box>
                 <Link
                   isExternal
@@ -31,7 +31,7 @@ function Footer() {
           <GridItem colSpan={4}>
             <Box align="center" mt={7}>
               <Box fontSize="12px">
-                © 2021 YGO DA Deck Builder. No rights reserved.
+                © 2022 YGO DA Deck Builder. No rights reserved.
               </Box>
             </Box>
           </GridItem>

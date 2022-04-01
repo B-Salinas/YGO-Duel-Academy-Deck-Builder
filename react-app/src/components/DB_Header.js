@@ -18,36 +18,36 @@ function DB_Header({ currentDeck }) {
     //   user &&
     //   currentDeck && (
     <>
-      <Box bg="blue.100">
+      <Box>
         <Grid templateColumns="repeat(12, 1fr)" gap={2}>
-          <GridItem h="20" bg="red.100" />
-          <GridItem colSpan={2} bg="green.100">
+          <GridItem h="20" />
+          <GridItem colSpan={2}>
             <Box align="center">
               <Heading> Trunk </Heading>
             </Box>
           </GridItem>
-          <GridItem colSpan={6} bg="green">
+          <GridItem colSpan={6}>
             <Flex p={4} justify="space-evenly">
-              <Box align="center" bg="pink">
+              <Box align="center" borderWidth="2px" borderRadius="xl">
                 <Box> Main </Box>
                 <Box> # of Main Cards </Box>
               </Box>
-              <Box align="center" bg="pink">
+              <Box align="center" borderWidth="2px" borderRadius="xl">
                 <Box> Side </Box>
                 <Box> # of Side Cards </Box>
               </Box>
-              <Box align="center" bg="pink">
+              <Box align="center" borderWidth="2px" borderRadius="xl">
                 <Box> Fusion </Box>
                 <Box> # of Fusion Cards </Box>
               </Box>
             </Flex>
           </GridItem>
-          <GridItem colSpan={2} bg="green.100">
+          <GridItem colSpan={2}>
             <Box align="center">
               <Heading> Deck Name </Heading>
             </Box>
           </GridItem>
-          <GridItem w="100%" bg="red.100" />
+          <GridItem w="100%" />
         </Grid>
       </Box>
     </>

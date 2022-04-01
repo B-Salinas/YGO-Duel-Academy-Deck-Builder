@@ -48,29 +48,35 @@ function DB() {
             <NavBar />
           </Box>
         </GridItem>
-        <GridItem colSpan={12} bg="blue">
+        <GridItem colSpan={12}>
           <Box>
             <DB_Header currentDeck={deck} />
           </Box>
         </GridItem>
-        <GridItem colSpan={12} bg="blue">
+        <GridItem colSpan={12}>
           <Box>
             <DB_Filter currentDeck={deck} />
           </Box>
         </GridItem>
-        <GridItem h="20" bg="red" />
-        <GridItem colSpan={5} h="20" bg="yellow">
-          <Box>Trunk will go here</Box>
+        <GridItem h="20" />
+        <GridItem colSpan={5} h="20" bg="red.100">
+          <Box maxH="lg" borderWidth="2px" borderRadius="xl">
+            Trunk will go here
+          </Box>
         </GridItem>
-        <GridItem colSpan={5} h="20" bg="yellow">
-          <Box>Current Deck will go here</Box>
+        <GridItem colSpan={5} h="20" bg="gray.100">
+          <Box maxH="lg" borderWidth="2px" borderRadius="xl">
+            Current Deck will go here
+          </Box>
         </GridItem>
-        <GridItem h="20" bg="red" />
-        <GridItem h="20" bg="red" />
-        <GridItem colSpan={10} bg="blue">
-          <Box>Card View will go here</Box>
+        <GridItem h="20" />
+        <GridItem h="20" />
+        <GridItem colSpan={10}>
+          <Box borderWidth="2px" borderRadius="xl">
+            Card View will go here
+          </Box>
         </GridItem>
-        <GridItem h="20" bg="red" />
+        <GridItem h="20" />
       </Grid>
     </>
   );
