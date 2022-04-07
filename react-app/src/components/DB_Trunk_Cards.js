@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Box,
@@ -13,12 +13,11 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-function DB_Trunk_Cards({ trunk_card }) {
+// { trunk_card }
+function DB_Trunk_Cards() {
   return (
     <>
-      <Box>
-        this is part of a trunk card
-      </Box>
+      <Box>this is part of a trunk card</Box>
     </>
   );
 }

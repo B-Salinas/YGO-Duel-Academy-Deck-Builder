@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { 
-  Box, 
-  Grid, 
-  GridItem, 
-  Button, 
+import {
+  Box,
+  Grid,
+  GridItem,
+  Button,
   Heading,
   Wrap,
   WrapItem,
- } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 
-import DB_Trunk_Cards from './DB_Trunk_Cards';
+import DB_Trunk_Cards from "./DB_Trunk_Cards";
 
 import { FaTrash as DeleteIcon } from "react-icons/fa";
 
@@ -18,7 +18,7 @@ function DB_Trunk() {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
-  const user_trunk_cards = useSelector((state) => state.session.user?.cards)
+  // const user_trunk_cards = useSelector((state) => state.session.user?.cards)
   const current_trunk_card = useSelector(
     (state) => state?.deckbuilder?.current_trunk_card
   );
@@ -37,11 +37,30 @@ function DB_Trunk() {
     console.log("deleting deck...");
   };
 
+  // && user_trunk_cards
   return (
-    user && user_trunk_cards &&
-    (
+    user && (
       <>
         <Box>
+          <Wrap>
+            {user.cards?.map((card) => {
+              return (
+                <WrapItem>
+                  <Box>{card}</Box>
+                </WrapItem>
+              );
+            })}
+          </Wrap>
+        </Box>
+      </>
+    )
+  );
+}
+
+export default DB_Trunk;
+
+{
+  /* <Box>
           <Wrap>
             { user_trunk_cards && (
               <>
@@ -55,16 +74,11 @@ function DB_Trunk() {
               </>
             )}
           </Wrap>
-        </Box>
-      </>
-    )
-  );
+        </Box> */
 }
 
-export default DB_Trunk;
-
-
-{/* <Box pl={30} pr={30}>
+{
+  /* <Box pl={30} pr={30}>
   <Grid
     templateRows="repeat(5, 1fr)"
     templateColumns="repeat(5, 1fr)"
@@ -105,4 +119,5 @@ export default DB_Trunk;
       </>
     ))}
   </Grid>
-</Box>; */}
+</Box>; */
+}
