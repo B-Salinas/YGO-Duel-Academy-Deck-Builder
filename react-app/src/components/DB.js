@@ -60,8 +60,11 @@ function DB() {
         </GridItem>
         <GridItem h="20" />
         <GridItem colSpan={5} h="20" bg="red.100">
-          <Box maxH="lg" borderWidth="2px" borderRadius="xl">
+          {/* <Box maxH="lg" borderWidth="2px" borderRadius="xl">
             Trunk will go here
+          </Box> */}
+          <Box>
+            <DB_Trunk />
           </Box>
         </GridItem>
         <GridItem colSpan={5} h="20" bg="gray.100">
