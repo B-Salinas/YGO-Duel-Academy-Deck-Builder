@@ -64,7 +64,9 @@ function DB() {
             Trunk will go here
           </Box> */}
           <Box>
-            <DB_Trunk />
+            {allUserCards &&
+              <DB_Trunk userCards={allUserCards} />
+            }
           </Box>
         </GridItem>
         <GridItem colSpan={5} h="20" bg="gray.100">
