@@ -14,22 +14,12 @@ import DB_Trunk_Cards from "./DB_Trunk_Cards";
 
 import { FaTrash as DeleteIcon } from "react-icons/fa";
 
-function DB_Trunk() {
+function DB_Trunk({ userCards }) {
   const dispatch = useDispatch();
-
   const user = useSelector((state) => state.session.user);
-  // const user_trunk_cards = useSelector((state) => state.session.user?.cards)
-  const current_trunk_card = useSelector(
-    (state) => state?.deckbuilder?.current_trunk_card
-  );
-
   const [trunkCard, setTrunkCard] = useState();
 
-  // useEffect(() => {
-  //     dispatch(getTrunkCard(current_trunk_card))
-  // }, [current_trunk_card])
-
-  const deck_id = useSelector((state) => state?.user?.decks?.id);
+  console.log(userCards);
 
   // I want to be able to click on a card and have that render within the CardView Component
 
@@ -37,23 +27,22 @@ function DB_Trunk() {
     console.log("deleting deck...");
   };
 
-  // && user_trunk_cards
   return (
-    user && (
-      <>
-        <Box>
-          <Wrap>
-            {user.cards?.map((card) => {
-              return (
-                <WrapItem>
-                  <Box>{card}</Box>
-                </WrapItem>
-              );
-            })}
-          </Wrap>
-        </Box>
-      </>
-    )
+    <>
+      <Box>
+        <Wrap>
+          {userCards.map((cardData) => {
+            const card = cardData.card;
+
+            return (
+              <WrapItem key={cardData.id}>
+                <Box>{card.name}</Box>
+              </WrapItem>
+            );
+          })}
+        </Wrap>
+      </Box>
+    </>
   );
 }
 
