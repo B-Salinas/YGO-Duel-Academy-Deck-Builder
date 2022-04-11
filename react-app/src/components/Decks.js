@@ -17,8 +17,10 @@ function Decks({ deck }) {
         </Box>
         <Flex alignItems="baseline">
           <Box p={2}>
+            {/* instead of just linking to the page where the deckbuilder is, shouldn't we be rendering it right here?????? and passing along the deck information? */}
             <Link to={`/decks/${deck.id}/edit`}>
               <Heading size="md" p={2} _hover={{ color: "blue.400" }}>
+                {/* Should I render the Deck Builder component and feed it the deck info??? */}
                 {deck.deckName}
               </Heading>
             </Link>

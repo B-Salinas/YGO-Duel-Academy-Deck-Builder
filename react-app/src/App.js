@@ -7,7 +7,7 @@ import AuthPage from "./components/AuthPage";
 
 import NavBar from "./components/NavBar";
 
-import DeckBuilder from "./components/DeckBuilder";
+import DB from "./components/DB";
 import AboutPage from "./components/AboutPage";
 import MainMenu from "./components/MainMenu";
 import SplashPage from "./components/SplashPage";
@@ -60,7 +60,7 @@ function App() {
             <AboutPage />
           </Route>
           <Route path="/decks/:deckId/edit" exact={true}>
-            <DeckBuilder />
+            <DB />
           </Route>
           <Route path="/decklist" exact={true}>
             <DeckList />

@@ -16,6 +16,7 @@ import { FaTrash as DeleteIcon } from "react-icons/fa";
 
 import { MainModal } from "../modal/Modal";
 import { deleteUserDeck } from "../store/session";
+import CreateNewDeckButton from "./Buttons/CreateNewDeckButton";
 
 import NavBar from "./NavBar";
 import Decks from "./Decks";
@@ -40,7 +41,10 @@ function DeckList() {
         <Grid templateColumns="repeat(12, 1fr)" gap={2}>
           <GridItem colSpan={12}>
             <Box>
-              <NavBar />
+              <NavBar
+                Component={<CreateNewDeckButton />}
+                section={"DECK LIST"}
+              />
             </Box>
           </GridItem>
           <GridItem colSpan={2} h="20" />
