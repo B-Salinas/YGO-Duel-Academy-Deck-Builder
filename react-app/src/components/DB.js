@@ -27,9 +27,7 @@ import DB_CardView from "./DB_CardView";
 function DB() {
   const dispatch = useDispatch();
   const { deckId } = useParams();
-  const deck = useSelector((state) =>
-    state.session.user.decks.find((deck) => deck.id === deckId)
-  );
+  const deck = useSelector((state) => state.session.user.decks.find((deck) => deck.id === deckId));
   const allUserCards = useSelector((state) => state.session.user?.cards);
 
   useEffect(() => {
@@ -59,18 +57,15 @@ function DB() {
           </Box>
         </GridItem>
         <GridItem h="20" />
-        <GridItem colSpan={5} h="20" bg="red.100">
-          {/* <Box maxH="lg" borderWidth="2px" borderRadius="xl">
-            Trunk will go here
-          </Box> */}
-          <Box>
-            {allUserCards &&
+        <GridItem colSpan={5} bg="red.100">
+          {allUserCards && (
+            <Box maxH="xl" borderWidth="2px" borderRadius="xl">
               <DB_Trunk userCards={allUserCards} />
-            }
-          </Box>
+            </Box>
+          )}
         </GridItem>
-        <GridItem colSpan={5} h="20" bg="gray.100">
-          <Box maxH="lg" borderWidth="2px" borderRadius="xl">
+        <GridItem colSpan={5} bg="gray.100">
+          <Box maxH="xl" borderWidth="2px" borderRadius="xl">
             Current Deck will go here
           </Box>
         </GridItem>

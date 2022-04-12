@@ -5,6 +5,7 @@ import {
   GridItem,
   Button,
   Heading,
+  Stack,
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
@@ -30,17 +31,23 @@ function DB_Trunk({ userCards }) {
   return (
     <>
       <Box>
-        <Wrap>
+        <Stack maxH='xl' overflow='scroll' >
           {userCards.map((cardData) => {
             const card = cardData.card;
-
             return (
-              <WrapItem key={cardData.id}>
-                <Box>{card.name}</Box>
-              </WrapItem>
+              <Box key={cardData.id} p={2} borderWidth="2px" borderRadius="2xl">
+                <Box
+                  fontSize="14pt"
+                  fontWeight="semibold"
+                  letterSpacing={2}
+                  _hover={{ color: "red" }}
+                >
+                  {card.name}
+                </Box>
+              </Box>
             );
           })}
-        </Wrap>
+        </Stack>
       </Box>
     </>
   );
