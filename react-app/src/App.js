@@ -43,7 +43,7 @@ function App() {
       {loaded && (
         <Switch>
           <Route path="/" exact>
-            <SplashPage />
+            <DB />
           </Route>
           <Route path="/login" exact>
             <LoginPage />
@@ -54,7 +54,7 @@ function App() {
 
           {/* All of these should be protected routes, but for the time being, I'm making them regular routes */}
           <Route path="/mainmenu" exact={true}>
-            <MainMenu />
+            <SplashPage />
           </Route>
           <Route path="/about" exact={true}>
             <AboutPage />

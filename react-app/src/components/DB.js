@@ -27,7 +27,7 @@ import DB_CardView from "./DB_CardView";
 function DB() {
   const dispatch = useDispatch();
   const { deckId } = useParams();
-  const deck = useSelector((state) => state.session.user.decks.find((deck) => deck.id === deckId));
+  const deck = useSelector((state) => state.session.user?.deck?.find((deck) => deck.id === deckId));
   const allUserCards = useSelector((state) => state.session.user?.cards);
 
   useEffect(() => {
